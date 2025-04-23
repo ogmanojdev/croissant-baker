@@ -1,0 +1,33 @@
+[build-system]
+# Specifies the build tools needed to create the package.
+# While newer versions exist, this provides broad compatibility for builders.
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "croissant-maker"
+version = "0.0.1"
+description = "A tool to automatically generate Croissant metadata for datasets."
+readme = "README.md"
+# Requires Python 3.8 or newer.
+# Chosen as a balance between modern features (used by dependencies like Typer)
+# and allowing users on slightly older, but still supported, Python versions.
+# Avoids forcing users onto the absolute latest version (3.13+).
+requires-python = ">=3.8"
+authors = [
+  { name="Rafi Al Attrach", email="rafiaa@mit.edu" },
+  { name="Tom Pollard", email="tpollard@mit.edu" },
+]
+
+# Core runtime dependencies needed for the tool to function.
+dependencies = [
+    "typer[all] >= 0.9.0",
+]
+
+# Optional dependencies, installed via `pip install '.[test]'`
+[project.optional-dependencies]
+# Dependencies needed only for running the test suite.
+test = [
+    # Test runner framework.
+    "pytest >= 7.0",
+]
