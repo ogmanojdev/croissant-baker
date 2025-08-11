@@ -325,3 +325,5 @@ class MetadataGenerator:
                 ensure_ascii=False,
                 default=serialize_datetime,
             )
+            # Ensure newline at end of file to avoid pre-commit edits
+            f.write("\n")
