@@ -1,0 +1,1321 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "MIMIC-IV demo data in the Medical Event Data Standard (MEDS)",
+  "description": "MEDS demo of MIMIC-IV represented as Parquet event streams",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "citeAs": "Dataset Creator. (2025). MIMIC-IV demo data in the Medical Event Data Standard (MEDS) Dataset. Generated with automated type inference.",
+  "creator": [
+    {
+      "@type": "sc:Person",
+      "name": "Robin van de Water"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Matthew McDermott"
+    }
+  ],
+  "datePublished": "2025-09-29T00:00:00",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://physionet.org/content/mimic-iv-demo-meds/0.0.1/",
+  "version": "0.0.1",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_0",
+      "name": "0.parquet",
+      "contentSize": "271428",
+      "contentUrl": "held_out/0.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "02188079b269327eb9dd93df32cd7f2cb9534de9a128728a9329f647d4b2e518"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_1",
+      "name": "0.parquet",
+      "contentSize": "4860946",
+      "contentUrl": "train/0.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "b02868e5f2e3508baaa53d11241781a37ee11bdea140054b24a8c57a8dfee4f0"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_2",
+      "name": "0.parquet",
+      "contentSize": "424019",
+      "contentUrl": "tuning/0.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "7476d07c309d1183f4e841996b7c84721e39ca8ee7bf545f6061bb2a73e04190"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_0",
+      "name": "0",
+      "description": "Records from 0.parquet (42554 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_0_source_subject_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_time",
+          "name": "time",
+          "description": "Column 'time' from 0.parquet",
+          "dataType": "sc:Date",
+          "source": {
+            "@id": "file_0_source_time",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "time"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_code",
+          "name": "code",
+          "description": "Column 'code' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_code",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_numeric_value",
+          "name": "numeric_value",
+          "description": "Column 'numeric_value' from 0.parquet",
+          "dataType": "sc:Float",
+          "source": {
+            "@id": "file_0_source_numeric_value",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "numeric_value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_insurance",
+          "name": "insurance",
+          "description": "Column 'insurance' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_insurance",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "insurance"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_language",
+          "name": "language",
+          "description": "Column 'language' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_language",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "language"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_marital_status",
+          "name": "marital_status",
+          "description": "Column 'marital_status' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_marital_status",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "marital_status"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_race",
+          "name": "race",
+          "description": "Column 'race' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_race",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "race"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_0_source_hadm_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_drg_severity",
+          "name": "drg_severity",
+          "description": "Column 'drg_severity' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_0_source_drg_severity",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "drg_severity"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_drg_mortality",
+          "name": "drg_mortality",
+          "description": "Column 'drg_mortality' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_0_source_drg_mortality",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "drg_mortality"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_emar_id",
+          "name": "emar_id",
+          "description": "Column 'emar_id' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_emar_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "emar_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_emar_seq",
+          "name": "emar_seq",
+          "description": "Column 'emar_seq' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_0_source_emar_seq",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "emar_seq"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_text_value",
+          "name": "text_value",
+          "description": "Column 'text_value' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_text_value",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "text_value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_priority",
+          "name": "priority",
+          "description": "Column 'priority' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_priority",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "priority"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_route",
+          "name": "route",
+          "description": "Column 'route' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_route",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "route"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_frequency",
+          "name": "frequency",
+          "description": "Column 'frequency' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_frequency",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "frequency"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_doses_per_24_hrs",
+          "name": "doses_per_24_hrs",
+          "description": "Column 'doses_per_24_hrs' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_0_source_doses_per_24_hrs",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "doses_per_24_hrs"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_poe_id",
+          "name": "poe_id",
+          "description": "Column 'poe_id' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_poe_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "poe_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_icustay_id",
+          "name": "icustay_id",
+          "description": "Column 'icustay_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_0_source_icustay_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "icustay_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_order_id",
+          "name": "order_id",
+          "description": "Column 'order_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_0_source_order_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "order_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_link_order_id",
+          "name": "link_order_id",
+          "description": "Column 'link_order_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_0_source_link_order_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "link_order_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_unit",
+          "name": "unit",
+          "description": "Column 'unit' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_unit",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "unit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_ordercategorydescription",
+          "name": "ordercategorydescription",
+          "description": "Column 'ordercategorydescription' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_ordercategorydescription",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "ordercategorydescription"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_statusdescription",
+          "name": "statusdescription",
+          "description": "Column 'statusdescription' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_statusdescription",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "statusdescription"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_1",
+      "name": "0",
+      "description": "Records from 0.parquet (803992 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_1_source_subject_id",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_time",
+          "name": "time",
+          "description": "Column 'time' from 0.parquet",
+          "dataType": "sc:Date",
+          "source": {
+            "@id": "file_1_source_time",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "time"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_code",
+          "name": "code",
+          "description": "Column 'code' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_code",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_numeric_value",
+          "name": "numeric_value",
+          "description": "Column 'numeric_value' from 0.parquet",
+          "dataType": "sc:Float",
+          "source": {
+            "@id": "file_1_source_numeric_value",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "numeric_value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_insurance",
+          "name": "insurance",
+          "description": "Column 'insurance' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_insurance",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "insurance"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_language",
+          "name": "language",
+          "description": "Column 'language' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_language",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "language"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_marital_status",
+          "name": "marital_status",
+          "description": "Column 'marital_status' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_marital_status",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "marital_status"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_race",
+          "name": "race",
+          "description": "Column 'race' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_race",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "race"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_1_source_hadm_id",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_drg_severity",
+          "name": "drg_severity",
+          "description": "Column 'drg_severity' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_1_source_drg_severity",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "drg_severity"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_drg_mortality",
+          "name": "drg_mortality",
+          "description": "Column 'drg_mortality' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_1_source_drg_mortality",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "drg_mortality"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_emar_id",
+          "name": "emar_id",
+          "description": "Column 'emar_id' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_emar_id",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "emar_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_emar_seq",
+          "name": "emar_seq",
+          "description": "Column 'emar_seq' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_1_source_emar_seq",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "emar_seq"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_text_value",
+          "name": "text_value",
+          "description": "Column 'text_value' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_text_value",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "text_value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_priority",
+          "name": "priority",
+          "description": "Column 'priority' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_priority",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "priority"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_route",
+          "name": "route",
+          "description": "Column 'route' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_route",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "route"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_frequency",
+          "name": "frequency",
+          "description": "Column 'frequency' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_frequency",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "frequency"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_doses_per_24_hrs",
+          "name": "doses_per_24_hrs",
+          "description": "Column 'doses_per_24_hrs' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_1_source_doses_per_24_hrs",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "doses_per_24_hrs"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_poe_id",
+          "name": "poe_id",
+          "description": "Column 'poe_id' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_poe_id",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "poe_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_icustay_id",
+          "name": "icustay_id",
+          "description": "Column 'icustay_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_1_source_icustay_id",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "icustay_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_order_id",
+          "name": "order_id",
+          "description": "Column 'order_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_1_source_order_id",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "order_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_link_order_id",
+          "name": "link_order_id",
+          "description": "Column 'link_order_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_1_source_link_order_id",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "link_order_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_unit",
+          "name": "unit",
+          "description": "Column 'unit' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_unit",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "unit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_ordercategorydescription",
+          "name": "ordercategorydescription",
+          "description": "Column 'ordercategorydescription' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_ordercategorydescription",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "ordercategorydescription"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_statusdescription",
+          "name": "statusdescription",
+          "description": "Column 'statusdescription' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_statusdescription",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "statusdescription"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_2",
+      "name": "0",
+      "description": "Records from 0.parquet (69620 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_2_source_subject_id",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_time",
+          "name": "time",
+          "description": "Column 'time' from 0.parquet",
+          "dataType": "sc:Date",
+          "source": {
+            "@id": "file_2_source_time",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "time"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_code",
+          "name": "code",
+          "description": "Column 'code' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_code",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_numeric_value",
+          "name": "numeric_value",
+          "description": "Column 'numeric_value' from 0.parquet",
+          "dataType": "sc:Float",
+          "source": {
+            "@id": "file_2_source_numeric_value",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "numeric_value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_insurance",
+          "name": "insurance",
+          "description": "Column 'insurance' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_insurance",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "insurance"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_language",
+          "name": "language",
+          "description": "Column 'language' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_language",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "language"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_marital_status",
+          "name": "marital_status",
+          "description": "Column 'marital_status' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_marital_status",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "marital_status"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_race",
+          "name": "race",
+          "description": "Column 'race' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_race",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "race"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_2_source_hadm_id",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_drg_severity",
+          "name": "drg_severity",
+          "description": "Column 'drg_severity' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_2_source_drg_severity",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "drg_severity"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_drg_mortality",
+          "name": "drg_mortality",
+          "description": "Column 'drg_mortality' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_2_source_drg_mortality",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "drg_mortality"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_emar_id",
+          "name": "emar_id",
+          "description": "Column 'emar_id' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_emar_id",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "emar_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_emar_seq",
+          "name": "emar_seq",
+          "description": "Column 'emar_seq' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_2_source_emar_seq",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "emar_seq"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_text_value",
+          "name": "text_value",
+          "description": "Column 'text_value' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_text_value",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "text_value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_priority",
+          "name": "priority",
+          "description": "Column 'priority' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_priority",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "priority"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_route",
+          "name": "route",
+          "description": "Column 'route' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_route",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "route"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_frequency",
+          "name": "frequency",
+          "description": "Column 'frequency' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_frequency",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "frequency"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_doses_per_24_hrs",
+          "name": "doses_per_24_hrs",
+          "description": "Column 'doses_per_24_hrs' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_2_source_doses_per_24_hrs",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "doses_per_24_hrs"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_poe_id",
+          "name": "poe_id",
+          "description": "Column 'poe_id' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_poe_id",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "poe_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_icustay_id",
+          "name": "icustay_id",
+          "description": "Column 'icustay_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_2_source_icustay_id",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "icustay_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_order_id",
+          "name": "order_id",
+          "description": "Column 'order_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_2_source_order_id",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "order_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_link_order_id",
+          "name": "link_order_id",
+          "description": "Column 'link_order_id' from 0.parquet",
+          "dataType": "sc:Integer",
+          "source": {
+            "@id": "file_2_source_link_order_id",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "link_order_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_unit",
+          "name": "unit",
+          "description": "Column 'unit' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_unit",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "unit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_ordercategorydescription",
+          "name": "ordercategorydescription",
+          "description": "Column 'ordercategorydescription' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_ordercategorydescription",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "ordercategorydescription"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_statusdescription",
+          "name": "statusdescription",
+          "description": "Column 'statusdescription' from 0.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_statusdescription",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "statusdescription"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

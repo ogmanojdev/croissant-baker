@@ -237,6 +237,78 @@ def test_mitdb_wfdb_generation(mitdb_wfdb_path: Path, output_dir: Path) -> None:
 
 
 @pytest.fixture
+def mimiciv_demo_meds_path() -> Path:
+    """Path to the MEDS demo dataset (Parquet) for testing."""
+    dataset_path = (
+        Path(__file__).parent
+        / "data"
+        / "input"
+        / "mimiciv_demo_meds"
+        / "physionet.org"
+        / "files"
+        / "mimic-iv-demo-meds"
+        / "0.0.1"
+        / "data"
+    )
+    # Do not skip: tests assume data was downloaded by setup step
+    assert dataset_path.exists(), f"MEDS demo dataset not found at {dataset_path}"
+    return dataset_path
+
+
+def test_mimiciv_demo_meds_generation(
+    mimiciv_demo_meds_path: Path, output_dir: Path
+) -> None:
+    """Test end-to-end metadata generation with MEDS Parquet demo dataset."""
+    output_file = output_dir / "mimiciv_demo_meds_croissant.jsonld"
+
+    result = runner.invoke(
+        app,
+        [
+            "-i",
+            str(mimiciv_demo_meds_path),
+            "-o",
+            str(output_file),
+            "--name",
+            "MIMIC-IV demo data in the Medical Event Data Standard (MEDS)",
+            "--description",
+            "MEDS demo of MIMIC-IV represented as Parquet event streams",
+            "--url",
+            "https://physionet.org/content/mimic-iv-demo-meds/0.0.1/",
+            "--dataset-version",
+            "0.0.1",
+            "--date-published",
+            "2025-09-29",
+            "--creator",
+            "Robin van de Water",
+            "--creator",
+            "Matthew McDermott",
+        ],
+    )
+
+    assert result.exit_code == 0, f"Command failed: {result.stdout}"
+    assert output_file.exists(), "Output file was not created"
+
+    with open(output_file) as f:
+        metadata = json.load(f)
+
+    assert (
+        metadata["name"]
+        == "MIMIC-IV demo data in the Medical Event Data Standard (MEDS)"
+    )
+    assert metadata["version"] == "0.0.1"
+    assert metadata["url"] == "https://physionet.org/content/mimic-iv-demo-meds/0.0.1/"
+    assert len(metadata["distribution"]) > 0
+    assert len(metadata["recordSet"]) > 0
+
+    # At least one field should be a Date (timestamps common in MEDS)
+    has_date = any(
+        any("sc:Date" in field.get("dataType", []) for field in rs.get("field", []))
+        for rs in metadata.get("recordSet", [])
+    )
+    assert has_date, "Expected at least one Date field in MEDS record sets"
+
+
+@pytest.fixture
 def mimiciv_demo_omop_path() -> Path:
     """Path to the MIMIC-IV OMOP demo dataset for testing."""
     dataset_path = (
