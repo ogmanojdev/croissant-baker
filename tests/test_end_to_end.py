@@ -375,3 +375,148 @@ def test_mimiciv_demo_omop_generation(
     assert len(metadata["creator"]) == 3
     assert len(metadata["distribution"]) > 0
     assert len(metadata["recordSet"]) > 0
+
+
+# ---------------------------------------------------------------------------
+# Glaucoma fundus dataset (JPG images + CSV labels)
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture
+def glaucoma_fundus_path() -> Path:
+    """Path to the glaucoma fundus dataset for testing."""
+    dataset_path = Path(__file__).parent / "data" / "input" / "glaucoma_fundus"
+    if not dataset_path.exists():
+        pytest.skip(f"Glaucoma fundus dataset not found at {dataset_path}")
+    return dataset_path
+
+
+def test_glaucoma_fundus_generation(
+    glaucoma_fundus_path: Path, output_dir: Path
+) -> None:
+    """Test end-to-end metadata generation with glaucoma fundus images."""
+    output_file = output_dir / "glaucoma_fundus_croissant.jsonld"
+
+    result = runner.invoke(
+        app,
+        [
+            "-i",
+            str(glaucoma_fundus_path),
+            "-o",
+            str(output_file),
+            "--name",
+            "Hillel Yaffe Glaucoma Dataset (subset)",
+            "--description",
+            "Subset of fundus images for glaucoma screening with GON labels",
+            "--url",
+            "https://physionet.org/content/hyg-dataset/1.0.0/",
+            "--license",
+            "https://physionet.org/content/hyg-dataset/1.0.0/LICENSE.txt",
+            "--dataset-version",
+            "1.0.0",
+            "--date-published",
+            "2024-11-14",
+            "--creator",
+            "Hillel Yaffe Medical Center",
+        ],
+    )
+
+    assert result.exit_code == 0, f"Command failed: {result.stdout}"
+    assert output_file.exists(), "Output file was not created"
+
+    with open(output_file) as f:
+        metadata = json.load(f)
+
+    assert metadata["name"] == "Hillel Yaffe Glaucoma Dataset (subset)"
+    assert metadata["version"] == "1.0.0"
+
+    # Should have FileObjects for Labels.csv + 12 JPG images + 1 FileSet = 14
+    assert len(metadata["distribution"]) == 14
+
+    # Should have RecordSets: 1 for Labels.csv + 1 for images = 2
+    assert len(metadata["recordSet"]) == 2
+
+    # Verify image FileSet in distribution
+    filesets = [d for d in metadata["distribution"] if d["@type"] == "cr:FileSet"]
+    assert len(filesets) == 1
+    assert "*.jpg" in str(filesets[0].get("includes", ""))
+
+    # Verify the image RecordSet exists with sc:ImageObject sourced from FileSet
+    image_rs = [rs for rs in metadata["recordSet"] if rs["name"] == "images"]
+    assert len(image_rs) == 1
+    image_field = image_rs[0]["field"][0]
+    assert "sc:ImageObject" in image_field["dataType"]
+    assert image_field["source"]["fileSet"]["@id"] == "image-files"
+
+    # Verify the tabular RecordSet for Labels.csv
+    label_rs = [rs for rs in metadata["recordSet"] if rs["name"] == "Labels"]
+    assert len(label_rs) == 1
+
+
+# ---------------------------------------------------------------------------
+# Satellite public health dataset (multi-band TIFF + CSV metadata)
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture
+def satellite_path() -> Path:
+    """Path to the satellite public health dataset for testing."""
+    dataset_path = Path(__file__).parent / "data" / "input" / "satellite_public_health"
+    if not dataset_path.exists():
+        pytest.skip(f"Satellite dataset not found at {dataset_path}")
+    return dataset_path
+
+
+def test_satellite_generation(satellite_path: Path, output_dir: Path) -> None:
+    """Test end-to-end metadata generation with multi-band satellite TIFFs."""
+    output_file = output_dir / "satellite_public_health_croissant.jsonld"
+
+    result = runner.invoke(
+        app,
+        [
+            "-i",
+            str(satellite_path),
+            "-o",
+            str(output_file),
+            "--name",
+            "Multi-Modal Satellite Imagery for Public Health (subset)",
+            "--description",
+            "Subset of Sentinel-2 satellite imagery linked to public health indicators in Colombia",
+            "--url",
+            "https://physionet.org/content/multimodal-satellite-data/1.0.0/",
+            "--license",
+            "https://physionet.org/content/multimodal-satellite-data/1.0.0/LICENSE.txt",
+            "--dataset-version",
+            "1.0.0",
+            "--date-published",
+            "2024-01-01",
+            "--creator",
+            "Suri Allison Garzón Mora",
+        ],
+    )
+
+    assert result.exit_code == 0, f"Command failed: {result.stdout}"
+    assert output_file.exists(), "Output file was not created"
+
+    with open(output_file) as f:
+        metadata = json.load(f)
+
+    assert (
+        metadata["name"] == "Multi-Modal Satellite Imagery for Public Health (subset)"
+    )
+    assert metadata["version"] == "1.0.0"
+
+    # Should have FileObjects for metadata.csv + 10 TIFF images + 1 FileSet = 12
+    assert len(metadata["distribution"]) == 12
+
+    # Should have RecordSets: 1 for metadata.csv + 1 for images = 2
+    assert len(metadata["recordSet"]) == 2
+
+    # Verify the image RecordSet
+    image_rs = [rs for rs in metadata["recordSet"] if rs["name"] == "images"]
+    assert len(image_rs) == 1
+    # Description should mention 12 bands (Sentinel-2)
+    assert (
+        "band" in image_rs[0]["description"].lower()
+        or "10 images" in image_rs[0]["description"]
+    )

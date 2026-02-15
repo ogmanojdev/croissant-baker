@@ -60,11 +60,9 @@ def register_all_handlers() -> None:
     from croissant_maker.handlers.csv_handler import CSVHandler
     from croissant_maker.handlers.wfdb_handler import WFDBHandler
     from croissant_maker.handlers.parquet_handler import ParquetHandler
+    from croissant_maker.handlers.image_handler import ImageHandler
 
     register_handler(CSVHandler())
     register_handler(WFDBHandler())
     register_handler(ParquetHandler())
-
-    # Future handlers go here. Example:
-    # from croissant_maker.handlers.parquet_handler import ParquetHandler
-    # register_handler(ParquetHandler())
+    register_handler(ImageHandler())

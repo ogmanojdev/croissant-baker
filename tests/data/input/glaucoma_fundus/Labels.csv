@@ -1,0 +1,13 @@
+Image Name,Patient,Label,Quality Score
+0_0.jpg,0,GON+,6.18
+100_0.jpg,100,GON+,4.77
+101_0.jpg,101,GON+,3.37
+102_0.jpg,102,GON+,5.73
+103_0.jpg,103,GON+,6.70
+104_0.jpg,104,GON+,4.52
+105_0.jpg,105,GON+,7.03
+106_0.jpg,106,GON+,5.24
+187_0.jpg,187,GON-,7.26
+188_0.jpg,188,GON-,6.11
+189_0.jpg,189,GON-,6.47
+189_1.jpg,189,GON-,6.97

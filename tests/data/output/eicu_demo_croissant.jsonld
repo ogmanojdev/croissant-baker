@@ -38,6 +38,7 @@
     "regex": "cr:regex",
     "repeated": "cr:repeated",
     "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
     "sc": "https://schema.org/",
     "separator": "cr:separator",
     "source": "cr:source",
@@ -357,14 +358,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_0",
       "name": "diagnosis",
-      "description": "Records from diagnosis.csv.gz (1000 rows)",
+      "description": "Records from diagnosis.csv.gz (24978 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_0_diagnosisid",
           "name": "diagnosisid",
           "description": "Column 'diagnosisid' from diagnosis.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_0_source_diagnosisid",
             "fileObject": {
@@ -380,7 +381,7 @@
           "@id": "file_0_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from diagnosis.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_0_source_patientunitstayid",
             "fileObject": {
@@ -412,7 +413,7 @@
           "@id": "file_0_diagnosisoffset",
           "name": "diagnosisoffset",
           "description": "Column 'diagnosisoffset' from diagnosis.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_0_source_diagnosisoffset",
             "fileObject": {
@@ -477,14 +478,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_1",
       "name": "vitalAperiodic",
-      "description": "Records from vitalAperiodic.csv.gz (1000 rows)",
+      "description": "Records from vitalAperiodic.csv.gz (274088 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_1_vitalaperiodicid",
           "name": "vitalaperiodicid",
           "description": "Column 'vitalaperiodicid' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_vitalaperiodicid",
             "fileObject": {
@@ -500,7 +501,7 @@
           "@id": "file_1_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_patientunitstayid",
             "fileObject": {
@@ -516,7 +517,7 @@
           "@id": "file_1_observationoffset",
           "name": "observationoffset",
           "description": "Column 'observationoffset' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_observationoffset",
             "fileObject": {
@@ -532,7 +533,7 @@
           "@id": "file_1_noninvasivesystolic",
           "name": "noninvasivesystolic",
           "description": "Column 'noninvasivesystolic' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_noninvasivesystolic",
             "fileObject": {
@@ -548,7 +549,7 @@
           "@id": "file_1_noninvasivediastolic",
           "name": "noninvasivediastolic",
           "description": "Column 'noninvasivediastolic' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_noninvasivediastolic",
             "fileObject": {
@@ -564,7 +565,7 @@
           "@id": "file_1_noninvasivemean",
           "name": "noninvasivemean",
           "description": "Column 'noninvasivemean' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_noninvasivemean",
             "fileObject": {
@@ -580,7 +581,7 @@
           "@id": "file_1_paop",
           "name": "paop",
           "description": "Column 'paop' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_paop",
             "fileObject": {
@@ -596,7 +597,7 @@
           "@id": "file_1_cardiacoutput",
           "name": "cardiacoutput",
           "description": "Column 'cardiacoutput' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_1_source_cardiacoutput",
             "fileObject": {
@@ -612,7 +613,7 @@
           "@id": "file_1_cardiacinput",
           "name": "cardiacinput",
           "description": "Column 'cardiacinput' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_1_source_cardiacinput",
             "fileObject": {
@@ -628,7 +629,7 @@
           "@id": "file_1_svr",
           "name": "svr",
           "description": "Column 'svr' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_svr",
             "fileObject": {
@@ -644,7 +645,7 @@
           "@id": "file_1_svri",
           "name": "svri",
           "description": "Column 'svri' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_svri",
             "fileObject": {
@@ -660,7 +661,7 @@
           "@id": "file_1_pvr",
           "name": "pvr",
           "description": "Column 'pvr' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_pvr",
             "fileObject": {
@@ -676,7 +677,7 @@
           "@id": "file_1_pvri",
           "name": "pvri",
           "description": "Column 'pvri' from vitalAperiodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_pvri",
             "fileObject": {
@@ -693,14 +694,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_2",
       "name": "admissionDx",
-      "description": "Records from admissionDx.csv.gz (1000 rows)",
+      "description": "Records from admissionDx.csv.gz (7578 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_2_admissiondxid",
           "name": "admissiondxid",
           "description": "Column 'admissiondxid' from admissionDx.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_2_source_admissiondxid",
             "fileObject": {
@@ -716,7 +717,7 @@
           "@id": "file_2_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from admissionDx.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_2_source_patientunitstayid",
             "fileObject": {
@@ -732,7 +733,7 @@
           "@id": "file_2_admitdxenteredoffset",
           "name": "admitdxenteredoffset",
           "description": "Column 'admitdxenteredoffset' from admissionDx.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_2_source_admitdxenteredoffset",
             "fileObject": {
@@ -797,14 +798,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_3",
       "name": "respiratoryCare",
-      "description": "Records from respiratoryCare.csv.gz (1000 rows)",
+      "description": "Records from respiratoryCare.csv.gz (5436 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_3_respcareid",
           "name": "respcareid",
           "description": "Column 'respcareid' from respiratoryCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_respcareid",
             "fileObject": {
@@ -820,7 +821,7 @@
           "@id": "file_3_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from respiratoryCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_patientunitstayid",
             "fileObject": {
@@ -836,7 +837,7 @@
           "@id": "file_3_respcarestatusoffset",
           "name": "respcarestatusoffset",
           "description": "Column 'respcarestatusoffset' from respiratoryCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_respcarestatusoffset",
             "fileObject": {
@@ -852,7 +853,7 @@
           "@id": "file_3_currenthistoryseqnum",
           "name": "currenthistoryseqnum",
           "description": "Column 'currenthistoryseqnum' from respiratoryCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_currenthistoryseqnum",
             "fileObject": {
@@ -884,7 +885,7 @@
           "@id": "file_3_airwaysize",
           "name": "airwaysize",
           "description": "Column 'airwaysize' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_3_source_airwaysize",
             "fileObject": {
@@ -900,7 +901,7 @@
           "@id": "file_3_airwayposition",
           "name": "airwayposition",
           "description": "Column 'airwayposition' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_3_source_airwayposition",
             "fileObject": {
@@ -916,7 +917,7 @@
           "@id": "file_3_cuffpressure",
           "name": "cuffpressure",
           "description": "Column 'cuffpressure' from respiratoryCare.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_3_source_cuffpressure",
             "fileObject": {
@@ -932,7 +933,7 @@
           "@id": "file_3_ventstartoffset",
           "name": "ventstartoffset",
           "description": "Column 'ventstartoffset' from respiratoryCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_ventstartoffset",
             "fileObject": {
@@ -948,7 +949,7 @@
           "@id": "file_3_ventendoffset",
           "name": "ventendoffset",
           "description": "Column 'ventendoffset' from respiratoryCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_ventendoffset",
             "fileObject": {
@@ -964,7 +965,7 @@
           "@id": "file_3_priorventstartoffset",
           "name": "priorventstartoffset",
           "description": "Column 'priorventstartoffset' from respiratoryCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_priorventstartoffset",
             "fileObject": {
@@ -980,7 +981,7 @@
           "@id": "file_3_priorventendoffset",
           "name": "priorventendoffset",
           "description": "Column 'priorventendoffset' from respiratoryCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_priorventendoffset",
             "fileObject": {
@@ -1012,7 +1013,7 @@
           "@id": "file_3_lowexhmvlimit",
           "name": "lowexhmvlimit",
           "description": "Column 'lowexhmvlimit' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_3_source_lowexhmvlimit",
             "fileObject": {
@@ -1028,7 +1029,7 @@
           "@id": "file_3_hiexhmvlimit",
           "name": "hiexhmvlimit",
           "description": "Column 'hiexhmvlimit' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_3_source_hiexhmvlimit",
             "fileObject": {
@@ -1044,7 +1045,7 @@
           "@id": "file_3_lowexhtvlimit",
           "name": "lowexhtvlimit",
           "description": "Column 'lowexhtvlimit' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_3_source_lowexhtvlimit",
             "fileObject": {
@@ -1060,7 +1061,7 @@
           "@id": "file_3_hipeakpreslimit",
           "name": "hipeakpreslimit",
           "description": "Column 'hipeakpreslimit' from respiratoryCare.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_3_source_hipeakpreslimit",
             "fileObject": {
@@ -1076,7 +1077,7 @@
           "@id": "file_3_lowpeakpreslimit",
           "name": "lowpeakpreslimit",
           "description": "Column 'lowpeakpreslimit' from respiratoryCare.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_3_source_lowpeakpreslimit",
             "fileObject": {
@@ -1092,7 +1093,7 @@
           "@id": "file_3_hirespratelimit",
           "name": "hirespratelimit",
           "description": "Column 'hirespratelimit' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_3_source_hirespratelimit",
             "fileObject": {
@@ -1108,7 +1109,7 @@
           "@id": "file_3_lowrespratelimit",
           "name": "lowrespratelimit",
           "description": "Column 'lowrespratelimit' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_3_source_lowrespratelimit",
             "fileObject": {
@@ -1188,7 +1189,7 @@
           "@id": "file_3_peeplimit",
           "name": "peeplimit",
           "description": "Column 'peeplimit' from respiratoryCare.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_3_source_peeplimit",
             "fileObject": {
@@ -1204,7 +1205,7 @@
           "@id": "file_3_cpaplimit",
           "name": "cpaplimit",
           "description": "Column 'cpaplimit' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_3_source_cpaplimit",
             "fileObject": {
@@ -1220,7 +1221,7 @@
           "@id": "file_3_setapneainterval",
           "name": "setapneainterval",
           "description": "Column 'setapneainterval' from respiratoryCare.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_setapneainterval",
             "fileObject": {
@@ -1236,7 +1237,7 @@
           "@id": "file_3_setapneatv",
           "name": "setapneatv",
           "description": "Column 'setapneatv' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_setapneatv",
             "fileObject": {
@@ -1252,7 +1253,7 @@
           "@id": "file_3_setapneaippeephigh",
           "name": "setapneaippeephigh",
           "description": "Column 'setapneaippeephigh' from respiratoryCare.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_setapneaippeephigh",
             "fileObject": {
@@ -1268,7 +1269,7 @@
           "@id": "file_3_setapnearr",
           "name": "setapnearr",
           "description": "Column 'setapnearr' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_setapnearr",
             "fileObject": {
@@ -1284,7 +1285,7 @@
           "@id": "file_3_setapneapeakflow",
           "name": "setapneapeakflow",
           "description": "Column 'setapneapeakflow' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_setapneapeakflow",
             "fileObject": {
@@ -1300,7 +1301,7 @@
           "@id": "file_3_setapneainsptime",
           "name": "setapneainsptime",
           "description": "Column 'setapneainsptime' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_setapneainsptime",
             "fileObject": {
@@ -1332,7 +1333,7 @@
           "@id": "file_3_setapneafio2",
           "name": "setapneafio2",
           "description": "Column 'setapneafio2' from respiratoryCare.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_setapneafio2",
             "fileObject": {
@@ -1349,14 +1350,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_4",
       "name": "nurseAssessment",
-      "description": "Records from nurseAssessment.csv.gz (1000 rows)",
+      "description": "Records from nurseAssessment.csv.gz (91589 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_4_nurseassessid",
           "name": "nurseassessid",
           "description": "Column 'nurseassessid' from nurseAssessment.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_4_source_nurseassessid",
             "fileObject": {
@@ -1372,7 +1373,7 @@
           "@id": "file_4_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from nurseAssessment.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_4_source_patientunitstayid",
             "fileObject": {
@@ -1388,7 +1389,7 @@
           "@id": "file_4_nurseassessoffset",
           "name": "nurseassessoffset",
           "description": "Column 'nurseassessoffset' from nurseAssessment.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_4_source_nurseassessoffset",
             "fileObject": {
@@ -1404,7 +1405,7 @@
           "@id": "file_4_nurseassessentryoffset",
           "name": "nurseassessentryoffset",
           "description": "Column 'nurseassessentryoffset' from nurseAssessment.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_4_source_nurseassessentryoffset",
             "fileObject": {
@@ -1492,7 +1493,7 @@
           "@id": "file_5_hospitalid",
           "name": "hospitalid",
           "description": "Column 'hospitalid' from hospital.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_5_source_hospitalid",
             "fileObject": {
@@ -1557,14 +1558,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_6",
       "name": "vitalPeriodic",
-      "description": "Records from vitalPeriodic.csv.gz (1000 rows)",
+      "description": "Records from vitalPeriodic.csv.gz (1634960 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_6_vitalperiodicid",
           "name": "vitalperiodicid",
           "description": "Column 'vitalperiodicid' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_vitalperiodicid",
             "fileObject": {
@@ -1580,7 +1581,7 @@
           "@id": "file_6_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_patientunitstayid",
             "fileObject": {
@@ -1596,7 +1597,7 @@
           "@id": "file_6_observationoffset",
           "name": "observationoffset",
           "description": "Column 'observationoffset' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_observationoffset",
             "fileObject": {
@@ -1612,7 +1613,7 @@
           "@id": "file_6_temperature",
           "name": "temperature",
           "description": "Column 'temperature' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_6_source_temperature",
             "fileObject": {
@@ -1628,7 +1629,7 @@
           "@id": "file_6_sao2",
           "name": "sao2",
           "description": "Column 'sao2' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_sao2",
             "fileObject": {
@@ -1644,7 +1645,7 @@
           "@id": "file_6_heartrate",
           "name": "heartrate",
           "description": "Column 'heartrate' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_heartrate",
             "fileObject": {
@@ -1660,7 +1661,7 @@
           "@id": "file_6_respiration",
           "name": "respiration",
           "description": "Column 'respiration' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_respiration",
             "fileObject": {
@@ -1676,7 +1677,7 @@
           "@id": "file_6_cvp",
           "name": "cvp",
           "description": "Column 'cvp' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_cvp",
             "fileObject": {
@@ -1692,7 +1693,7 @@
           "@id": "file_6_etco2",
           "name": "etco2",
           "description": "Column 'etco2' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_etco2",
             "fileObject": {
@@ -1708,7 +1709,7 @@
           "@id": "file_6_systemicsystolic",
           "name": "systemicsystolic",
           "description": "Column 'systemicsystolic' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_systemicsystolic",
             "fileObject": {
@@ -1724,7 +1725,7 @@
           "@id": "file_6_systemicdiastolic",
           "name": "systemicdiastolic",
           "description": "Column 'systemicdiastolic' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_systemicdiastolic",
             "fileObject": {
@@ -1740,7 +1741,7 @@
           "@id": "file_6_systemicmean",
           "name": "systemicmean",
           "description": "Column 'systemicmean' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_systemicmean",
             "fileObject": {
@@ -1756,7 +1757,7 @@
           "@id": "file_6_pasystolic",
           "name": "pasystolic",
           "description": "Column 'pasystolic' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_pasystolic",
             "fileObject": {
@@ -1772,7 +1773,7 @@
           "@id": "file_6_padiastolic",
           "name": "padiastolic",
           "description": "Column 'padiastolic' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_padiastolic",
             "fileObject": {
@@ -1788,7 +1789,7 @@
           "@id": "file_6_pamean",
           "name": "pamean",
           "description": "Column 'pamean' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_pamean",
             "fileObject": {
@@ -1804,7 +1805,7 @@
           "@id": "file_6_st1",
           "name": "st1",
           "description": "Column 'st1' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_6_source_st1",
             "fileObject": {
@@ -1820,7 +1821,7 @@
           "@id": "file_6_st2",
           "name": "st2",
           "description": "Column 'st2' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_6_source_st2",
             "fileObject": {
@@ -1836,7 +1837,7 @@
           "@id": "file_6_st3",
           "name": "st3",
           "description": "Column 'st3' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_6_source_st3",
             "fileObject": {
@@ -1852,7 +1853,7 @@
           "@id": "file_6_icp",
           "name": "icp",
           "description": "Column 'icp' from vitalPeriodic.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_icp",
             "fileObject": {
@@ -1869,14 +1870,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_7",
       "name": "carePlanGeneral",
-      "description": "Records from carePlanGeneral.csv.gz (1000 rows)",
+      "description": "Records from carePlanGeneral.csv.gz (33148 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_7_cplgeneralid",
           "name": "cplgeneralid",
           "description": "Column 'cplgeneralid' from carePlanGeneral.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_7_source_cplgeneralid",
             "fileObject": {
@@ -1892,7 +1893,7 @@
           "@id": "file_7_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from carePlanGeneral.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_7_source_patientunitstayid",
             "fileObject": {
@@ -1924,7 +1925,7 @@
           "@id": "file_7_cplitemoffset",
           "name": "cplitemoffset",
           "description": "Column 'cplitemoffset' from carePlanGeneral.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_7_source_cplitemoffset",
             "fileObject": {
@@ -1973,14 +1974,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_8",
       "name": "patient",
-      "description": "Records from patient.csv.gz (1000 rows)",
+      "description": "Records from patient.csv.gz (2520 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_8_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from patient.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_patientunitstayid",
             "fileObject": {
@@ -1996,7 +1997,7 @@
           "@id": "file_8_patienthealthsystemstayid",
           "name": "patienthealthsystemstayid",
           "description": "Column 'patienthealthsystemstayid' from patient.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_patienthealthsystemstayid",
             "fileObject": {
@@ -2060,7 +2061,7 @@
           "@id": "file_8_hospitalid",
           "name": "hospitalid",
           "description": "Column 'hospitalid' from patient.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_hospitalid",
             "fileObject": {
@@ -2076,7 +2077,7 @@
           "@id": "file_8_wardid",
           "name": "wardid",
           "description": "Column 'wardid' from patient.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_wardid",
             "fileObject": {
@@ -2108,7 +2109,7 @@
           "@id": "file_8_admissionheight",
           "name": "admissionheight",
           "description": "Column 'admissionheight' from patient.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_8_source_admissionheight",
             "fileObject": {
@@ -2124,7 +2125,7 @@
           "@id": "file_8_hospitaladmittime24",
           "name": "hospitaladmittime24",
           "description": "Column 'hospitaladmittime24' from patient.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "sc:Time",
           "source": {
             "@id": "file_8_source_hospitaladmittime24",
             "fileObject": {
@@ -2140,7 +2141,7 @@
           "@id": "file_8_hospitaladmitoffset",
           "name": "hospitaladmitoffset",
           "description": "Column 'hospitaladmitoffset' from patient.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_hospitaladmitoffset",
             "fileObject": {
@@ -2172,7 +2173,7 @@
           "@id": "file_8_hospitaldischargeyear",
           "name": "hospitaldischargeyear",
           "description": "Column 'hospitaldischargeyear' from patient.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_hospitaldischargeyear",
             "fileObject": {
@@ -2188,7 +2189,7 @@
           "@id": "file_8_hospitaldischargetime24",
           "name": "hospitaldischargetime24",
           "description": "Column 'hospitaldischargetime24' from patient.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "sc:Time",
           "source": {
             "@id": "file_8_source_hospitaldischargetime24",
             "fileObject": {
@@ -2204,7 +2205,7 @@
           "@id": "file_8_hospitaldischargeoffset",
           "name": "hospitaldischargeoffset",
           "description": "Column 'hospitaldischargeoffset' from patient.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_hospitaldischargeoffset",
             "fileObject": {
@@ -2268,7 +2269,7 @@
           "@id": "file_8_unitadmittime24",
           "name": "unitadmittime24",
           "description": "Column 'unitadmittime24' from patient.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "sc:Time",
           "source": {
             "@id": "file_8_source_unitadmittime24",
             "fileObject": {
@@ -2300,7 +2301,7 @@
           "@id": "file_8_unitvisitnumber",
           "name": "unitvisitnumber",
           "description": "Column 'unitvisitnumber' from patient.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_unitvisitnumber",
             "fileObject": {
@@ -2332,7 +2333,7 @@
           "@id": "file_8_admissionweight",
           "name": "admissionweight",
           "description": "Column 'admissionweight' from patient.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_8_source_admissionweight",
             "fileObject": {
@@ -2348,7 +2349,7 @@
           "@id": "file_8_dischargeweight",
           "name": "dischargeweight",
           "description": "Column 'dischargeweight' from patient.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_8_source_dischargeweight",
             "fileObject": {
@@ -2364,7 +2365,7 @@
           "@id": "file_8_unitdischargetime24",
           "name": "unitdischargetime24",
           "description": "Column 'unitdischargetime24' from patient.csv.gz",
-          "dataType": "sc:Text",
+          "dataType": "sc:Time",
           "source": {
             "@id": "file_8_source_unitdischargetime24",
             "fileObject": {
@@ -2380,7 +2381,7 @@
           "@id": "file_8_unitdischargeoffset",
           "name": "unitdischargeoffset",
           "description": "Column 'unitdischargeoffset' from patient.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_unitdischargeoffset",
             "fileObject": {
@@ -2445,14 +2446,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_9",
       "name": "carePlanGoal",
-      "description": "Records from carePlanGoal.csv.gz (1000 rows)",
+      "description": "Records from carePlanGoal.csv.gz (3633 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_9_cplgoalid",
           "name": "cplgoalid",
           "description": "Column 'cplgoalid' from carePlanGoal.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_9_source_cplgoalid",
             "fileObject": {
@@ -2468,7 +2469,7 @@
           "@id": "file_9_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from carePlanGoal.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_9_source_patientunitstayid",
             "fileObject": {
@@ -2484,7 +2485,7 @@
           "@id": "file_9_cplgoaloffset",
           "name": "cplgoaloffset",
           "description": "Column 'cplgoaloffset' from carePlanGoal.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_9_source_cplgoaloffset",
             "fileObject": {
@@ -2565,14 +2566,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_10",
       "name": "treatment",
-      "description": "Records from treatment.csv.gz (1000 rows)",
+      "description": "Records from treatment.csv.gz (38290 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_10_treatmentid",
           "name": "treatmentid",
           "description": "Column 'treatmentid' from treatment.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_10_source_treatmentid",
             "fileObject": {
@@ -2588,7 +2589,7 @@
           "@id": "file_10_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from treatment.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_10_source_patientunitstayid",
             "fileObject": {
@@ -2604,7 +2605,7 @@
           "@id": "file_10_treatmentoffset",
           "name": "treatmentoffset",
           "description": "Column 'treatmentoffset' from treatment.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_10_source_treatmentoffset",
             "fileObject": {
@@ -2653,14 +2654,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_11",
       "name": "apacheApsVar",
-      "description": "Records from apacheApsVar.csv.gz (1000 rows)",
+      "description": "Records from apacheApsVar.csv.gz (2205 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_11_apacheapsvarid",
           "name": "apacheapsvarid",
           "description": "Column 'apacheapsvarid' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_apacheapsvarid",
             "fileObject": {
@@ -2676,7 +2677,7 @@
           "@id": "file_11_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_patientunitstayid",
             "fileObject": {
@@ -2692,7 +2693,7 @@
           "@id": "file_11_intubated",
           "name": "intubated",
           "description": "Column 'intubated' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_intubated",
             "fileObject": {
@@ -2708,7 +2709,7 @@
           "@id": "file_11_vent",
           "name": "vent",
           "description": "Column 'vent' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_vent",
             "fileObject": {
@@ -2724,7 +2725,7 @@
           "@id": "file_11_dialysis",
           "name": "dialysis",
           "description": "Column 'dialysis' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_dialysis",
             "fileObject": {
@@ -2740,7 +2741,7 @@
           "@id": "file_11_eyes",
           "name": "eyes",
           "description": "Column 'eyes' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_eyes",
             "fileObject": {
@@ -2756,7 +2757,7 @@
           "@id": "file_11_motor",
           "name": "motor",
           "description": "Column 'motor' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_motor",
             "fileObject": {
@@ -2772,7 +2773,7 @@
           "@id": "file_11_verbal",
           "name": "verbal",
           "description": "Column 'verbal' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_verbal",
             "fileObject": {
@@ -2788,7 +2789,7 @@
           "@id": "file_11_meds",
           "name": "meds",
           "description": "Column 'meds' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_meds",
             "fileObject": {
@@ -2804,7 +2805,7 @@
           "@id": "file_11_urine",
           "name": "urine",
           "description": "Column 'urine' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_urine",
             "fileObject": {
@@ -2820,7 +2821,7 @@
           "@id": "file_11_wbc",
           "name": "wbc",
           "description": "Column 'wbc' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_wbc",
             "fileObject": {
@@ -2836,7 +2837,7 @@
           "@id": "file_11_temperature",
           "name": "temperature",
           "description": "Column 'temperature' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_temperature",
             "fileObject": {
@@ -2852,7 +2853,7 @@
           "@id": "file_11_respiratoryrate",
           "name": "respiratoryrate",
           "description": "Column 'respiratoryrate' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_respiratoryrate",
             "fileObject": {
@@ -2868,7 +2869,7 @@
           "@id": "file_11_sodium",
           "name": "sodium",
           "description": "Column 'sodium' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_sodium",
             "fileObject": {
@@ -2884,7 +2885,7 @@
           "@id": "file_11_heartrate",
           "name": "heartrate",
           "description": "Column 'heartrate' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_heartrate",
             "fileObject": {
@@ -2900,7 +2901,7 @@
           "@id": "file_11_meanbp",
           "name": "meanbp",
           "description": "Column 'meanbp' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_meanbp",
             "fileObject": {
@@ -2916,7 +2917,7 @@
           "@id": "file_11_ph",
           "name": "ph",
           "description": "Column 'ph' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_ph",
             "fileObject": {
@@ -2932,7 +2933,7 @@
           "@id": "file_11_hematocrit",
           "name": "hematocrit",
           "description": "Column 'hematocrit' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_hematocrit",
             "fileObject": {
@@ -2948,7 +2949,7 @@
           "@id": "file_11_creatinine",
           "name": "creatinine",
           "description": "Column 'creatinine' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_creatinine",
             "fileObject": {
@@ -2964,7 +2965,7 @@
           "@id": "file_11_albumin",
           "name": "albumin",
           "description": "Column 'albumin' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_albumin",
             "fileObject": {
@@ -2980,7 +2981,7 @@
           "@id": "file_11_pao2",
           "name": "pao2",
           "description": "Column 'pao2' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_pao2",
             "fileObject": {
@@ -2996,7 +2997,7 @@
           "@id": "file_11_pco2",
           "name": "pco2",
           "description": "Column 'pco2' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_pco2",
             "fileObject": {
@@ -3012,7 +3013,7 @@
           "@id": "file_11_bun",
           "name": "bun",
           "description": "Column 'bun' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_bun",
             "fileObject": {
@@ -3028,7 +3029,7 @@
           "@id": "file_11_glucose",
           "name": "glucose",
           "description": "Column 'glucose' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_glucose",
             "fileObject": {
@@ -3044,7 +3045,7 @@
           "@id": "file_11_bilirubin",
           "name": "bilirubin",
           "description": "Column 'bilirubin' from apacheApsVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_bilirubin",
             "fileObject": {
@@ -3060,7 +3061,7 @@
           "@id": "file_11_fio2",
           "name": "fio2",
           "description": "Column 'fio2' from apacheApsVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_fio2",
             "fileObject": {
@@ -3084,7 +3085,7 @@
           "@id": "file_12_cpleolid",
           "name": "cpleolid",
           "description": "Column 'cpleolid' from carePlanEOL.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_12_source_cpleolid",
             "fileObject": {
@@ -3100,7 +3101,7 @@
           "@id": "file_12_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from carePlanEOL.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_12_source_patientunitstayid",
             "fileObject": {
@@ -3116,7 +3117,7 @@
           "@id": "file_12_cpleolsaveoffset",
           "name": "cpleolsaveoffset",
           "description": "Column 'cpleolsaveoffset' from carePlanEOL.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_12_source_cpleolsaveoffset",
             "fileObject": {
@@ -3132,7 +3133,7 @@
           "@id": "file_12_cpleoldiscussionoffset",
           "name": "cpleoldiscussionoffset",
           "description": "Column 'cpleoldiscussionoffset' from carePlanEOL.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_12_source_cpleoldiscussionoffset",
             "fileObject": {
@@ -3165,14 +3166,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_13",
       "name": "infusiondrug",
-      "description": "Records from infusiondrug.csv.gz (1000 rows)",
+      "description": "Records from infusiondrug.csv.gz (38256 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_13_infusiondrugid",
           "name": "infusiondrugid",
           "description": "Column 'infusiondrugid' from infusiondrug.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_13_source_infusiondrugid",
             "fileObject": {
@@ -3188,7 +3189,7 @@
           "@id": "file_13_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from infusiondrug.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_13_source_patientunitstayid",
             "fileObject": {
@@ -3204,7 +3205,7 @@
           "@id": "file_13_infusionoffset",
           "name": "infusionoffset",
           "description": "Column 'infusionoffset' from infusiondrug.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_13_source_infusionoffset",
             "fileObject": {
@@ -3236,7 +3237,7 @@
           "@id": "file_13_drugrate",
           "name": "drugrate",
           "description": "Column 'drugrate' from infusiondrug.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_13_source_drugrate",
             "fileObject": {
@@ -3252,7 +3253,7 @@
           "@id": "file_13_infusionrate",
           "name": "infusionrate",
           "description": "Column 'infusionrate' from infusiondrug.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_13_source_infusionrate",
             "fileObject": {
@@ -3268,7 +3269,7 @@
           "@id": "file_13_drugamount",
           "name": "drugamount",
           "description": "Column 'drugamount' from infusiondrug.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_13_source_drugamount",
             "fileObject": {
@@ -3284,7 +3285,7 @@
           "@id": "file_13_volumeoffluid",
           "name": "volumeoffluid",
           "description": "Column 'volumeoffluid' from infusiondrug.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_13_source_volumeoffluid",
             "fileObject": {
@@ -3300,7 +3301,7 @@
           "@id": "file_13_patientweight",
           "name": "patientweight",
           "description": "Column 'patientweight' from infusiondrug.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_13_source_patientweight",
             "fileObject": {
@@ -3317,14 +3318,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_14",
       "name": "carePlanCareProvider",
-      "description": "Records from carePlanCareProvider.csv.gz (1000 rows)",
+      "description": "Records from carePlanCareProvider.csv.gz (5627 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_14_cplcareprovderid",
           "name": "cplcareprovderid",
           "description": "Column 'cplcareprovderid' from carePlanCareProvider.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_14_source_cplcareprovderid",
             "fileObject": {
@@ -3340,7 +3341,7 @@
           "@id": "file_14_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from carePlanCareProvider.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_14_source_patientunitstayid",
             "fileObject": {
@@ -3356,7 +3357,7 @@
           "@id": "file_14_careprovidersaveoffset",
           "name": "careprovidersaveoffset",
           "description": "Column 'careprovidersaveoffset' from carePlanCareProvider.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_14_source_careprovidersaveoffset",
             "fileObject": {
@@ -3460,7 +3461,7 @@
           "@id": "file_15_microlabid",
           "name": "microlabid",
           "description": "Column 'microlabid' from microLab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_15_source_microlabid",
             "fileObject": {
@@ -3476,7 +3477,7 @@
           "@id": "file_15_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from microLab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_15_source_patientunitstayid",
             "fileObject": {
@@ -3492,7 +3493,7 @@
           "@id": "file_15_culturetakenoffset",
           "name": "culturetakenoffset",
           "description": "Column 'culturetakenoffset' from microLab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_15_source_culturetakenoffset",
             "fileObject": {
@@ -3573,14 +3574,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_16",
       "name": "nurseCare",
-      "description": "Records from nurseCare.csv.gz (1000 rows)",
+      "description": "Records from nurseCare.csv.gz (42080 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_16_nursecareid",
           "name": "nursecareid",
           "description": "Column 'nursecareid' from nurseCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_nursecareid",
             "fileObject": {
@@ -3596,7 +3597,7 @@
           "@id": "file_16_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from nurseCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_patientunitstayid",
             "fileObject": {
@@ -3628,7 +3629,7 @@
           "@id": "file_16_nursecareoffset",
           "name": "nursecareoffset",
           "description": "Column 'nursecareoffset' from nurseCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_nursecareoffset",
             "fileObject": {
@@ -3644,7 +3645,7 @@
           "@id": "file_16_nursecareentryoffset",
           "name": "nursecareentryoffset",
           "description": "Column 'nursecareentryoffset' from nurseCare.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_nursecareentryoffset",
             "fileObject": {
@@ -3709,14 +3710,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_17",
       "name": "physicalExam",
-      "description": "Records from physicalExam.csv.gz (1000 rows)",
+      "description": "Records from physicalExam.csv.gz (84058 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_17_physicalexamid",
           "name": "physicalexamid",
           "description": "Column 'physicalexamid' from physicalExam.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_physicalexamid",
             "fileObject": {
@@ -3732,7 +3733,7 @@
           "@id": "file_17_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from physicalExam.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_patientunitstayid",
             "fileObject": {
@@ -3748,7 +3749,7 @@
           "@id": "file_17_physicalexamoffset",
           "name": "physicalexamoffset",
           "description": "Column 'physicalexamoffset' from physicalExam.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_physicalexamoffset",
             "fileObject": {
@@ -3813,14 +3814,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_18",
       "name": "respiratoryCharting",
-      "description": "Records from respiratoryCharting.csv.gz (1000 rows)",
+      "description": "Records from respiratoryCharting.csv.gz (176089 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_18_respchartid",
           "name": "respchartid",
           "description": "Column 'respchartid' from respiratoryCharting.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_respchartid",
             "fileObject": {
@@ -3836,7 +3837,7 @@
           "@id": "file_18_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from respiratoryCharting.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_patientunitstayid",
             "fileObject": {
@@ -3852,7 +3853,7 @@
           "@id": "file_18_respchartoffset",
           "name": "respchartoffset",
           "description": "Column 'respchartoffset' from respiratoryCharting.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_respchartoffset",
             "fileObject": {
@@ -3868,7 +3869,7 @@
           "@id": "file_18_respchartentryoffset",
           "name": "respchartentryoffset",
           "description": "Column 'respchartentryoffset' from respiratoryCharting.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_respchartentryoffset",
             "fileObject": {
@@ -3933,14 +3934,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_19",
       "name": "note",
-      "description": "Records from note.csv.gz (1000 rows)",
+      "description": "Records from note.csv.gz (24758 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_19_noteid",
           "name": "noteid",
           "description": "Column 'noteid' from note.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_noteid",
             "fileObject": {
@@ -3956,7 +3957,7 @@
           "@id": "file_19_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from note.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_patientunitstayid",
             "fileObject": {
@@ -3972,7 +3973,7 @@
           "@id": "file_19_noteoffset",
           "name": "noteoffset",
           "description": "Column 'noteoffset' from note.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_noteoffset",
             "fileObject": {
@@ -3988,7 +3989,7 @@
           "@id": "file_19_noteenteredoffset",
           "name": "noteenteredoffset",
           "description": "Column 'noteenteredoffset' from note.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_noteenteredoffset",
             "fileObject": {
@@ -4069,14 +4070,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_20",
       "name": "admissiondrug",
-      "description": "Records from admissiondrug.csv.gz (1000 rows)",
+      "description": "Records from admissiondrug.csv.gz (7417 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_20_admissiondrugid",
           "name": "admissiondrugid",
           "description": "Column 'admissiondrugid' from admissiondrug.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_admissiondrugid",
             "fileObject": {
@@ -4092,7 +4093,7 @@
           "@id": "file_20_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from admissiondrug.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_patientunitstayid",
             "fileObject": {
@@ -4108,7 +4109,7 @@
           "@id": "file_20_drugoffset",
           "name": "drugoffset",
           "description": "Column 'drugoffset' from admissiondrug.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_drugoffset",
             "fileObject": {
@@ -4124,7 +4125,7 @@
           "@id": "file_20_drugenteredoffset",
           "name": "drugenteredoffset",
           "description": "Column 'drugenteredoffset' from admissiondrug.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_drugenteredoffset",
             "fileObject": {
@@ -4236,7 +4237,7 @@
           "@id": "file_20_drugdosage",
           "name": "drugdosage",
           "description": "Column 'drugdosage' from admissiondrug.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_20_source_drugdosage",
             "fileObject": {
@@ -4284,7 +4285,7 @@
           "@id": "file_20_drughiclseqno",
           "name": "drughiclseqno",
           "description": "Column 'drughiclseqno' from admissiondrug.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_drughiclseqno",
             "fileObject": {
@@ -4301,14 +4302,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_21",
       "name": "lab",
-      "description": "Records from lab.csv.gz (1000 rows)",
+      "description": "Records from lab.csv.gz (434660 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_21_labid",
           "name": "labid",
           "description": "Column 'labid' from lab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_21_source_labid",
             "fileObject": {
@@ -4324,7 +4325,7 @@
           "@id": "file_21_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from lab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_21_source_patientunitstayid",
             "fileObject": {
@@ -4340,7 +4341,7 @@
           "@id": "file_21_labresultoffset",
           "name": "labresultoffset",
           "description": "Column 'labresultoffset' from lab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_21_source_labresultoffset",
             "fileObject": {
@@ -4356,7 +4357,7 @@
           "@id": "file_21_labtypeid",
           "name": "labtypeid",
           "description": "Column 'labtypeid' from lab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_21_source_labtypeid",
             "fileObject": {
@@ -4388,7 +4389,7 @@
           "@id": "file_21_labresult",
           "name": "labresult",
           "description": "Column 'labresult' from lab.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_21_source_labresult",
             "fileObject": {
@@ -4452,7 +4453,7 @@
           "@id": "file_21_labresultrevisedoffset",
           "name": "labresultrevisedoffset",
           "description": "Column 'labresultrevisedoffset' from lab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_21_source_labresultrevisedoffset",
             "fileObject": {
@@ -4469,14 +4470,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_22",
       "name": "apachePredVar",
-      "description": "Records from apachePredVar.csv.gz (1000 rows)",
+      "description": "Records from apachePredVar.csv.gz (2205 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_22_apachepredvarid",
           "name": "apachepredvarid",
           "description": "Column 'apachepredvarid' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_apachepredvarid",
             "fileObject": {
@@ -4492,7 +4493,7 @@
           "@id": "file_22_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_patientunitstayid",
             "fileObject": {
@@ -4508,7 +4509,7 @@
           "@id": "file_22_sicuday",
           "name": "sicuday",
           "description": "Column 'sicuday' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_sicuday",
             "fileObject": {
@@ -4524,7 +4525,7 @@
           "@id": "file_22_saps3day1",
           "name": "saps3day1",
           "description": "Column 'saps3day1' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_saps3day1",
             "fileObject": {
@@ -4540,7 +4541,7 @@
           "@id": "file_22_saps3today",
           "name": "saps3today",
           "description": "Column 'saps3today' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_saps3today",
             "fileObject": {
@@ -4556,7 +4557,7 @@
           "@id": "file_22_saps3yesterday",
           "name": "saps3yesterday",
           "description": "Column 'saps3yesterday' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_saps3yesterday",
             "fileObject": {
@@ -4572,7 +4573,7 @@
           "@id": "file_22_gender",
           "name": "gender",
           "description": "Column 'gender' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_gender",
             "fileObject": {
@@ -4588,7 +4589,7 @@
           "@id": "file_22_teachtype",
           "name": "teachtype",
           "description": "Column 'teachtype' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_teachtype",
             "fileObject": {
@@ -4604,7 +4605,7 @@
           "@id": "file_22_region",
           "name": "region",
           "description": "Column 'region' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_region",
             "fileObject": {
@@ -4620,7 +4621,7 @@
           "@id": "file_22_bedcount",
           "name": "bedcount",
           "description": "Column 'bedcount' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_bedcount",
             "fileObject": {
@@ -4636,7 +4637,7 @@
           "@id": "file_22_admitsource",
           "name": "admitsource",
           "description": "Column 'admitsource' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_admitsource",
             "fileObject": {
@@ -4652,7 +4653,7 @@
           "@id": "file_22_graftcount",
           "name": "graftcount",
           "description": "Column 'graftcount' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_graftcount",
             "fileObject": {
@@ -4668,7 +4669,7 @@
           "@id": "file_22_meds",
           "name": "meds",
           "description": "Column 'meds' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_meds",
             "fileObject": {
@@ -4684,7 +4685,7 @@
           "@id": "file_22_verbal",
           "name": "verbal",
           "description": "Column 'verbal' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_verbal",
             "fileObject": {
@@ -4700,7 +4701,7 @@
           "@id": "file_22_motor",
           "name": "motor",
           "description": "Column 'motor' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_motor",
             "fileObject": {
@@ -4716,7 +4717,7 @@
           "@id": "file_22_eyes",
           "name": "eyes",
           "description": "Column 'eyes' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_eyes",
             "fileObject": {
@@ -4732,7 +4733,7 @@
           "@id": "file_22_age",
           "name": "age",
           "description": "Column 'age' from apachePredVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_age",
             "fileObject": {
@@ -4764,7 +4765,7 @@
           "@id": "file_22_thrombolytics",
           "name": "thrombolytics",
           "description": "Column 'thrombolytics' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_thrombolytics",
             "fileObject": {
@@ -4780,7 +4781,7 @@
           "@id": "file_22_diedinhospital",
           "name": "diedinhospital",
           "description": "Column 'diedinhospital' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_diedinhospital",
             "fileObject": {
@@ -4796,7 +4797,7 @@
           "@id": "file_22_aids",
           "name": "aids",
           "description": "Column 'aids' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_aids",
             "fileObject": {
@@ -4812,7 +4813,7 @@
           "@id": "file_22_hepaticfailure",
           "name": "hepaticfailure",
           "description": "Column 'hepaticfailure' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_hepaticfailure",
             "fileObject": {
@@ -4828,7 +4829,7 @@
           "@id": "file_22_lymphoma",
           "name": "lymphoma",
           "description": "Column 'lymphoma' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_lymphoma",
             "fileObject": {
@@ -4844,7 +4845,7 @@
           "@id": "file_22_metastaticcancer",
           "name": "metastaticcancer",
           "description": "Column 'metastaticcancer' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_metastaticcancer",
             "fileObject": {
@@ -4860,7 +4861,7 @@
           "@id": "file_22_leukemia",
           "name": "leukemia",
           "description": "Column 'leukemia' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_leukemia",
             "fileObject": {
@@ -4876,7 +4877,7 @@
           "@id": "file_22_immunosuppression",
           "name": "immunosuppression",
           "description": "Column 'immunosuppression' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_immunosuppression",
             "fileObject": {
@@ -4892,7 +4893,7 @@
           "@id": "file_22_cirrhosis",
           "name": "cirrhosis",
           "description": "Column 'cirrhosis' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_cirrhosis",
             "fileObject": {
@@ -4908,7 +4909,7 @@
           "@id": "file_22_electivesurgery",
           "name": "electivesurgery",
           "description": "Column 'electivesurgery' from apachePredVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_electivesurgery",
             "fileObject": {
@@ -4924,7 +4925,7 @@
           "@id": "file_22_activetx",
           "name": "activetx",
           "description": "Column 'activetx' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_activetx",
             "fileObject": {
@@ -4940,7 +4941,7 @@
           "@id": "file_22_readmit",
           "name": "readmit",
           "description": "Column 'readmit' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_readmit",
             "fileObject": {
@@ -4956,7 +4957,7 @@
           "@id": "file_22_ima",
           "name": "ima",
           "description": "Column 'ima' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_ima",
             "fileObject": {
@@ -4972,7 +4973,7 @@
           "@id": "file_22_midur",
           "name": "midur",
           "description": "Column 'midur' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_midur",
             "fileObject": {
@@ -4988,7 +4989,7 @@
           "@id": "file_22_ventday1",
           "name": "ventday1",
           "description": "Column 'ventday1' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_ventday1",
             "fileObject": {
@@ -5004,7 +5005,7 @@
           "@id": "file_22_oobventday1",
           "name": "oobventday1",
           "description": "Column 'oobventday1' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_oobventday1",
             "fileObject": {
@@ -5020,7 +5021,7 @@
           "@id": "file_22_oobintubday1",
           "name": "oobintubday1",
           "description": "Column 'oobintubday1' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_oobintubday1",
             "fileObject": {
@@ -5036,7 +5037,7 @@
           "@id": "file_22_diabetes",
           "name": "diabetes",
           "description": "Column 'diabetes' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_diabetes",
             "fileObject": {
@@ -5052,7 +5053,7 @@
           "@id": "file_22_managementsystem",
           "name": "managementsystem",
           "description": "Column 'managementsystem' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_managementsystem",
             "fileObject": {
@@ -5068,7 +5069,7 @@
           "@id": "file_22_var03hspxlos",
           "name": "var03hspxlos",
           "description": "Column 'var03hspxlos' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_var03hspxlos",
             "fileObject": {
@@ -5084,7 +5085,7 @@
           "@id": "file_22_pao2",
           "name": "pao2",
           "description": "Column 'pao2' from apachePredVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_22_source_pao2",
             "fileObject": {
@@ -5100,7 +5101,7 @@
           "@id": "file_22_fio2",
           "name": "fio2",
           "description": "Column 'fio2' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_fio2",
             "fileObject": {
@@ -5116,7 +5117,7 @@
           "@id": "file_22_ejectfx",
           "name": "ejectfx",
           "description": "Column 'ejectfx' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_ejectfx",
             "fileObject": {
@@ -5132,7 +5133,7 @@
           "@id": "file_22_creatinine",
           "name": "creatinine",
           "description": "Column 'creatinine' from apachePredVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_22_source_creatinine",
             "fileObject": {
@@ -5148,7 +5149,7 @@
           "@id": "file_22_dischargelocation",
           "name": "dischargelocation",
           "description": "Column 'dischargelocation' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_dischargelocation",
             "fileObject": {
@@ -5164,7 +5165,7 @@
           "@id": "file_22_visitnumber",
           "name": "visitnumber",
           "description": "Column 'visitnumber' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_visitnumber",
             "fileObject": {
@@ -5180,7 +5181,7 @@
           "@id": "file_22_amilocation",
           "name": "amilocation",
           "description": "Column 'amilocation' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_amilocation",
             "fileObject": {
@@ -5196,7 +5197,7 @@
           "@id": "file_22_day1meds",
           "name": "day1meds",
           "description": "Column 'day1meds' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_day1meds",
             "fileObject": {
@@ -5212,7 +5213,7 @@
           "@id": "file_22_day1verbal",
           "name": "day1verbal",
           "description": "Column 'day1verbal' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_day1verbal",
             "fileObject": {
@@ -5228,7 +5229,7 @@
           "@id": "file_22_day1motor",
           "name": "day1motor",
           "description": "Column 'day1motor' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_day1motor",
             "fileObject": {
@@ -5244,7 +5245,7 @@
           "@id": "file_22_day1eyes",
           "name": "day1eyes",
           "description": "Column 'day1eyes' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_day1eyes",
             "fileObject": {
@@ -5260,7 +5261,7 @@
           "@id": "file_22_day1pao2",
           "name": "day1pao2",
           "description": "Column 'day1pao2' from apachePredVar.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_22_source_day1pao2",
             "fileObject": {
@@ -5276,7 +5277,7 @@
           "@id": "file_22_day1fio2",
           "name": "day1fio2",
           "description": "Column 'day1fio2' from apachePredVar.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_22_source_day1fio2",
             "fileObject": {
@@ -5300,7 +5301,7 @@
           "@id": "file_23_customlabid",
           "name": "customlabid",
           "description": "Column 'customlabid' from customLab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_23_source_customlabid",
             "fileObject": {
@@ -5316,7 +5317,7 @@
           "@id": "file_23_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from customLab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_23_source_patientunitstayid",
             "fileObject": {
@@ -5332,7 +5333,7 @@
           "@id": "file_23_labotheroffset",
           "name": "labotheroffset",
           "description": "Column 'labotheroffset' from customLab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_23_source_labotheroffset",
             "fileObject": {
@@ -5348,7 +5349,7 @@
           "@id": "file_23_labothertypeid",
           "name": "labothertypeid",
           "description": "Column 'labothertypeid' from customLab.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_23_source_labothertypeid",
             "fileObject": {
@@ -5380,7 +5381,7 @@
           "@id": "file_23_labotherresult",
           "name": "labotherresult",
           "description": "Column 'labotherresult' from customLab.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_23_source_labotherresult",
             "fileObject": {
@@ -5413,14 +5414,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_24",
       "name": "apachePatientResult",
-      "description": "Records from apachePatientResult.csv.gz (1000 rows)",
+      "description": "Records from apachePatientResult.csv.gz (3676 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_24_apachepatientresultsid",
           "name": "apachepatientresultsid",
           "description": "Column 'apachepatientresultsid' from apachePatientResult.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_24_source_apachepatientresultsid",
             "fileObject": {
@@ -5436,7 +5437,7 @@
           "@id": "file_24_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from apachePatientResult.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_24_source_patientunitstayid",
             "fileObject": {
@@ -5484,7 +5485,7 @@
           "@id": "file_24_acutephysiologyscore",
           "name": "acutephysiologyscore",
           "description": "Column 'acutephysiologyscore' from apachePatientResult.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_24_source_acutephysiologyscore",
             "fileObject": {
@@ -5500,7 +5501,7 @@
           "@id": "file_24_apachescore",
           "name": "apachescore",
           "description": "Column 'apachescore' from apachePatientResult.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_24_source_apachescore",
             "fileObject": {
@@ -5532,7 +5533,7 @@
           "@id": "file_24_predictedicumortality",
           "name": "predictedicumortality",
           "description": "Column 'predictedicumortality' from apachePatientResult.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_24_source_predictedicumortality",
             "fileObject": {
@@ -5564,7 +5565,7 @@
           "@id": "file_24_predictediculos",
           "name": "predictediculos",
           "description": "Column 'predictediculos' from apachePatientResult.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_24_source_predictediculos",
             "fileObject": {
@@ -5580,7 +5581,7 @@
           "@id": "file_24_actualiculos",
           "name": "actualiculos",
           "description": "Column 'actualiculos' from apachePatientResult.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_24_source_actualiculos",
             "fileObject": {
@@ -5596,7 +5597,7 @@
           "@id": "file_24_predictedhospitalmortality",
           "name": "predictedhospitalmortality",
           "description": "Column 'predictedhospitalmortality' from apachePatientResult.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_24_source_predictedhospitalmortality",
             "fileObject": {
@@ -5628,7 +5629,7 @@
           "@id": "file_24_predictedhospitallos",
           "name": "predictedhospitallos",
           "description": "Column 'predictedhospitallos' from apachePatientResult.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_24_source_predictedhospitallos",
             "fileObject": {
@@ -5644,7 +5645,7 @@
           "@id": "file_24_actualhospitallos",
           "name": "actualhospitallos",
           "description": "Column 'actualhospitallos' from apachePatientResult.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_24_source_actualhospitallos",
             "fileObject": {
@@ -5660,7 +5661,7 @@
           "@id": "file_24_preopmi",
           "name": "preopmi",
           "description": "Column 'preopmi' from apachePatientResult.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_24_source_preopmi",
             "fileObject": {
@@ -5676,7 +5677,7 @@
           "@id": "file_24_preopcardiaccath",
           "name": "preopcardiaccath",
           "description": "Column 'preopcardiaccath' from apachePatientResult.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_24_source_preopcardiaccath",
             "fileObject": {
@@ -5692,7 +5693,7 @@
           "@id": "file_24_ptcawithin24h",
           "name": "ptcawithin24h",
           "description": "Column 'ptcawithin24h' from apachePatientResult.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_24_source_ptcawithin24h",
             "fileObject": {
@@ -5708,7 +5709,7 @@
           "@id": "file_24_unabridgedunitlos",
           "name": "unabridgedunitlos",
           "description": "Column 'unabridgedunitlos' from apachePatientResult.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_24_source_unabridgedunitlos",
             "fileObject": {
@@ -5724,7 +5725,7 @@
           "@id": "file_24_unabridgedhosplos",
           "name": "unabridgedhosplos",
           "description": "Column 'unabridgedhosplos' from apachePatientResult.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_24_source_unabridgedhosplos",
             "fileObject": {
@@ -5740,7 +5741,7 @@
           "@id": "file_24_actualventdays",
           "name": "actualventdays",
           "description": "Column 'actualventdays' from apachePatientResult.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_24_source_actualventdays",
             "fileObject": {
@@ -5756,7 +5757,7 @@
           "@id": "file_24_predventdays",
           "name": "predventdays",
           "description": "Column 'predventdays' from apachePatientResult.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_24_source_predventdays",
             "fileObject": {
@@ -5772,7 +5773,7 @@
           "@id": "file_24_unabridgedactualventdays",
           "name": "unabridgedactualventdays",
           "description": "Column 'unabridgedactualventdays' from apachePatientResult.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_24_source_unabridgedactualventdays",
             "fileObject": {
@@ -5796,7 +5797,7 @@
           "@id": "file_25_cplinfectid",
           "name": "cplinfectid",
           "description": "Column 'cplinfectid' from carePlanInfectiousDisease.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_25_source_cplinfectid",
             "fileObject": {
@@ -5812,7 +5813,7 @@
           "@id": "file_25_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from carePlanInfectiousDisease.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_25_source_patientunitstayid",
             "fileObject": {
@@ -5844,7 +5845,7 @@
           "@id": "file_25_cplinfectdiseaseoffset",
           "name": "cplinfectdiseaseoffset",
           "description": "Column 'cplinfectdiseaseoffset' from carePlanInfectiousDisease.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_25_source_cplinfectdiseaseoffset",
             "fileObject": {
@@ -5925,14 +5926,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_26",
       "name": "allergy",
-      "description": "Records from allergy.csv.gz (1000 rows)",
+      "description": "Records from allergy.csv.gz (2475 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_26_allergyid",
           "name": "allergyid",
           "description": "Column 'allergyid' from allergy.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_26_source_allergyid",
             "fileObject": {
@@ -5948,7 +5949,7 @@
           "@id": "file_26_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from allergy.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_26_source_patientunitstayid",
             "fileObject": {
@@ -5964,7 +5965,7 @@
           "@id": "file_26_allergyoffset",
           "name": "allergyoffset",
           "description": "Column 'allergyoffset' from allergy.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_26_source_allergyoffset",
             "fileObject": {
@@ -5980,7 +5981,7 @@
           "@id": "file_26_allergyenteredoffset",
           "name": "allergyenteredoffset",
           "description": "Column 'allergyenteredoffset' from allergy.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_26_source_allergyenteredoffset",
             "fileObject": {
@@ -6124,7 +6125,7 @@
           "@id": "file_26_drughiclseqno",
           "name": "drughiclseqno",
           "description": "Column 'drughiclseqno' from allergy.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_26_source_drughiclseqno",
             "fileObject": {
@@ -6141,14 +6142,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_27",
       "name": "nurseCharting",
-      "description": "Records from nurseCharting.csv.gz (1000 rows)",
+      "description": "Records from nurseCharting.csv.gz (1477163 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_27_nursingchartid",
           "name": "nursingchartid",
           "description": "Column 'nursingchartid' from nurseCharting.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_27_source_nursingchartid",
             "fileObject": {
@@ -6164,7 +6165,7 @@
           "@id": "file_27_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from nurseCharting.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_27_source_patientunitstayid",
             "fileObject": {
@@ -6180,7 +6181,7 @@
           "@id": "file_27_nursingchartoffset",
           "name": "nursingchartoffset",
           "description": "Column 'nursingchartoffset' from nurseCharting.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_27_source_nursingchartoffset",
             "fileObject": {
@@ -6196,7 +6197,7 @@
           "@id": "file_27_nursingchartentryoffset",
           "name": "nursingchartentryoffset",
           "description": "Column 'nursingchartentryoffset' from nurseCharting.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_27_source_nursingchartentryoffset",
             "fileObject": {
@@ -6277,14 +6278,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_28",
       "name": "pastHistory",
-      "description": "Records from pastHistory.csv.gz (1000 rows)",
+      "description": "Records from pastHistory.csv.gz (12109 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_28_pasthistoryid",
           "name": "pasthistoryid",
           "description": "Column 'pasthistoryid' from pastHistory.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_28_source_pasthistoryid",
             "fileObject": {
@@ -6300,7 +6301,7 @@
           "@id": "file_28_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from pastHistory.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_28_source_patientunitstayid",
             "fileObject": {
@@ -6316,7 +6317,7 @@
           "@id": "file_28_pasthistoryoffset",
           "name": "pasthistoryoffset",
           "description": "Column 'pasthistoryoffset' from pastHistory.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_28_source_pasthistoryoffset",
             "fileObject": {
@@ -6332,7 +6333,7 @@
           "@id": "file_28_pasthistoryenteredoffset",
           "name": "pasthistoryenteredoffset",
           "description": "Column 'pasthistoryenteredoffset' from pastHistory.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_28_source_pasthistoryenteredoffset",
             "fileObject": {
@@ -6413,14 +6414,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_29",
       "name": "medication",
-      "description": "Records from medication.csv.gz (1000 rows)",
+      "description": "Records from medication.csv.gz (75604 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_29_medicationid",
           "name": "medicationid",
           "description": "Column 'medicationid' from medication.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_29_source_medicationid",
             "fileObject": {
@@ -6436,7 +6437,7 @@
           "@id": "file_29_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from medication.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_29_source_patientunitstayid",
             "fileObject": {
@@ -6452,7 +6453,7 @@
           "@id": "file_29_drugorderoffset",
           "name": "drugorderoffset",
           "description": "Column 'drugorderoffset' from medication.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_29_source_drugorderoffset",
             "fileObject": {
@@ -6468,7 +6469,7 @@
           "@id": "file_29_drugstartoffset",
           "name": "drugstartoffset",
           "description": "Column 'drugstartoffset' from medication.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_29_source_drugstartoffset",
             "fileObject": {
@@ -6532,7 +6533,7 @@
           "@id": "file_29_drughiclseqno",
           "name": "drughiclseqno",
           "description": "Column 'drughiclseqno' from medication.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_29_source_drughiclseqno",
             "fileObject": {
@@ -6628,7 +6629,7 @@
           "@id": "file_29_drugstopoffset",
           "name": "drugstopoffset",
           "description": "Column 'drugstopoffset' from medication.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_29_source_drugstopoffset",
             "fileObject": {
@@ -6644,7 +6645,7 @@
           "@id": "file_29_gtc",
           "name": "gtc",
           "description": "Column 'gtc' from medication.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_29_source_gtc",
             "fileObject": {
@@ -6661,14 +6662,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_30",
       "name": "intakeOutput",
-      "description": "Records from intakeOutput.csv.gz (1000 rows)",
+      "description": "Records from intakeOutput.csv.gz (100466 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_30_intakeoutputid",
           "name": "intakeoutputid",
           "description": "Column 'intakeoutputid' from intakeOutput.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_30_source_intakeoutputid",
             "fileObject": {
@@ -6684,7 +6685,7 @@
           "@id": "file_30_patientunitstayid",
           "name": "patientunitstayid",
           "description": "Column 'patientunitstayid' from intakeOutput.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_30_source_patientunitstayid",
             "fileObject": {
@@ -6700,7 +6701,7 @@
           "@id": "file_30_intakeoutputoffset",
           "name": "intakeoutputoffset",
           "description": "Column 'intakeoutputoffset' from intakeOutput.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_30_source_intakeoutputoffset",
             "fileObject": {
@@ -6716,7 +6717,7 @@
           "@id": "file_30_intaketotal",
           "name": "intaketotal",
           "description": "Column 'intaketotal' from intakeOutput.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_30_source_intaketotal",
             "fileObject": {
@@ -6732,7 +6733,7 @@
           "@id": "file_30_outputtotal",
           "name": "outputtotal",
           "description": "Column 'outputtotal' from intakeOutput.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_30_source_outputtotal",
             "fileObject": {
@@ -6748,7 +6749,7 @@
           "@id": "file_30_dialysistotal",
           "name": "dialysistotal",
           "description": "Column 'dialysistotal' from intakeOutput.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_30_source_dialysistotal",
             "fileObject": {
@@ -6764,7 +6765,7 @@
           "@id": "file_30_nettotal",
           "name": "nettotal",
           "description": "Column 'nettotal' from intakeOutput.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_30_source_nettotal",
             "fileObject": {
@@ -6780,7 +6781,7 @@
           "@id": "file_30_intakeoutputentryoffset",
           "name": "intakeoutputentryoffset",
           "description": "Column 'intakeoutputentryoffset' from intakeOutput.csv.gz",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_30_source_intakeoutputentryoffset",
             "fileObject": {
@@ -6828,7 +6829,7 @@
           "@id": "file_30_cellvaluenumeric",
           "name": "cellvaluenumeric",
           "description": "Column 'cellvaluenumeric' from intakeOutput.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_30_source_cellvaluenumeric",
             "fileObject": {
@@ -6844,7 +6845,7 @@
           "@id": "file_30_cellvaluetext",
           "name": "cellvaluetext",
           "description": "Column 'cellvaluetext' from intakeOutput.csv.gz",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_30_source_cellvaluetext",
             "fileObject": {

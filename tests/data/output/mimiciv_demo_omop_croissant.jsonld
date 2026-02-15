@@ -38,6 +38,7 @@
     "regex": "cr:regex",
     "repeated": "cr:repeated",
     "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
     "sc": "https://schema.org/",
     "separator": "cr:separator",
     "source": "cr:source",
@@ -343,7 +344,7 @@
           "@id": "file_0_vocabulary_concept_id",
           "name": "vocabulary_concept_id",
           "description": "Column 'vocabulary_concept_id' from 2b_vocabulary.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_0_source_vocabulary_concept_id",
             "fileObject": {
@@ -367,7 +368,7 @@
           "@id": "file_1_observation_period_id",
           "name": "observation_period_id",
           "description": "Column 'observation_period_id' from observation_period.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_observation_period_id",
             "fileObject": {
@@ -383,7 +384,7 @@
           "@id": "file_1_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from observation_period.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_person_id",
             "fileObject": {
@@ -431,7 +432,7 @@
           "@id": "file_1_period_type_concept_id",
           "name": "period_type_concept_id",
           "description": "Column 'period_type_concept_id' from observation_period.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_1_source_period_type_concept_id",
             "fileObject": {
@@ -448,14 +449,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_2",
       "name": "drug_exposure",
-      "description": "Records from drug_exposure.csv (1000 rows)",
+      "description": "Records from drug_exposure.csv (18229 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_2_drug_exposure_id",
           "name": "drug_exposure_id",
           "description": "Column 'drug_exposure_id' from drug_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_2_source_drug_exposure_id",
             "fileObject": {
@@ -471,7 +472,7 @@
           "@id": "file_2_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from drug_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_2_source_person_id",
             "fileObject": {
@@ -487,7 +488,7 @@
           "@id": "file_2_drug_concept_id",
           "name": "drug_concept_id",
           "description": "Column 'drug_concept_id' from drug_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_2_source_drug_concept_id",
             "fileObject": {
@@ -519,7 +520,7 @@
           "@id": "file_2_drug_exposure_start_datetime",
           "name": "drug_exposure_start_datetime",
           "description": "Column 'drug_exposure_start_datetime' from drug_exposure.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_2_source_drug_exposure_start_datetime",
             "fileObject": {
@@ -551,7 +552,7 @@
           "@id": "file_2_drug_exposure_end_datetime",
           "name": "drug_exposure_end_datetime",
           "description": "Column 'drug_exposure_end_datetime' from drug_exposure.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_2_source_drug_exposure_end_datetime",
             "fileObject": {
@@ -583,7 +584,7 @@
           "@id": "file_2_drug_type_concept_id",
           "name": "drug_type_concept_id",
           "description": "Column 'drug_type_concept_id' from drug_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_2_source_drug_type_concept_id",
             "fileObject": {
@@ -631,7 +632,7 @@
           "@id": "file_2_quantity",
           "name": "quantity",
           "description": "Column 'quantity' from drug_exposure.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_2_source_quantity",
             "fileObject": {
@@ -679,7 +680,7 @@
           "@id": "file_2_route_concept_id",
           "name": "route_concept_id",
           "description": "Column 'route_concept_id' from drug_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_2_source_route_concept_id",
             "fileObject": {
@@ -727,7 +728,7 @@
           "@id": "file_2_visit_occurrence_id",
           "name": "visit_occurrence_id",
           "description": "Column 'visit_occurrence_id' from drug_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_2_source_visit_occurrence_id",
             "fileObject": {
@@ -775,7 +776,7 @@
           "@id": "file_2_drug_source_concept_id",
           "name": "drug_source_concept_id",
           "description": "Column 'drug_source_concept_id' from drug_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_2_source_drug_source_concept_id",
             "fileObject": {
@@ -831,7 +832,7 @@
           "@id": "file_3_care_site_id",
           "name": "care_site_id",
           "description": "Column 'care_site_id' from care_site.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_care_site_id",
             "fileObject": {
@@ -863,7 +864,7 @@
           "@id": "file_3_place_of_service_concept_id",
           "name": "place_of_service_concept_id",
           "description": "Column 'place_of_service_concept_id' from care_site.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_place_of_service_concept_id",
             "fileObject": {
@@ -879,7 +880,7 @@
           "@id": "file_3_location_id",
           "name": "location_id",
           "description": "Column 'location_id' from care_site.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_3_source_location_id",
             "fileObject": {
@@ -928,14 +929,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_4",
       "name": "2b_concept",
-      "description": "Records from 2b_concept.csv (1000 rows)",
+      "description": "Records from 2b_concept.csv (3885 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_4_concept_id",
           "name": "concept_id",
           "description": "Column 'concept_id' from 2b_concept.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_4_source_concept_id",
             "fileObject": {
@@ -1103,7 +1104,7 @@
           "@id": "file_5_specimen_id",
           "name": "specimen_id",
           "description": "Column 'specimen_id' from specimen.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_5_source_specimen_id",
             "fileObject": {
@@ -1119,7 +1120,7 @@
           "@id": "file_5_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from specimen.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_5_source_person_id",
             "fileObject": {
@@ -1135,7 +1136,7 @@
           "@id": "file_5_specimen_concept_id",
           "name": "specimen_concept_id",
           "description": "Column 'specimen_concept_id' from specimen.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_5_source_specimen_concept_id",
             "fileObject": {
@@ -1151,7 +1152,7 @@
           "@id": "file_5_specimen_type_concept_id",
           "name": "specimen_type_concept_id",
           "description": "Column 'specimen_type_concept_id' from specimen.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_5_source_specimen_type_concept_id",
             "fileObject": {
@@ -1183,7 +1184,7 @@
           "@id": "file_5_specimen_datetime",
           "name": "specimen_datetime",
           "description": "Column 'specimen_datetime' from specimen.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_5_source_specimen_datetime",
             "fileObject": {
@@ -1231,7 +1232,7 @@
           "@id": "file_5_anatomic_site_concept_id",
           "name": "anatomic_site_concept_id",
           "description": "Column 'anatomic_site_concept_id' from specimen.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_5_source_anatomic_site_concept_id",
             "fileObject": {
@@ -1247,7 +1248,7 @@
           "@id": "file_5_disease_status_concept_id",
           "name": "disease_status_concept_id",
           "description": "Column 'disease_status_concept_id' from specimen.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_5_source_disease_status_concept_id",
             "fileObject": {
@@ -1279,7 +1280,7 @@
           "@id": "file_5_specimen_source_value",
           "name": "specimen_source_value",
           "description": "Column 'specimen_source_value' from specimen.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_5_source_specimen_source_value",
             "fileObject": {
@@ -1351,7 +1352,7 @@
           "@id": "file_6_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from death.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_person_id",
             "fileObject": {
@@ -1383,7 +1384,7 @@
           "@id": "file_6_death_datetime",
           "name": "death_datetime",
           "description": "Column 'death_datetime' from death.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_6_source_death_datetime",
             "fileObject": {
@@ -1399,7 +1400,7 @@
           "@id": "file_6_death_type_concept_id",
           "name": "death_type_concept_id",
           "description": "Column 'death_type_concept_id' from death.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_death_type_concept_id",
             "fileObject": {
@@ -1415,7 +1416,7 @@
           "@id": "file_6_cause_concept_id",
           "name": "cause_concept_id",
           "description": "Column 'cause_concept_id' from death.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_cause_concept_id",
             "fileObject": {
@@ -1447,7 +1448,7 @@
           "@id": "file_6_cause_source_concept_id",
           "name": "cause_source_concept_id",
           "description": "Column 'cause_source_concept_id' from death.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_6_source_cause_source_concept_id",
             "fileObject": {
@@ -1464,14 +1465,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_7",
       "name": "device_exposure",
-      "description": "Records from device_exposure.csv (1000 rows)",
+      "description": "Records from device_exposure.csv (3855 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_7_device_exposure_id",
           "name": "device_exposure_id",
           "description": "Column 'device_exposure_id' from device_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_7_source_device_exposure_id",
             "fileObject": {
@@ -1487,7 +1488,7 @@
           "@id": "file_7_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from device_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_7_source_person_id",
             "fileObject": {
@@ -1503,7 +1504,7 @@
           "@id": "file_7_device_concept_id",
           "name": "device_concept_id",
           "description": "Column 'device_concept_id' from device_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_7_source_device_concept_id",
             "fileObject": {
@@ -1535,7 +1536,7 @@
           "@id": "file_7_device_exposure_start_datetime",
           "name": "device_exposure_start_datetime",
           "description": "Column 'device_exposure_start_datetime' from device_exposure.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_7_source_device_exposure_start_datetime",
             "fileObject": {
@@ -1567,7 +1568,7 @@
           "@id": "file_7_device_exposure_end_datetime",
           "name": "device_exposure_end_datetime",
           "description": "Column 'device_exposure_end_datetime' from device_exposure.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_7_source_device_exposure_end_datetime",
             "fileObject": {
@@ -1583,7 +1584,7 @@
           "@id": "file_7_device_type_concept_id",
           "name": "device_type_concept_id",
           "description": "Column 'device_type_concept_id' from device_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_7_source_device_type_concept_id",
             "fileObject": {
@@ -1615,7 +1616,7 @@
           "@id": "file_7_quantity",
           "name": "quantity",
           "description": "Column 'quantity' from device_exposure.csv",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_7_source_quantity",
             "fileObject": {
@@ -1647,7 +1648,7 @@
           "@id": "file_7_visit_occurrence_id",
           "name": "visit_occurrence_id",
           "description": "Column 'visit_occurrence_id' from device_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_7_source_visit_occurrence_id",
             "fileObject": {
@@ -1679,7 +1680,7 @@
           "@id": "file_7_device_source_value",
           "name": "device_source_value",
           "description": "Column 'device_source_value' from device_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_7_source_device_source_value",
             "fileObject": {
@@ -1695,7 +1696,7 @@
           "@id": "file_7_device_source_concept_id",
           "name": "device_source_concept_id",
           "description": "Column 'device_source_concept_id' from device_exposure.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_7_source_device_source_concept_id",
             "fileObject": {
@@ -1712,14 +1713,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_8",
       "name": "fact_relationship",
-      "description": "Records from fact_relationship.csv (1000 rows)",
+      "description": "Records from fact_relationship.csv (1752 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_8_domain_concept_id_1",
           "name": "domain_concept_id_1",
           "description": "Column 'domain_concept_id_1' from fact_relationship.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_domain_concept_id_1",
             "fileObject": {
@@ -1735,7 +1736,7 @@
           "@id": "file_8_fact_id_1",
           "name": "fact_id_1",
           "description": "Column 'fact_id_1' from fact_relationship.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_fact_id_1",
             "fileObject": {
@@ -1751,7 +1752,7 @@
           "@id": "file_8_domain_concept_id_2",
           "name": "domain_concept_id_2",
           "description": "Column 'domain_concept_id_2' from fact_relationship.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_domain_concept_id_2",
             "fileObject": {
@@ -1767,7 +1768,7 @@
           "@id": "file_8_fact_id_2",
           "name": "fact_id_2",
           "description": "Column 'fact_id_2' from fact_relationship.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_fact_id_2",
             "fileObject": {
@@ -1783,7 +1784,7 @@
           "@id": "file_8_relationship_concept_id",
           "name": "relationship_concept_id",
           "description": "Column 'relationship_concept_id' from fact_relationship.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_8_source_relationship_concept_id",
             "fileObject": {
@@ -1807,7 +1808,7 @@
           "@id": "file_9_dose_era_id",
           "name": "dose_era_id",
           "description": "Column 'dose_era_id' from dose_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_9_source_dose_era_id",
             "fileObject": {
@@ -1823,7 +1824,7 @@
           "@id": "file_9_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from dose_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_9_source_person_id",
             "fileObject": {
@@ -1839,7 +1840,7 @@
           "@id": "file_9_drug_concept_id",
           "name": "drug_concept_id",
           "description": "Column 'drug_concept_id' from dose_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_9_source_drug_concept_id",
             "fileObject": {
@@ -1855,7 +1856,7 @@
           "@id": "file_9_unit_concept_id",
           "name": "unit_concept_id",
           "description": "Column 'unit_concept_id' from dose_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_9_source_unit_concept_id",
             "fileObject": {
@@ -1871,7 +1872,7 @@
           "@id": "file_9_dose_value",
           "name": "dose_value",
           "description": "Column 'dose_value' from dose_era.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_9_source_dose_value",
             "fileObject": {
@@ -1927,7 +1928,7 @@
           "@id": "file_10_location_id",
           "name": "location_id",
           "description": "Column 'location_id' from location.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_10_source_location_id",
             "fileObject": {
@@ -2056,14 +2057,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_11",
       "name": "measurement",
-      "description": "Records from measurement.csv (1000 rows)",
+      "description": "Records from measurement.csv (338550 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_11_measurement_id",
           "name": "measurement_id",
           "description": "Column 'measurement_id' from measurement.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_measurement_id",
             "fileObject": {
@@ -2079,7 +2080,7 @@
           "@id": "file_11_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from measurement.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_person_id",
             "fileObject": {
@@ -2095,7 +2096,7 @@
           "@id": "file_11_measurement_concept_id",
           "name": "measurement_concept_id",
           "description": "Column 'measurement_concept_id' from measurement.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_measurement_concept_id",
             "fileObject": {
@@ -2127,7 +2128,7 @@
           "@id": "file_11_measurement_datetime",
           "name": "measurement_datetime",
           "description": "Column 'measurement_datetime' from measurement.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_11_source_measurement_datetime",
             "fileObject": {
@@ -2159,7 +2160,7 @@
           "@id": "file_11_measurement_type_concept_id",
           "name": "measurement_type_concept_id",
           "description": "Column 'measurement_type_concept_id' from measurement.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_measurement_type_concept_id",
             "fileObject": {
@@ -2175,7 +2176,7 @@
           "@id": "file_11_operator_concept_id",
           "name": "operator_concept_id",
           "description": "Column 'operator_concept_id' from measurement.csv",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_operator_concept_id",
             "fileObject": {
@@ -2191,7 +2192,7 @@
           "@id": "file_11_value_as_number",
           "name": "value_as_number",
           "description": "Column 'value_as_number' from measurement.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_value_as_number",
             "fileObject": {
@@ -2207,7 +2208,7 @@
           "@id": "file_11_value_as_concept_id",
           "name": "value_as_concept_id",
           "description": "Column 'value_as_concept_id' from measurement.csv",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_value_as_concept_id",
             "fileObject": {
@@ -2223,7 +2224,7 @@
           "@id": "file_11_unit_concept_id",
           "name": "unit_concept_id",
           "description": "Column 'unit_concept_id' from measurement.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_unit_concept_id",
             "fileObject": {
@@ -2239,7 +2240,7 @@
           "@id": "file_11_range_low",
           "name": "range_low",
           "description": "Column 'range_low' from measurement.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_range_low",
             "fileObject": {
@@ -2255,7 +2256,7 @@
           "@id": "file_11_range_high",
           "name": "range_high",
           "description": "Column 'range_high' from measurement.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Float64",
           "source": {
             "@id": "file_11_source_range_high",
             "fileObject": {
@@ -2287,7 +2288,7 @@
           "@id": "file_11_visit_occurrence_id",
           "name": "visit_occurrence_id",
           "description": "Column 'visit_occurrence_id' from measurement.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_visit_occurrence_id",
             "fileObject": {
@@ -2303,7 +2304,7 @@
           "@id": "file_11_visit_detail_id",
           "name": "visit_detail_id",
           "description": "Column 'visit_detail_id' from measurement.csv",
-          "dataType": "sc:Text",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_visit_detail_id",
             "fileObject": {
@@ -2319,7 +2320,7 @@
           "@id": "file_11_measurement_source_value",
           "name": "measurement_source_value",
           "description": "Column 'measurement_source_value' from measurement.csv",
-          "dataType": "sc:Integer",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_11_source_measurement_source_value",
             "fileObject": {
@@ -2335,7 +2336,7 @@
           "@id": "file_11_measurement_source_concept_id",
           "name": "measurement_source_concept_id",
           "description": "Column 'measurement_source_concept_id' from measurement.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_11_source_measurement_source_concept_id",
             "fileObject": {
@@ -2367,7 +2368,7 @@
           "@id": "file_11_value_source_value",
           "name": "value_source_value",
           "description": "Column 'value_source_value' from measurement.csv",
-          "dataType": "sc:Float",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_11_source_value_source_value",
             "fileObject": {
@@ -2384,14 +2385,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_12",
       "name": "condition_occurrence",
-      "description": "Records from condition_occurrence.csv (1000 rows)",
+      "description": "Records from condition_occurrence.csv (16441 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_12_condition_occurrence_id",
           "name": "condition_occurrence_id",
           "description": "Column 'condition_occurrence_id' from condition_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_12_source_condition_occurrence_id",
             "fileObject": {
@@ -2407,7 +2408,7 @@
           "@id": "file_12_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from condition_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_12_source_person_id",
             "fileObject": {
@@ -2423,7 +2424,7 @@
           "@id": "file_12_condition_concept_id",
           "name": "condition_concept_id",
           "description": "Column 'condition_concept_id' from condition_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_12_source_condition_concept_id",
             "fileObject": {
@@ -2455,7 +2456,7 @@
           "@id": "file_12_condition_start_datetime",
           "name": "condition_start_datetime",
           "description": "Column 'condition_start_datetime' from condition_occurrence.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_12_source_condition_start_datetime",
             "fileObject": {
@@ -2487,7 +2488,7 @@
           "@id": "file_12_condition_end_datetime",
           "name": "condition_end_datetime",
           "description": "Column 'condition_end_datetime' from condition_occurrence.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_12_source_condition_end_datetime",
             "fileObject": {
@@ -2503,7 +2504,7 @@
           "@id": "file_12_condition_type_concept_id",
           "name": "condition_type_concept_id",
           "description": "Column 'condition_type_concept_id' from condition_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_12_source_condition_type_concept_id",
             "fileObject": {
@@ -2551,7 +2552,7 @@
           "@id": "file_12_visit_occurrence_id",
           "name": "visit_occurrence_id",
           "description": "Column 'visit_occurrence_id' from condition_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_12_source_visit_occurrence_id",
             "fileObject": {
@@ -2599,7 +2600,7 @@
           "@id": "file_12_condition_source_concept_id",
           "name": "condition_source_concept_id",
           "description": "Column 'condition_source_concept_id' from condition_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_12_source_condition_source_concept_id",
             "fileObject": {
@@ -2648,14 +2649,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_13",
       "name": "2b_concept_relationship",
-      "description": "Records from 2b_concept_relationship.csv (1000 rows)",
+      "description": "Records from 2b_concept_relationship.csv (7716 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_13_concept_id_1",
           "name": "concept_id_1",
           "description": "Column 'concept_id_1' from 2b_concept_relationship.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_13_source_concept_id_1",
             "fileObject": {
@@ -2671,7 +2672,7 @@
           "@id": "file_13_concept_id_2",
           "name": "concept_id_2",
           "description": "Column 'concept_id_2' from 2b_concept_relationship.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_13_source_concept_id_2",
             "fileObject": {
@@ -2752,14 +2753,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_14",
       "name": "drug_era",
-      "description": "Records from drug_era.csv (1000 rows)",
+      "description": "Records from drug_era.csv (7931 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_14_drug_era_id",
           "name": "drug_era_id",
           "description": "Column 'drug_era_id' from drug_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_14_source_drug_era_id",
             "fileObject": {
@@ -2775,7 +2776,7 @@
           "@id": "file_14_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from drug_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_14_source_person_id",
             "fileObject": {
@@ -2791,7 +2792,7 @@
           "@id": "file_14_drug_concept_id",
           "name": "drug_concept_id",
           "description": "Column 'drug_concept_id' from drug_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_14_source_drug_concept_id",
             "fileObject": {
@@ -2839,7 +2840,7 @@
           "@id": "file_14_drug_exposure_count",
           "name": "drug_exposure_count",
           "description": "Column 'drug_exposure_count' from drug_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_14_source_drug_exposure_count",
             "fileObject": {
@@ -2855,7 +2856,7 @@
           "@id": "file_14_gap_days",
           "name": "gap_days",
           "description": "Column 'gap_days' from drug_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_14_source_gap_days",
             "fileObject": {
@@ -3047,7 +3048,7 @@
           "@id": "file_16_visit_occurrence_id",
           "name": "visit_occurrence_id",
           "description": "Column 'visit_occurrence_id' from visit_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_visit_occurrence_id",
             "fileObject": {
@@ -3063,7 +3064,7 @@
           "@id": "file_16_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from visit_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_person_id",
             "fileObject": {
@@ -3079,7 +3080,7 @@
           "@id": "file_16_visit_concept_id",
           "name": "visit_concept_id",
           "description": "Column 'visit_concept_id' from visit_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_visit_concept_id",
             "fileObject": {
@@ -3111,7 +3112,7 @@
           "@id": "file_16_visit_start_datetime",
           "name": "visit_start_datetime",
           "description": "Column 'visit_start_datetime' from visit_occurrence.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_16_source_visit_start_datetime",
             "fileObject": {
@@ -3143,7 +3144,7 @@
           "@id": "file_16_visit_end_datetime",
           "name": "visit_end_datetime",
           "description": "Column 'visit_end_datetime' from visit_occurrence.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_16_source_visit_end_datetime",
             "fileObject": {
@@ -3159,7 +3160,7 @@
           "@id": "file_16_visit_type_concept_id",
           "name": "visit_type_concept_id",
           "description": "Column 'visit_type_concept_id' from visit_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_visit_type_concept_id",
             "fileObject": {
@@ -3223,7 +3224,7 @@
           "@id": "file_16_visit_source_concept_id",
           "name": "visit_source_concept_id",
           "description": "Column 'visit_source_concept_id' from visit_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_visit_source_concept_id",
             "fileObject": {
@@ -3239,7 +3240,7 @@
           "@id": "file_16_admitting_source_concept_id",
           "name": "admitting_source_concept_id",
           "description": "Column 'admitting_source_concept_id' from visit_occurrence.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_admitting_source_concept_id",
             "fileObject": {
@@ -3271,7 +3272,7 @@
           "@id": "file_16_discharge_to_concept_id",
           "name": "discharge_to_concept_id",
           "description": "Column 'discharge_to_concept_id' from visit_occurrence.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_discharge_to_concept_id",
             "fileObject": {
@@ -3303,7 +3304,7 @@
           "@id": "file_16_preceding_visit_occurrence_id",
           "name": "preceding_visit_occurrence_id",
           "description": "Column 'preceding_visit_occurrence_id' from visit_occurrence.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_16_source_preceding_visit_occurrence_id",
             "fileObject": {
@@ -3327,7 +3328,7 @@
           "@id": "file_17_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from person.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_person_id",
             "fileObject": {
@@ -3343,7 +3344,7 @@
           "@id": "file_17_gender_concept_id",
           "name": "gender_concept_id",
           "description": "Column 'gender_concept_id' from person.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_gender_concept_id",
             "fileObject": {
@@ -3359,7 +3360,7 @@
           "@id": "file_17_year_of_birth",
           "name": "year_of_birth",
           "description": "Column 'year_of_birth' from person.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_year_of_birth",
             "fileObject": {
@@ -3423,7 +3424,7 @@
           "@id": "file_17_race_concept_id",
           "name": "race_concept_id",
           "description": "Column 'race_concept_id' from person.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_race_concept_id",
             "fileObject": {
@@ -3439,7 +3440,7 @@
           "@id": "file_17_ethnicity_concept_id",
           "name": "ethnicity_concept_id",
           "description": "Column 'ethnicity_concept_id' from person.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_ethnicity_concept_id",
             "fileObject": {
@@ -3503,7 +3504,7 @@
           "@id": "file_17_person_source_value",
           "name": "person_source_value",
           "description": "Column 'person_source_value' from person.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_person_source_value",
             "fileObject": {
@@ -3535,7 +3536,7 @@
           "@id": "file_17_gender_source_concept_id",
           "name": "gender_source_concept_id",
           "description": "Column 'gender_source_concept_id' from person.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_gender_source_concept_id",
             "fileObject": {
@@ -3567,7 +3568,7 @@
           "@id": "file_17_race_source_concept_id",
           "name": "race_source_concept_id",
           "description": "Column 'race_source_concept_id' from person.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_race_source_concept_id",
             "fileObject": {
@@ -3599,7 +3600,7 @@
           "@id": "file_17_ethnicity_source_concept_id",
           "name": "ethnicity_source_concept_id",
           "description": "Column 'ethnicity_source_concept_id' from person.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_17_source_ethnicity_source_concept_id",
             "fileObject": {
@@ -3616,14 +3617,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_18",
       "name": "observation",
-      "description": "Records from observation.csv (1000 rows)",
+      "description": "Records from observation.csv (31390 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_18_observation_id",
           "name": "observation_id",
           "description": "Column 'observation_id' from observation.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_observation_id",
             "fileObject": {
@@ -3639,7 +3640,7 @@
           "@id": "file_18_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from observation.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_person_id",
             "fileObject": {
@@ -3655,7 +3656,7 @@
           "@id": "file_18_observation_concept_id",
           "name": "observation_concept_id",
           "description": "Column 'observation_concept_id' from observation.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_observation_concept_id",
             "fileObject": {
@@ -3687,7 +3688,7 @@
           "@id": "file_18_observation_datetime",
           "name": "observation_datetime",
           "description": "Column 'observation_datetime' from observation.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_18_source_observation_datetime",
             "fileObject": {
@@ -3703,7 +3704,7 @@
           "@id": "file_18_observation_type_concept_id",
           "name": "observation_type_concept_id",
           "description": "Column 'observation_type_concept_id' from observation.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_observation_type_concept_id",
             "fileObject": {
@@ -3719,7 +3720,7 @@
           "@id": "file_18_value_as_number",
           "name": "value_as_number",
           "description": "Column 'value_as_number' from observation.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_value_as_number",
             "fileObject": {
@@ -3751,7 +3752,7 @@
           "@id": "file_18_value_as_concept_id",
           "name": "value_as_concept_id",
           "description": "Column 'value_as_concept_id' from observation.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_value_as_concept_id",
             "fileObject": {
@@ -3815,7 +3816,7 @@
           "@id": "file_18_visit_occurrence_id",
           "name": "visit_occurrence_id",
           "description": "Column 'visit_occurrence_id' from observation.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_visit_occurrence_id",
             "fileObject": {
@@ -3863,7 +3864,7 @@
           "@id": "file_18_observation_source_concept_id",
           "name": "observation_source_concept_id",
           "description": "Column 'observation_source_concept_id' from observation.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_18_source_observation_source_concept_id",
             "fileObject": {
@@ -3912,14 +3913,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_19",
       "name": "visit_detail",
-      "description": "Records from visit_detail.csv (1000 rows)",
+      "description": "Records from visit_detail.csv (14479 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_19_visit_detail_id",
           "name": "visit_detail_id",
           "description": "Column 'visit_detail_id' from visit_detail.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_visit_detail_id",
             "fileObject": {
@@ -3935,7 +3936,7 @@
           "@id": "file_19_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from visit_detail.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_person_id",
             "fileObject": {
@@ -3951,7 +3952,7 @@
           "@id": "file_19_visit_detail_concept_id",
           "name": "visit_detail_concept_id",
           "description": "Column 'visit_detail_concept_id' from visit_detail.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_visit_detail_concept_id",
             "fileObject": {
@@ -3983,7 +3984,7 @@
           "@id": "file_19_visit_detail_start_datetime",
           "name": "visit_detail_start_datetime",
           "description": "Column 'visit_detail_start_datetime' from visit_detail.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_19_source_visit_detail_start_datetime",
             "fileObject": {
@@ -4015,7 +4016,7 @@
           "@id": "file_19_visit_detail_end_datetime",
           "name": "visit_detail_end_datetime",
           "description": "Column 'visit_detail_end_datetime' from visit_detail.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_19_source_visit_detail_end_datetime",
             "fileObject": {
@@ -4031,7 +4032,7 @@
           "@id": "file_19_visit_detail_type_concept_id",
           "name": "visit_detail_type_concept_id",
           "description": "Column 'visit_detail_type_concept_id' from visit_detail.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_visit_detail_type_concept_id",
             "fileObject": {
@@ -4063,7 +4064,7 @@
           "@id": "file_19_care_site_id",
           "name": "care_site_id",
           "description": "Column 'care_site_id' from visit_detail.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_care_site_id",
             "fileObject": {
@@ -4079,7 +4080,7 @@
           "@id": "file_19_admitting_source_concept_id",
           "name": "admitting_source_concept_id",
           "description": "Column 'admitting_source_concept_id' from visit_detail.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_admitting_source_concept_id",
             "fileObject": {
@@ -4095,7 +4096,7 @@
           "@id": "file_19_discharge_to_concept_id",
           "name": "discharge_to_concept_id",
           "description": "Column 'discharge_to_concept_id' from visit_detail.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_discharge_to_concept_id",
             "fileObject": {
@@ -4111,7 +4112,7 @@
           "@id": "file_19_preceding_visit_detail_id",
           "name": "preceding_visit_detail_id",
           "description": "Column 'preceding_visit_detail_id' from visit_detail.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_preceding_visit_detail_id",
             "fileObject": {
@@ -4143,7 +4144,7 @@
           "@id": "file_19_visit_detail_source_concept_id",
           "name": "visit_detail_source_concept_id",
           "description": "Column 'visit_detail_source_concept_id' from visit_detail.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_visit_detail_source_concept_id",
             "fileObject": {
@@ -4207,7 +4208,7 @@
           "@id": "file_19_visit_occurrence_id",
           "name": "visit_occurrence_id",
           "description": "Column 'visit_occurrence_id' from visit_detail.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_19_source_visit_occurrence_id",
             "fileObject": {
@@ -4224,14 +4225,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_20",
       "name": "procedure_occurrence",
-      "description": "Records from procedure_occurrence.csv (1000 rows)",
+      "description": "Records from procedure_occurrence.csv (18447 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_20_procedure_occurrence_id",
           "name": "procedure_occurrence_id",
           "description": "Column 'procedure_occurrence_id' from procedure_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_procedure_occurrence_id",
             "fileObject": {
@@ -4247,7 +4248,7 @@
           "@id": "file_20_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from procedure_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_person_id",
             "fileObject": {
@@ -4263,7 +4264,7 @@
           "@id": "file_20_procedure_concept_id",
           "name": "procedure_concept_id",
           "description": "Column 'procedure_concept_id' from procedure_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_procedure_concept_id",
             "fileObject": {
@@ -4295,7 +4296,7 @@
           "@id": "file_20_procedure_datetime",
           "name": "procedure_datetime",
           "description": "Column 'procedure_datetime' from procedure_occurrence.csv",
-          "dataType": "sc:Date",
+          "dataType": "sc:DateTime",
           "source": {
             "@id": "file_20_source_procedure_datetime",
             "fileObject": {
@@ -4311,7 +4312,7 @@
           "@id": "file_20_procedure_type_concept_id",
           "name": "procedure_type_concept_id",
           "description": "Column 'procedure_type_concept_id' from procedure_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_procedure_type_concept_id",
             "fileObject": {
@@ -4327,7 +4328,7 @@
           "@id": "file_20_modifier_concept_id",
           "name": "modifier_concept_id",
           "description": "Column 'modifier_concept_id' from procedure_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_modifier_concept_id",
             "fileObject": {
@@ -4343,7 +4344,7 @@
           "@id": "file_20_quantity",
           "name": "quantity",
           "description": "Column 'quantity' from procedure_occurrence.csv",
-          "dataType": "sc:Float",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_quantity",
             "fileObject": {
@@ -4375,7 +4376,7 @@
           "@id": "file_20_visit_occurrence_id",
           "name": "visit_occurrence_id",
           "description": "Column 'visit_occurrence_id' from procedure_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_visit_occurrence_id",
             "fileObject": {
@@ -4423,7 +4424,7 @@
           "@id": "file_20_procedure_source_concept_id",
           "name": "procedure_source_concept_id",
           "description": "Column 'procedure_source_concept_id' from procedure_occurrence.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_20_source_procedure_source_concept_id",
             "fileObject": {
@@ -4456,14 +4457,14 @@
       "@type": "cr:RecordSet",
       "@id": "recordset_21",
       "name": "condition_era",
-      "description": "Records from condition_era.csv (1000 rows)",
+      "description": "Records from condition_era.csv (3771 rows)",
       "field": [
         {
           "@type": "cr:Field",
           "@id": "file_21_condition_era_id",
           "name": "condition_era_id",
           "description": "Column 'condition_era_id' from condition_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_21_source_condition_era_id",
             "fileObject": {
@@ -4479,7 +4480,7 @@
           "@id": "file_21_person_id",
           "name": "person_id",
           "description": "Column 'person_id' from condition_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_21_source_person_id",
             "fileObject": {
@@ -4495,7 +4496,7 @@
           "@id": "file_21_condition_concept_id",
           "name": "condition_concept_id",
           "description": "Column 'condition_concept_id' from condition_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_21_source_condition_concept_id",
             "fileObject": {
@@ -4543,7 +4544,7 @@
           "@id": "file_21_condition_occurrence_count",
           "name": "condition_occurrence_count",
           "description": "Column 'condition_occurrence_count' from condition_era.csv",
-          "dataType": "sc:Integer",
+          "dataType": "cr:Int64",
           "source": {
             "@id": "file_21_source_condition_occurrence_count",
             "fileObject": {

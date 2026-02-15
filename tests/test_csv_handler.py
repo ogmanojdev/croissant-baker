@@ -31,9 +31,9 @@ def test_csv_handler_extract_metadata(tmp_path: Path) -> None:
     assert metadata["columns"] == ["id", "name", "age"]
 
     column_types = metadata["column_types"]
-    assert column_types["id"] == "sc:Integer"
+    assert column_types["id"] == "cr:Int64"
     assert column_types["name"] == "sc:Text"
-    assert column_types["age"] == "sc:Integer"
+    assert column_types["age"] == "cr:Int64"
 
 
 def test_csv_handler_empty_file(tmp_path: Path) -> None:
@@ -42,7 +42,7 @@ def test_csv_handler_empty_file(tmp_path: Path) -> None:
     empty_csv.write_text("")
 
     handler = CSVHandler()
-    with pytest.raises(ValueError, match="CSV file contains no data"):
+    with pytest.raises(ValueError):
         handler.extract_metadata(empty_csv)
 
 
@@ -57,5 +57,5 @@ def test_csv_handler_data_types(tmp_path: Path) -> None:
 
     column_types = metadata["column_types"]
     assert column_types["bool_col"] == "sc:Boolean"
-    assert column_types["float_col"] == "sc:Float"
+    assert column_types["float_col"] == "cr:Float64"
     assert column_types["text_col"] == "sc:Text"

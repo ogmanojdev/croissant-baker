@@ -9,7 +9,7 @@ import mlcroissant as mlc
 
 from croissant_maker.files import discover_files
 from croissant_maker.handlers.registry import find_handler, register_all_handlers
-from croissant_maker.handlers.utils import get_clean_record_name
+from croissant_maker.handlers.utils import get_clean_record_name, sanitize_id
 
 # Register all handlers
 register_all_handlers()
@@ -213,17 +213,20 @@ class MetadataGenerator:
         # related_files, so enumerate(i) would cause ID conflicts. The counter
         # increments for every FileObject created, not just per iteration.
         file_counter = 0
+        recordset_counter = 0
 
-        for i, file_meta in enumerate(file_metadata):
+        # Collect image file IDs so we can build one FileSet + summary
+        # RecordSet after the per-file loop (images are grouped, not per-file).
+        image_file_ids = []
+        image_metas = []
+
+        for file_meta in file_metadata:
             file_id = f"file_{file_counter}"
             file_counter += 1
 
-            # Create FileObject for each file
-            # What this section does well:
-            # - Correctly creates a cr:FileObject for each discovered file.
-            # - Uses relative contentUrl, which is best practice.
-            # - Calculates sha256 checksum for reproducibility.
-            # - Populates name, encoding_formats, and content_size.
+            # Create FileObject for each file.
+            # Correctly creates a cr:FileObject per discovered file with
+            # relative contentUrl, SHA256 checksum, size, and encoding format.
             file_obj = mlc.FileObject(
                 id=file_id,
                 name=file_meta["file_name"],
@@ -256,12 +259,9 @@ class MetadataGenerator:
                     )
                     file_objects.append(related_obj)
 
-            # Create RecordSet and Fields for files with structured data that have column types
-            # What this section does well:
-            # - Creates a cr:RecordSet for each file with structured data.
-            # - Automatically infers data types for columns (sc:Text, sc:Integer, etc.).
-            # - Correctly sets up the source with fileObject and column extraction.
-            # - Generates unique and descriptive IDs for fields and record sets.
+            # --- RecordSet creation per file type ---
+
+            # Tabular data (CSV, Parquet): one RecordSet per file with column fields
             #
             # TODO: Add support for more advanced Croissant features.
             # - references: Detect and add `references` for foreign key relationships
@@ -270,13 +270,14 @@ class MetadataGenerator:
             if "column_types" in file_meta:
                 fields = []
                 for col_name, col_type in file_meta["column_types"].items():
+                    safe_name = sanitize_id(col_name)
                     field = mlc.Field(
-                        id=f"{file_id}_{col_name}",
+                        id=f"{file_id}_{safe_name}",
                         name=col_name,
                         description=f"Column '{col_name}' from {file_meta['file_name']}",
                         data_types=[col_type],
                         source=mlc.Source(
-                            id=f"{file_id}_source_{col_name}",
+                            id=f"{file_id}_source_{safe_name}",
                             file_object=file_id,
                             extract=mlc.Extract(column=col_name),
                         ),
@@ -284,25 +285,26 @@ class MetadataGenerator:
                     fields.append(field)
 
                 record_set = mlc.RecordSet(
-                    id=f"recordset_{i}",
+                    id=f"recordset_{recordset_counter}",
                     name=get_clean_record_name(file_meta["file_name"]),
                     description=f"Records from {file_meta['file_name']} ({file_meta.get('num_rows', 'unknown')} rows)",
                     fields=fields,
                 )
                 record_sets.append(record_set)
+                recordset_counter += 1
 
-            # Create RecordSet for signal data (e.g., WFDB physiological waveforms)
-            # Signal data has continuous time-series rather than discrete columns
+            # Signal data (e.g., WFDB physiological waveforms)
             elif "signal_types" in file_meta:
                 fields = []
                 for signal_name, signal_type in file_meta["signal_types"].items():
+                    safe_name = sanitize_id(signal_name)
                     field = mlc.Field(
-                        id=f"{file_id}_{signal_name}",
+                        id=f"{file_id}_{safe_name}",
                         name=signal_name,
                         description=f"Signal '{signal_name}' from {file_meta['record_name']}",
                         data_types=[signal_type],
                         source=mlc.Source(
-                            id=f"{file_id}_source_{signal_name}",
+                            id=f"{file_id}_source_{safe_name}",
                             file_object=file_id,
                         ),
                     )
@@ -313,12 +315,89 @@ class MetadataGenerator:
                 sampling_freq = file_meta.get("sampling_frequency", 0)
 
                 record_set = mlc.RecordSet(
-                    id=f"recordset_{i}",
+                    id=f"recordset_{recordset_counter}",
                     name=file_meta["record_name"],
                     description=f"WFDB record {file_meta['record_name']}: {file_meta.get('num_signals', 0)} signals at {sampling_freq} Hz, {num_samples} samples ({duration:.2f} seconds)",
                     fields=fields,
                 )
                 record_sets.append(record_set)
+                recordset_counter += 1
+
+            # Image data: defer to summary RecordSet after the loop
+            elif "image_properties" in file_meta:
+                image_file_ids.append(file_id)
+                image_metas.append(file_meta)
+
+        # Build a FileSet + summary RecordSet for all images in the dataset.
+        # Each image already has its own cr:FileObject (with SHA256 and size).
+        # The FileSet groups them by glob pattern so the RecordSet source can
+        # reference all images at once, following the Croissant spec PASS example.
+        if image_file_ids:
+            from croissant_maker.handlers.image_handler import collect_image_summary
+
+            summary = collect_image_summary(image_metas)
+            w_lo, w_hi = summary["width_range"]
+            h_lo, h_hi = summary["height_range"]
+            b_lo, b_hi = summary["num_bands_range"]
+            formats_str = ", ".join(
+                f"{fmt} ({cnt})" for fmt, cnt in summary["format_counts"].items()
+            )
+
+            # Human-readable dimension string for the RecordSet description.
+            # Uniform size → "1920x1080", mixed → "640-1920x480-1080".
+            if w_lo == w_hi and h_lo == h_hi:
+                dims = f"{w_lo}x{h_lo}"
+            else:
+                dims = f"{w_lo}-{w_hi}x{h_lo}-{h_hi}"
+
+            # Only mention band count when images are multi-band (>4),
+            # i.e. scientific imagery like Sentinel-2. Standard RGB/RGBA
+            # images (1-4 bands) don't need the note.
+            bands_note = f", {b_lo}-{b_hi} bands" if b_hi > 4 else ""
+
+            # Determine unique extensions and MIME types across all images.
+            extensions = set()
+            mime_types = set()
+            for meta in image_metas:
+                ext = Path(meta["file_name"]).suffix.lower()
+                extensions.add(ext)
+                mime_types.add(meta["encoding_format"])
+
+            # Build glob patterns -- use **/ prefix to match subdirectories.
+            includes = [f"**/*{ext}" for ext in sorted(extensions)]
+
+            fileset_id = "image-files"
+            image_fileset = mlc.FileSet(
+                id=fileset_id,
+                name="Image files",
+                description=f"{summary['num_images']} image files ({formats_str})",
+                encoding_formats=sorted(mime_types),
+                includes=includes,
+            )
+            file_objects.append(image_fileset)
+
+            image_fields = [
+                mlc.Field(
+                    id="images/image_content",
+                    name="image",
+                    description=f"Image content ({summary['num_images']} files, {formats_str})",
+                    data_types=["sc:ImageObject"],
+                    source=mlc.Source(
+                        id="images/image_content/source",
+                        file_set=fileset_id,
+                        extract=mlc.Extract(file_property="content"),
+                    ),
+                ),
+            ]
+
+            image_record_set = mlc.RecordSet(
+                id=f"recordset_{recordset_counter}",
+                name="images",
+                description=f"{summary['num_images']} images ({dims}{bands_note}): {formats_str}",
+                fields=image_fields,
+            )
+            record_sets.append(image_record_set)
+            recordset_counter += 1
 
         metadata.distribution = file_objects
         metadata.record_sets = record_sets

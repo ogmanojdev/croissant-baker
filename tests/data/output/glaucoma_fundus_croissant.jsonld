@@ -1,0 +1,286 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "Hillel Yaffe Glaucoma Dataset (subset)",
+  "description": "Subset of fundus images for glaucoma screening with GON labels",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "citeAs": "Dataset Creator. (2026). Hillel Yaffe Glaucoma Dataset (subset) Dataset. Generated with automated type inference.",
+  "creator": {
+    "@type": "sc:Person",
+    "name": "Hillel Yaffe Medical Center"
+  },
+  "datePublished": "2024-11-14T00:00:00",
+  "license": "https://physionet.org/content/hyg-dataset/1.0.0/LICENSE.txt",
+  "url": "https://physionet.org/content/hyg-dataset/1.0.0/",
+  "version": "1.0.0",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_0",
+      "name": "Labels.csv",
+      "contentSize": "336",
+      "contentUrl": "Labels.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "42f00217ba4add8ec6915fc1197b9e994befee805f5edc1d0aa74ff5c9e7cf43"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_1",
+      "name": "101_0.jpg",
+      "contentSize": "114350",
+      "contentUrl": "Images/101_0.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "de80817337c57da16e57728866c00b32564059b1e7ff055f28d90c8e8ffc1df0"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_2",
+      "name": "103_0.jpg",
+      "contentSize": "119263",
+      "contentUrl": "Images/103_0.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "d0eb4e03a466888349fb26f51407b8ae070182e36c1f4f71e7f5f9e319bb5f55"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_3",
+      "name": "105_0.jpg",
+      "contentSize": "140696",
+      "contentUrl": "Images/105_0.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "bb71a0537e8424383c7c1e853633ffeb2cb40c8196d1bebdc74e6f572a7032e0"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_4",
+      "name": "187_0.jpg",
+      "contentSize": "130710",
+      "contentUrl": "Images/187_0.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "2cebc8a350e2334b156338dfb829430182728748a163cb1d1d6bcf426d79ff8b"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_5",
+      "name": "102_0.jpg",
+      "contentSize": "113014",
+      "contentUrl": "Images/102_0.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "ce934d84a70f0b85b24e0dc6be88b76d285d5b431fb1c2c8f67cca2940be1a89"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_6",
+      "name": "100_0.jpg",
+      "contentSize": "141007",
+      "contentUrl": "Images/100_0.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "1264f6696dbb7a16db253c810cf035e0c5e01afd50e4518297c9f1c56e4168ff"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_7",
+      "name": "104_0.jpg",
+      "contentSize": "107388",
+      "contentUrl": "Images/104_0.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "7c9751b4bf0a1a9410f9f8a87a33391e516ea4d5b984771756afa4fedf7be2a5"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_8",
+      "name": "106_0.jpg",
+      "contentSize": "104051",
+      "contentUrl": "Images/106_0.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "46ca55ce554b6096f1d665a6441be3272e1fb6938ac71fe1e66624dc49a47c72"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_9",
+      "name": "189_1.jpg",
+      "contentSize": "118245",
+      "contentUrl": "Images/189_1.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "d29156512d119a6701618ef1f3df1163a4cb62743b8b1ffddf519a4a19e097b0"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_10",
+      "name": "189_0.jpg",
+      "contentSize": "123234",
+      "contentUrl": "Images/189_0.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "832aae1f96d07fd3faf47c86eafa6926237f7f0e0416f2e733865ce84f3d7570"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_11",
+      "name": "0_0.jpg",
+      "contentSize": "129766",
+      "contentUrl": "Images/0_0.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "c3820cfdc49b1e5286a9f111f5e10a0ab4d31393c65cf4e082a7e0d6301ff174"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_12",
+      "name": "188_0.jpg",
+      "contentSize": "126287",
+      "contentUrl": "Images/188_0.jpg",
+      "encodingFormat": "image/jpeg",
+      "sha256": "2c09cc3def69924e01e8ecd28aaaed94ca95cd7cdb4b268a9d1c306f8cb99afe"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "image-files",
+      "name": "Image files",
+      "description": "12 image files (JPEG (12))",
+      "encodingFormat": "image/jpeg",
+      "includes": "**/*.jpg"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_0",
+      "name": "Labels",
+      "description": "Records from Labels.csv (12 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_Image_Name",
+          "name": "Image Name",
+          "description": "Column 'Image Name' from Labels.csv",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_Image_Name",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "Image Name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_Patient",
+          "name": "Patient",
+          "description": "Column 'Patient' from Labels.csv",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_0_source_Patient",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "Patient"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_Label",
+          "name": "Label",
+          "description": "Column 'Label' from Labels.csv",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_Label",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "Label"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_Quality_Score",
+          "name": "Quality Score",
+          "description": "Column 'Quality Score' from Labels.csv",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_0_source_Quality_Score",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "Quality Score"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_1",
+      "name": "images",
+      "description": "12 images (1875-1935x1875-1935): JPEG (12)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "images/image_content",
+          "name": "image",
+          "description": "Image content (12 files, JPEG (12))",
+          "dataType": "sc:ImageObject",
+          "source": {
+            "@id": "images/image_content/source",
+            "fileSet": {
+              "@id": "image-files"
+            },
+            "extract": {
+              "fileProperty": "content"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

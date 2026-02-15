@@ -1,147 +1,119 @@
 """Shared utilities for file handlers."""
 
-import pandas as pd
 import hashlib
 import gzip  # Built-in: handles .gz (gzip) compression
 import bz2  # Built-in: handles .bz2 (bzip2) compression
 import lzma  # Built-in: handles .xz/.lzma (LZMA/xz) compression
-import re
 import logging
+import re
 from pathlib import Path
-from typing import Dict, Any, Union
+from typing import Dict, Union
+
+import pyarrow as pa
+import pyarrow.types as patypes
 
 # Set up logger for this module
 logger = logging.getLogger(__name__)
 
-# Compile regex patterns once for performance
-_DATETIME_NAME_PATTERNS = [
-    re.compile(pattern)
-    for pattern in [
-        r".*time$",
-        r".*date$",
-        r".*timestamp$",
-        r"^date",
-        r"^time",
-        r"intime",
-        r"outtime",
-        r"charttime",
-        r"storetime",
-        r"dischtime",
-        r"admittime",
-        r"createtime",
-        r"updatetime",
-        r".*_dt$",
-        r".*_ts$",
-    ]
-]
-
-_DATETIME_VALUE_PATTERNS = [
-    re.compile(pattern)
-    for pattern in [
-        r"\d{4}-\d{2}-\d{2}",  # YYYY-MM-DD
-        r"\d{2}/\d{2}/\d{4}",  # MM/DD/YYYY
-        r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}",  # YYYY-MM-DD HH:MM:SS
-        r"\d{2}:\d{2}:\d{2}",  # HH:MM:SS
-    ]
-]
+# Characters that are invalid in Croissant @id values.
+# mlcroissant rejects whitespace and URI-unsafe characters like >, (, ), %.
+_INVALID_ID_CHARS = re.compile(r"[^A-Za-z0-9_.\-]")
 
 
-def infer_column_types(df: pd.DataFrame) -> Dict[str, str]:
+def sanitize_id(raw: str) -> str:
+    """Replace characters that mlcroissant rejects in @id values.
+
+    Column names like 'Image Name' or 'Age>30(%)' contain spaces or
+    URI-unsafe characters that cause mlcroissant validation errors.
+    This replaces anything outside [A-Za-z0-9_.-] with underscores.
     """
-    Infer data types for DataFrame columns and map to Croissant types.
+    return _INVALID_ID_CHARS.sub("_", raw)
 
-    Uses pandas dtype detection combined with content analysis for
-    datetime fields that may be stored as strings.
+
+def map_arrow_type(arrow_type: pa.DataType) -> str:
+    """
+    Map a PyArrow data type to the corresponding Croissant type string.
+
+    Uses precise Croissant types where available (cr:Int64, cr:Float32, etc.)
+    and falls back to schema.org types for dates, text, and booleans.
+
+    This is the single source of truth for type mapping across all handlers
+    (CSV, Parquet, and future formats like JSON, O RC, Feather).
 
     Args:
-        df: DataFrame to analyze
+        arrow_type: A PyArrow DataType from a table or file schema.
+
+    Returns:
+        Croissant-compatible type string (e.g. "sc:DateTime", "cr:Int64").
+    """
+    try:
+        # Timestamps (with or without timezone) → sc:DateTime
+        if patypes.is_timestamp(arrow_type):
+            return "sc:DateTime"
+
+        # Date-only (no time component) → sc:Date
+        if patypes.is_date(arrow_type):
+            return "sc:Date"
+
+        # Time-only → sc:Time
+        if patypes.is_time(arrow_type):
+            return "sc:Time"
+
+        # Integers — use precise Croissant types with bit-width
+        if patypes.is_integer(arrow_type):
+            prefix = "cr:UInt" if patypes.is_unsigned_integer(arrow_type) else "cr:Int"
+            return f"{prefix}{arrow_type.bit_width}"
+
+        # Floats — use precise Croissant types with bit-width
+        # Croissant spec only defines cr:Float16, cr:Float32, cr:Float64.
+        # For smaller widths (e.g. float8) fall back to generic sc:Float,
+        # matching HuggingFace's behavior.
+        if patypes.is_floating(arrow_type):
+            bw = arrow_type.bit_width
+            if bw in (16, 32, 64):
+                return f"cr:Float{bw}"
+            return "sc:Float"
+
+        # Decimals → cr:Float64 (best general approximation)
+        if patypes.is_decimal(arrow_type):
+            return "cr:Float64"
+
+        # Booleans
+        if patypes.is_boolean(arrow_type):
+            return "sc:Boolean"
+
+        # Strings
+        if patypes.is_string(arrow_type) or patypes.is_large_string(arrow_type):
+            return "sc:Text"
+
+        # Binary data
+        if patypes.is_binary(arrow_type) or patypes.is_large_binary(arrow_type):
+            return "sc:Text"
+
+        # Null type (all values null) → safe fallback
+        if patypes.is_null(arrow_type):
+            return "sc:Text"
+
+    except Exception:
+        pass
+
+    # Fallback for any unrecognized or exotic types
+    return "sc:Text"
+
+
+def infer_column_types_from_arrow_schema(schema: pa.Schema) -> Dict[str, str]:
+    """
+    Infer Croissant types for all columns in a PyArrow schema.
+
+    This is the shared entry point used by both CSV and Parquet handlers.
+
+    Args:
+        schema: A PyArrow Schema (from a Table, ParquetFile, etc.)
 
     Returns:
         Dictionary mapping column names to Croissant type strings.
-        Returns empty dict if DataFrame is None or empty.
     """
-    if df is None or df.empty:
-        logger.warning("Empty or None DataFrame provided to infer_column_types")
-        return {}
-
-    type_mapping = {}
-
-    for column in df.columns:
-        try:
-            series = df[column].dropna()
-
-            if len(series) == 0:
-                type_mapping[column] = "sc:Text"
-                continue
-
-            # Check pandas dtype first
-            if pd.api.types.is_integer_dtype(series):
-                type_mapping[column] = "sc:Integer"
-            elif pd.api.types.is_float_dtype(series):
-                type_mapping[column] = "sc:Float"
-            elif pd.api.types.is_bool_dtype(series):
-                type_mapping[column] = "sc:Boolean"
-            elif pd.api.types.is_datetime64_any_dtype(series):
-                type_mapping[column] = "sc:Date"
-            else:
-                # Check if string column contains datetime values
-                if _is_likely_datetime_column(column, series):
-                    type_mapping[column] = "sc:Date"
-                else:
-                    type_mapping[column] = "sc:Text"
-        except Exception as e:
-            # Log warning but don't fail - default to Text for problematic columns
-            logger.warning(f"Could not infer type for column '{column}': {e}")
-            type_mapping[column] = "sc:Text"
-
-    return type_mapping
-
-
-def _is_likely_datetime_column(column_name: str, series: pd.Series) -> bool:
-    """
-    Determine if a column likely contains datetime data.
-
-    Uses column name patterns and value sampling to detect datetime columns.
-    """
-    # Check column name patterns
-    column_lower = column_name.lower()
-    name_matches = any(
-        pattern.match(column_lower) for pattern in _DATETIME_NAME_PATTERNS
-    )
-
-    if not name_matches:
-        return False
-
-    # Verify with sample values
-    sample_values = series.head(10).astype(str)
-
-    # Check if values match datetime patterns
-    for value in sample_values:
-        for dt_pattern in _DATETIME_VALUE_PATTERNS:
-            if dt_pattern.search(str(value)):
-                return True
-
-    return False
-
-
-def analyze_data_sample(df: pd.DataFrame, max_rows: int = 3) -> Dict[str, Any]:
-    """
-    Analyze a DataFrame and return useful metadata about the data.
-
-    Args:
-        df: DataFrame to analyze
-        max_rows: Maximum number of sample rows to include
-
-    Returns:
-        Dictionary containing column types, sample data, and basic stats
-    """
-    return {
-        "column_types": infer_column_types(df),
-        "num_rows": len(df),
-        "num_columns": len(df.columns),
-        "columns": list(df.columns),
-        "sample_data": df.head(max_rows).to_dict("records") if len(df) > 0 else [],
-    }
+    return {field.name: map_arrow_type(field.type) for field in schema}
 
 
 def compute_file_hash(file_path: Union[str, Path]) -> str:
