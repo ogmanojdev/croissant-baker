@@ -581,7 +581,7 @@
           "@id": "file_1_paop",
           "name": "paop",
           "description": "Column 'paop' from vitalAperiodic.csv.gz",
-          "dataType": "cr:Int64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_1_source_paop",
             "fileObject": {
@@ -597,7 +597,7 @@
           "@id": "file_1_cardiacoutput",
           "name": "cardiacoutput",
           "description": "Column 'cardiacoutput' from vitalAperiodic.csv.gz",
-          "dataType": "cr:Float64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_1_source_cardiacoutput",
             "fileObject": {
@@ -613,7 +613,7 @@
           "@id": "file_1_cardiacinput",
           "name": "cardiacinput",
           "description": "Column 'cardiacinput' from vitalAperiodic.csv.gz",
-          "dataType": "cr:Float64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_1_source_cardiacinput",
             "fileObject": {
@@ -645,7 +645,7 @@
           "@id": "file_1_svri",
           "name": "svri",
           "description": "Column 'svri' from vitalAperiodic.csv.gz",
-          "dataType": "cr:Int64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_1_source_svri",
             "fileObject": {
@@ -661,7 +661,7 @@
           "@id": "file_1_pvr",
           "name": "pvr",
           "description": "Column 'pvr' from vitalAperiodic.csv.gz",
-          "dataType": "cr:Int64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_1_source_pvr",
             "fileObject": {
@@ -677,7 +677,7 @@
           "@id": "file_1_pvri",
           "name": "pvri",
           "description": "Column 'pvri' from vitalAperiodic.csv.gz",
-          "dataType": "cr:Int64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_1_source_pvri",
             "fileObject": {
@@ -1853,7 +1853,7 @@
           "@id": "file_6_icp",
           "name": "icp",
           "description": "Column 'icp' from vitalPeriodic.csv.gz",
-          "dataType": "cr:Int64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_6_source_icp",
             "fileObject": {

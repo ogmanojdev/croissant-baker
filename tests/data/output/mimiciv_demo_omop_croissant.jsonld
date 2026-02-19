@@ -2176,7 +2176,7 @@
           "@id": "file_11_operator_concept_id",
           "name": "operator_concept_id",
           "description": "Column 'operator_concept_id' from measurement.csv",
-          "dataType": "cr:Int64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_11_source_operator_concept_id",
             "fileObject": {
@@ -2208,7 +2208,7 @@
           "@id": "file_11_value_as_concept_id",
           "name": "value_as_concept_id",
           "description": "Column 'value_as_concept_id' from measurement.csv",
-          "dataType": "cr:Int64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_11_source_value_as_concept_id",
             "fileObject": {
@@ -2304,7 +2304,7 @@
           "@id": "file_11_visit_detail_id",
           "name": "visit_detail_id",
           "description": "Column 'visit_detail_id' from measurement.csv",
-          "dataType": "cr:Int64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_11_source_visit_detail_id",
             "fileObject": {

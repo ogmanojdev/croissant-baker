@@ -1,0 +1,6064 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "MIMIC-IV (full)",
+  "description": "MIMIC-IV hospital and ICU module data",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "citeAs": "Dataset Creator. (2026). MIMIC-IV (full) Dataset. Generated with automated type inference.",
+  "creator": {
+    "@type": "sc:Person",
+    "name": "MIT Lab for Computational Physiology"
+  },
+  "datePublished": "2026-02-15T21:01:41.710165",
+  "license": "https://physionet.org/content/mimiciv/view-license/",
+  "url": "https://physionet.org/content/mimiciv/",
+  "version": "1.0.0",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_0",
+      "name": "poe.csv.gz",
+      "contentSize": "666594177",
+      "contentUrl": "hosp/poe.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "914eebd5e44bd634eb528ec36f23398ce364b8b0db5f1b83f23b0fae444c0dca"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_1",
+      "name": "d_hcpcs.csv.gz",
+      "contentSize": "427554",
+      "contentUrl": "hosp/d_hcpcs.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "fb09c682021ffcfc186f175ef6798b2b096974083c4ff67dd44b26c7cce32d77"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_2",
+      "name": "poe_detail.csv.gz",
+      "contentSize": "55267894",
+      "contentUrl": "hosp/poe_detail.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "548fc355e28d9349315ac13dd0e1660a09f18cd2daf1c04833947a9d0510173d"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_3",
+      "name": "patients.csv.gz",
+      "contentSize": "2835586",
+      "contentUrl": "hosp/patients.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "11df8b065f89410e894ab72857c1ce5c431f6f5d675e1541f132d49122f7d756"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_4",
+      "name": "diagnoses_icd.csv.gz",
+      "contentSize": "33564802",
+      "contentUrl": "hosp/diagnoses_icd.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "0fb9d03a4466bdb19ddc5f60360251ce22e30413af809bb4a635b929733af575"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_5",
+      "name": "emar_detail.csv.gz",
+      "contentSize": "748158322",
+      "contentUrl": "hosp/emar_detail.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "b1df4fe253b6b99e9dad45c770e4d86596713a3029dfad313335855ecd73511d"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_6",
+      "name": "provider.csv.gz",
+      "contentSize": "127330",
+      "contentUrl": "hosp/provider.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "aa022feb9cd4ba80389dc69d884d54453913e4c6dbbc8afbae045a6a78eeb20e"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_7",
+      "name": "prescriptions.csv.gz",
+      "contentSize": "606298611",
+      "contentUrl": "hosp/prescriptions.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "f7967bbf1a4aff8e37f466f675cb36b6bff0cea44faec139f572f5353e9738c0"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_8",
+      "name": "drgcodes.csv.gz",
+      "contentSize": "9743908",
+      "contentUrl": "hosp/drgcodes.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "75f1d69a87256991cdc65551b9de9dc688e4dfbc13b967a8965003382b86219d"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_9",
+      "name": "d_icd_diagnoses.csv.gz",
+      "contentSize": "876360",
+      "contentUrl": "hosp/d_icd_diagnoses.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "1ab72c732bdde3a34831740da55b9ab35bc3dc4cabb05d453d4d4174c19cd971"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_10",
+      "name": "d_labitems.csv.gz",
+      "contentSize": "13169",
+      "contentUrl": "hosp/d_labitems.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "f3182dbace857d8cd3439ebbd2095d3128c1751cb42b12e3e4208bdc4b363567"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_11",
+      "name": "transfers.csv.gz",
+      "contentSize": "46185771",
+      "contentUrl": "hosp/transfers.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "99a5d03793a18c7497203ab79a94f6afa90b2faccc1b58cd86d88945ca6be6e8"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_12",
+      "name": "admissions.csv.gz",
+      "contentSize": "19928140",
+      "contentUrl": "hosp/admissions.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "9592fb5d355321801f3cb5789a20921d7394fde2ade5325832ea527318056d63"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_13",
+      "name": "labevents.csv.gz",
+      "contentSize": "2592909134",
+      "contentUrl": "hosp/labevents.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "dc4deb75491acb09b0c589b88d36e72f6e6db7676152510d83221aa8133dff54"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_14",
+      "name": "pharmacy.csv.gz",
+      "contentSize": "525708076",
+      "contentUrl": "hosp/pharmacy.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "13550119eedf974ec635c32880bcc3d349d1f243b2f6cb1aaf7811430e0dbebc"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_15",
+      "name": "procedures_icd.csv.gz",
+      "contentSize": "7777324",
+      "contentUrl": "hosp/procedures_icd.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "b6553bc6b15581af519dbb6228fa73905c15c2024b41b4263133c75bd6ee4f71"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_16",
+      "name": "hcpcsevents.csv.gz",
+      "contentSize": "2162335",
+      "contentUrl": "hosp/hcpcsevents.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "755340f1356a082b6e976ad5a76d70dc15af84240407c2951a3996a869c14443"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_17",
+      "name": "services.csv.gz",
+      "contentSize": "8569241",
+      "contentUrl": "hosp/services.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "7daf5e7bb880812bd6d3a474c09074ffd115b2acac5011228e2fb8cb31e79b0c"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_18",
+      "name": "d_icd_procedures.csv.gz",
+      "contentSize": "589186",
+      "contentUrl": "hosp/d_icd_procedures.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "ccf952c8cafba1b2b20e4e781dda09ef5f68bc3c9c4b7e751824d4ed306e69aa"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_19",
+      "name": "omr.csv.gz",
+      "contentSize": "44069351",
+      "contentUrl": "hosp/omr.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "844e89678b7a0949fbd50c54671a0d04618267e805d32dfbcb13c1f4f1693c7a"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_20",
+      "name": "emar.csv.gz",
+      "contentSize": "811305629",
+      "contentUrl": "hosp/emar.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "74a76ac03349d82e02908f3a7ade76e3c31121e6ac68b241fd349f1bbc453617"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_21",
+      "name": "microbiologyevents.csv.gz",
+      "contentSize": "117644075",
+      "contentUrl": "hosp/microbiologyevents.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "2ae3f75d0399476902c9a17f41aeb5a3de663c4012c18a4f4a5a017d6b24d4bd"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_22",
+      "name": "datetimeevents.csv.gz",
+      "contentSize": "63481196",
+      "contentUrl": "icu/datetimeevents.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "8a06804955091244d53a9f21648b73b0ae00650a4132f4b0a4a8f0169c4efd43"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_23",
+      "name": "caregiver.csv.gz",
+      "contentSize": "41566",
+      "contentUrl": "icu/caregiver.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "4e0f21c383f4bf1d6715fd451a6fb21ba14f9167d57eb724b0a6d89c7b243086"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_24",
+      "name": "ingredientevents.csv.gz",
+      "contentSize": "311642048",
+      "contentUrl": "icu/ingredientevents.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "5c27c31c81d4b59e2fe5dca4fc468fa04835f0ad9c8a78885c89ecccd63e19f4"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_25",
+      "name": "inputevents.csv.gz",
+      "contentSize": "401088206",
+      "contentUrl": "icu/inputevents.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "d0440445f74b2edeeef17106c941d08d29a3fed1f6f0625f3c956bed6237c9c2"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_26",
+      "name": "procedureevents.csv.gz",
+      "contentSize": "24096834",
+      "contentUrl": "icu/procedureevents.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "4858144bf33be198a002658556fd0352143653802a93d965de4f891b0beb1450"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_27",
+      "name": "d_items.csv.gz",
+      "contentSize": "58741",
+      "contentUrl": "icu/d_items.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "2e8987d8ac98e48358e582708f953710f50bdea7fb4a8bb427acb364a7212894"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_28",
+      "name": "chartevents.csv.gz",
+      "contentSize": "3502392765",
+      "contentUrl": "icu/chartevents.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "0d1932df345c2d135ce715df1f6afa603f7124894a5aa8c6ba56aa6ee02160d4"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_29",
+      "name": "icustays.csv.gz",
+      "contentSize": "3342355",
+      "contentUrl": "icu/icustays.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "3b16bc6cc9b93c7f20a040ba5ec38d00951f42475bf5157aea7ffde052676ef0"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_30",
+      "name": "outputevents.csv.gz",
+      "contentSize": "49307639",
+      "contentUrl": "icu/outputevents.csv.gz",
+      "encodingFormat": "application/gzip",
+      "sha256": "7eff7fa0bbbb4e0c6514e0235ed489e9f4bd541c8888b404525ace25f38b4755"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_0",
+      "name": "poe",
+      "description": "Records from poe.csv.gz (52212109 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_poe_id",
+          "name": "poe_id",
+          "description": "Column 'poe_id' from poe.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_poe_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "poe_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_poe_seq",
+          "name": "poe_seq",
+          "description": "Column 'poe_seq' from poe.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_0_source_poe_seq",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "poe_seq"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from poe.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_0_source_subject_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from poe.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_0_source_hadm_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_ordertime",
+          "name": "ordertime",
+          "description": "Column 'ordertime' from poe.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_0_source_ordertime",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "ordertime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_order_type",
+          "name": "order_type",
+          "description": "Column 'order_type' from poe.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_order_type",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "order_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_order_subtype",
+          "name": "order_subtype",
+          "description": "Column 'order_subtype' from poe.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_order_subtype",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "order_subtype"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_transaction_type",
+          "name": "transaction_type",
+          "description": "Column 'transaction_type' from poe.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_transaction_type",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "transaction_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_discontinue_of_poe_id",
+          "name": "discontinue_of_poe_id",
+          "description": "Column 'discontinue_of_poe_id' from poe.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_discontinue_of_poe_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "discontinue_of_poe_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_discontinued_by_poe_id",
+          "name": "discontinued_by_poe_id",
+          "description": "Column 'discontinued_by_poe_id' from poe.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_discontinued_by_poe_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "discontinued_by_poe_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_order_provider_id",
+          "name": "order_provider_id",
+          "description": "Column 'order_provider_id' from poe.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_order_provider_id",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "order_provider_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_0_order_status",
+          "name": "order_status",
+          "description": "Column 'order_status' from poe.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_0_source_order_status",
+            "fileObject": {
+              "@id": "file_0"
+            },
+            "extract": {
+              "column": "order_status"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_1",
+      "name": "d_hcpcs",
+      "description": "Records from d_hcpcs.csv.gz (89208 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_code",
+          "name": "code",
+          "description": "Column 'code' from d_hcpcs.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_code",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_category",
+          "name": "category",
+          "description": "Column 'category' from d_hcpcs.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_1_source_category",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_long_description",
+          "name": "long_description",
+          "description": "Column 'long_description' from d_hcpcs.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_long_description",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "long_description"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_1_short_description",
+          "name": "short_description",
+          "description": "Column 'short_description' from d_hcpcs.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_1_source_short_description",
+            "fileObject": {
+              "@id": "file_1"
+            },
+            "extract": {
+              "column": "short_description"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_2",
+      "name": "poe_detail",
+      "description": "Records from poe_detail.csv.gz (8504982 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_poe_id",
+          "name": "poe_id",
+          "description": "Column 'poe_id' from poe_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_poe_id",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "poe_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_poe_seq",
+          "name": "poe_seq",
+          "description": "Column 'poe_seq' from poe_detail.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_2_source_poe_seq",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "poe_seq"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from poe_detail.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_2_source_subject_id",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_field_name",
+          "name": "field_name",
+          "description": "Column 'field_name' from poe_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_field_name",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "field_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_2_field_value",
+          "name": "field_value",
+          "description": "Column 'field_value' from poe_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_2_source_field_value",
+            "fileObject": {
+              "@id": "file_2"
+            },
+            "extract": {
+              "column": "field_value"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_3",
+      "name": "patients",
+      "description": "Records from patients.csv.gz (364627 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_3_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from patients.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_3_source_subject_id",
+            "fileObject": {
+              "@id": "file_3"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_3_gender",
+          "name": "gender",
+          "description": "Column 'gender' from patients.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_3_source_gender",
+            "fileObject": {
+              "@id": "file_3"
+            },
+            "extract": {
+              "column": "gender"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_3_anchor_age",
+          "name": "anchor_age",
+          "description": "Column 'anchor_age' from patients.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_3_source_anchor_age",
+            "fileObject": {
+              "@id": "file_3"
+            },
+            "extract": {
+              "column": "anchor_age"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_3_anchor_year",
+          "name": "anchor_year",
+          "description": "Column 'anchor_year' from patients.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_3_source_anchor_year",
+            "fileObject": {
+              "@id": "file_3"
+            },
+            "extract": {
+              "column": "anchor_year"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_3_anchor_year_group",
+          "name": "anchor_year_group",
+          "description": "Column 'anchor_year_group' from patients.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_3_source_anchor_year_group",
+            "fileObject": {
+              "@id": "file_3"
+            },
+            "extract": {
+              "column": "anchor_year_group"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_3_dod",
+          "name": "dod",
+          "description": "Column 'dod' from patients.csv.gz",
+          "dataType": "sc:Date",
+          "source": {
+            "@id": "file_3_source_dod",
+            "fileObject": {
+              "@id": "file_3"
+            },
+            "extract": {
+              "column": "dod"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_4",
+      "name": "diagnoses_icd",
+      "description": "Records from diagnoses_icd.csv.gz (6364488 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_4_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from diagnoses_icd.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_4_source_subject_id",
+            "fileObject": {
+              "@id": "file_4"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_4_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from diagnoses_icd.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_4_source_hadm_id",
+            "fileObject": {
+              "@id": "file_4"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_4_seq_num",
+          "name": "seq_num",
+          "description": "Column 'seq_num' from diagnoses_icd.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_4_source_seq_num",
+            "fileObject": {
+              "@id": "file_4"
+            },
+            "extract": {
+              "column": "seq_num"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_4_icd_code",
+          "name": "icd_code",
+          "description": "Column 'icd_code' from diagnoses_icd.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_4_source_icd_code",
+            "fileObject": {
+              "@id": "file_4"
+            },
+            "extract": {
+              "column": "icd_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_4_icd_version",
+          "name": "icd_version",
+          "description": "Column 'icd_version' from diagnoses_icd.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_4_source_icd_version",
+            "fileObject": {
+              "@id": "file_4"
+            },
+            "extract": {
+              "column": "icd_version"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_5",
+      "name": "emar_detail",
+      "description": "Records from emar_detail.csv.gz (87371064 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from emar_detail.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_5_source_subject_id",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_emar_id",
+          "name": "emar_id",
+          "description": "Column 'emar_id' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_emar_id",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "emar_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_emar_seq",
+          "name": "emar_seq",
+          "description": "Column 'emar_seq' from emar_detail.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_5_source_emar_seq",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "emar_seq"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_parent_field_ordinal",
+          "name": "parent_field_ordinal",
+          "description": "Column 'parent_field_ordinal' from emar_detail.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_5_source_parent_field_ordinal",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "parent_field_ordinal"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_administration_type",
+          "name": "administration_type",
+          "description": "Column 'administration_type' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_administration_type",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "administration_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_pharmacy_id",
+          "name": "pharmacy_id",
+          "description": "Column 'pharmacy_id' from emar_detail.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_5_source_pharmacy_id",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "pharmacy_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_barcode_type",
+          "name": "barcode_type",
+          "description": "Column 'barcode_type' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_barcode_type",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "barcode_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_reason_for_no_barcode",
+          "name": "reason_for_no_barcode",
+          "description": "Column 'reason_for_no_barcode' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_reason_for_no_barcode",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "reason_for_no_barcode"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_complete_dose_not_given",
+          "name": "complete_dose_not_given",
+          "description": "Column 'complete_dose_not_given' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_complete_dose_not_given",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "complete_dose_not_given"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_dose_due",
+          "name": "dose_due",
+          "description": "Column 'dose_due' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_dose_due",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "dose_due"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_dose_due_unit",
+          "name": "dose_due_unit",
+          "description": "Column 'dose_due_unit' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_dose_due_unit",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "dose_due_unit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_dose_given",
+          "name": "dose_given",
+          "description": "Column 'dose_given' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_dose_given",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "dose_given"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_dose_given_unit",
+          "name": "dose_given_unit",
+          "description": "Column 'dose_given_unit' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_dose_given_unit",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "dose_given_unit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_will_remainder_of_dose_be_given",
+          "name": "will_remainder_of_dose_be_given",
+          "description": "Column 'will_remainder_of_dose_be_given' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_will_remainder_of_dose_be_given",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "will_remainder_of_dose_be_given"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_product_amount_given",
+          "name": "product_amount_given",
+          "description": "Column 'product_amount_given' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_product_amount_given",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "product_amount_given"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_product_unit",
+          "name": "product_unit",
+          "description": "Column 'product_unit' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_product_unit",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "product_unit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_product_code",
+          "name": "product_code",
+          "description": "Column 'product_code' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_product_code",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "product_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_product_description",
+          "name": "product_description",
+          "description": "Column 'product_description' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_product_description",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "product_description"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_product_description_other",
+          "name": "product_description_other",
+          "description": "Column 'product_description_other' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_product_description_other",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "product_description_other"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_prior_infusion_rate",
+          "name": "prior_infusion_rate",
+          "description": "Column 'prior_infusion_rate' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_prior_infusion_rate",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "prior_infusion_rate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_infusion_rate",
+          "name": "infusion_rate",
+          "description": "Column 'infusion_rate' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_infusion_rate",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "infusion_rate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_infusion_rate_adjustment",
+          "name": "infusion_rate_adjustment",
+          "description": "Column 'infusion_rate_adjustment' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_infusion_rate_adjustment",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "infusion_rate_adjustment"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_infusion_rate_adjustment_amount",
+          "name": "infusion_rate_adjustment_amount",
+          "description": "Column 'infusion_rate_adjustment_amount' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_infusion_rate_adjustment_amount",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "infusion_rate_adjustment_amount"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_infusion_rate_unit",
+          "name": "infusion_rate_unit",
+          "description": "Column 'infusion_rate_unit' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_infusion_rate_unit",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "infusion_rate_unit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_route",
+          "name": "route",
+          "description": "Column 'route' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_route",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "route"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_infusion_complete",
+          "name": "infusion_complete",
+          "description": "Column 'infusion_complete' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_infusion_complete",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "infusion_complete"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_completion_interval",
+          "name": "completion_interval",
+          "description": "Column 'completion_interval' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_completion_interval",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "completion_interval"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_new_iv_bag_hung",
+          "name": "new_iv_bag_hung",
+          "description": "Column 'new_iv_bag_hung' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_new_iv_bag_hung",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "new_iv_bag_hung"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_continued_infusion_in_other_location",
+          "name": "continued_infusion_in_other_location",
+          "description": "Column 'continued_infusion_in_other_location' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_continued_infusion_in_other_location",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "continued_infusion_in_other_location"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_restart_interval",
+          "name": "restart_interval",
+          "description": "Column 'restart_interval' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_restart_interval",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "restart_interval"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_side",
+          "name": "side",
+          "description": "Column 'side' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_side",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "side"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_site",
+          "name": "site",
+          "description": "Column 'site' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_site",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "site"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_5_non_formulary_visual_verification",
+          "name": "non_formulary_visual_verification",
+          "description": "Column 'non_formulary_visual_verification' from emar_detail.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_5_source_non_formulary_visual_verification",
+            "fileObject": {
+              "@id": "file_5"
+            },
+            "extract": {
+              "column": "non_formulary_visual_verification"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_6",
+      "name": "provider",
+      "description": "Records from provider.csv.gz (42244 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_6_provider_id",
+          "name": "provider_id",
+          "description": "Column 'provider_id' from provider.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_6_source_provider_id",
+            "fileObject": {
+              "@id": "file_6"
+            },
+            "extract": {
+              "column": "provider_id"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_7",
+      "name": "prescriptions",
+      "description": "Records from prescriptions.csv.gz (20292611 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from prescriptions.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_7_source_subject_id",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from prescriptions.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_7_source_hadm_id",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_pharmacy_id",
+          "name": "pharmacy_id",
+          "description": "Column 'pharmacy_id' from prescriptions.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_7_source_pharmacy_id",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "pharmacy_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_poe_id",
+          "name": "poe_id",
+          "description": "Column 'poe_id' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_poe_id",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "poe_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_poe_seq",
+          "name": "poe_seq",
+          "description": "Column 'poe_seq' from prescriptions.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_7_source_poe_seq",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "poe_seq"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_order_provider_id",
+          "name": "order_provider_id",
+          "description": "Column 'order_provider_id' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_order_provider_id",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "order_provider_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_starttime",
+          "name": "starttime",
+          "description": "Column 'starttime' from prescriptions.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_7_source_starttime",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "starttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_stoptime",
+          "name": "stoptime",
+          "description": "Column 'stoptime' from prescriptions.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_7_source_stoptime",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "stoptime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_drug_type",
+          "name": "drug_type",
+          "description": "Column 'drug_type' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_drug_type",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "drug_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_drug",
+          "name": "drug",
+          "description": "Column 'drug' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_drug",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "drug"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_formulary_drug_cd",
+          "name": "formulary_drug_cd",
+          "description": "Column 'formulary_drug_cd' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_formulary_drug_cd",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "formulary_drug_cd"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_gsn",
+          "name": "gsn",
+          "description": "Column 'gsn' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_gsn",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "gsn"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_ndc",
+          "name": "ndc",
+          "description": "Column 'ndc' from prescriptions.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_7_source_ndc",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "ndc"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_prod_strength",
+          "name": "prod_strength",
+          "description": "Column 'prod_strength' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_prod_strength",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "prod_strength"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_form_rx",
+          "name": "form_rx",
+          "description": "Column 'form_rx' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_form_rx",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "form_rx"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_dose_val_rx",
+          "name": "dose_val_rx",
+          "description": "Column 'dose_val_rx' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_dose_val_rx",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "dose_val_rx"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_dose_unit_rx",
+          "name": "dose_unit_rx",
+          "description": "Column 'dose_unit_rx' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_dose_unit_rx",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "dose_unit_rx"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_form_val_disp",
+          "name": "form_val_disp",
+          "description": "Column 'form_val_disp' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_form_val_disp",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "form_val_disp"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_form_unit_disp",
+          "name": "form_unit_disp",
+          "description": "Column 'form_unit_disp' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_form_unit_disp",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "form_unit_disp"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_doses_per_24_hrs",
+          "name": "doses_per_24_hrs",
+          "description": "Column 'doses_per_24_hrs' from prescriptions.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_7_source_doses_per_24_hrs",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "doses_per_24_hrs"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_7_route",
+          "name": "route",
+          "description": "Column 'route' from prescriptions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_7_source_route",
+            "fileObject": {
+              "@id": "file_7"
+            },
+            "extract": {
+              "column": "route"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_8",
+      "name": "drgcodes",
+      "description": "Records from drgcodes.csv.gz (761856 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_8_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from drgcodes.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_8_source_subject_id",
+            "fileObject": {
+              "@id": "file_8"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_8_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from drgcodes.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_8_source_hadm_id",
+            "fileObject": {
+              "@id": "file_8"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_8_drg_type",
+          "name": "drg_type",
+          "description": "Column 'drg_type' from drgcodes.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_8_source_drg_type",
+            "fileObject": {
+              "@id": "file_8"
+            },
+            "extract": {
+              "column": "drg_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_8_drg_code",
+          "name": "drg_code",
+          "description": "Column 'drg_code' from drgcodes.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_8_source_drg_code",
+            "fileObject": {
+              "@id": "file_8"
+            },
+            "extract": {
+              "column": "drg_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_8_description",
+          "name": "description",
+          "description": "Column 'description' from drgcodes.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_8_source_description",
+            "fileObject": {
+              "@id": "file_8"
+            },
+            "extract": {
+              "column": "description"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_8_drg_severity",
+          "name": "drg_severity",
+          "description": "Column 'drg_severity' from drgcodes.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_8_source_drg_severity",
+            "fileObject": {
+              "@id": "file_8"
+            },
+            "extract": {
+              "column": "drg_severity"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_8_drg_mortality",
+          "name": "drg_mortality",
+          "description": "Column 'drg_mortality' from drgcodes.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_8_source_drg_mortality",
+            "fileObject": {
+              "@id": "file_8"
+            },
+            "extract": {
+              "column": "drg_mortality"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_9",
+      "name": "d_icd_diagnoses",
+      "description": "Records from d_icd_diagnoses.csv.gz (112107 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_9_icd_code",
+          "name": "icd_code",
+          "description": "Column 'icd_code' from d_icd_diagnoses.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_9_source_icd_code",
+            "fileObject": {
+              "@id": "file_9"
+            },
+            "extract": {
+              "column": "icd_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_9_icd_version",
+          "name": "icd_version",
+          "description": "Column 'icd_version' from d_icd_diagnoses.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_9_source_icd_version",
+            "fileObject": {
+              "@id": "file_9"
+            },
+            "extract": {
+              "column": "icd_version"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_9_long_title",
+          "name": "long_title",
+          "description": "Column 'long_title' from d_icd_diagnoses.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_9_source_long_title",
+            "fileObject": {
+              "@id": "file_9"
+            },
+            "extract": {
+              "column": "long_title"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_10",
+      "name": "d_labitems",
+      "description": "Records from d_labitems.csv.gz (1650 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_10_itemid",
+          "name": "itemid",
+          "description": "Column 'itemid' from d_labitems.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_10_source_itemid",
+            "fileObject": {
+              "@id": "file_10"
+            },
+            "extract": {
+              "column": "itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_10_label",
+          "name": "label",
+          "description": "Column 'label' from d_labitems.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_10_source_label",
+            "fileObject": {
+              "@id": "file_10"
+            },
+            "extract": {
+              "column": "label"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_10_fluid",
+          "name": "fluid",
+          "description": "Column 'fluid' from d_labitems.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_10_source_fluid",
+            "fileObject": {
+              "@id": "file_10"
+            },
+            "extract": {
+              "column": "fluid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_10_category",
+          "name": "category",
+          "description": "Column 'category' from d_labitems.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_10_source_category",
+            "fileObject": {
+              "@id": "file_10"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_11",
+      "name": "transfers",
+      "description": "Records from transfers.csv.gz (2413581 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_11_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from transfers.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_11_source_subject_id",
+            "fileObject": {
+              "@id": "file_11"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_11_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from transfers.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_11_source_hadm_id",
+            "fileObject": {
+              "@id": "file_11"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_11_transfer_id",
+          "name": "transfer_id",
+          "description": "Column 'transfer_id' from transfers.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_11_source_transfer_id",
+            "fileObject": {
+              "@id": "file_11"
+            },
+            "extract": {
+              "column": "transfer_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_11_eventtype",
+          "name": "eventtype",
+          "description": "Column 'eventtype' from transfers.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_11_source_eventtype",
+            "fileObject": {
+              "@id": "file_11"
+            },
+            "extract": {
+              "column": "eventtype"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_11_careunit",
+          "name": "careunit",
+          "description": "Column 'careunit' from transfers.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_11_source_careunit",
+            "fileObject": {
+              "@id": "file_11"
+            },
+            "extract": {
+              "column": "careunit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_11_intime",
+          "name": "intime",
+          "description": "Column 'intime' from transfers.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_11_source_intime",
+            "fileObject": {
+              "@id": "file_11"
+            },
+            "extract": {
+              "column": "intime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_11_outtime",
+          "name": "outtime",
+          "description": "Column 'outtime' from transfers.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_11_source_outtime",
+            "fileObject": {
+              "@id": "file_11"
+            },
+            "extract": {
+              "column": "outtime"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_12",
+      "name": "admissions",
+      "description": "Records from admissions.csv.gz (546028 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from admissions.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_12_source_subject_id",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from admissions.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_12_source_hadm_id",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_admittime",
+          "name": "admittime",
+          "description": "Column 'admittime' from admissions.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_12_source_admittime",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "admittime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_dischtime",
+          "name": "dischtime",
+          "description": "Column 'dischtime' from admissions.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_12_source_dischtime",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "dischtime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_deathtime",
+          "name": "deathtime",
+          "description": "Column 'deathtime' from admissions.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_12_source_deathtime",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "deathtime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_admission_type",
+          "name": "admission_type",
+          "description": "Column 'admission_type' from admissions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_12_source_admission_type",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "admission_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_admit_provider_id",
+          "name": "admit_provider_id",
+          "description": "Column 'admit_provider_id' from admissions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_12_source_admit_provider_id",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "admit_provider_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_admission_location",
+          "name": "admission_location",
+          "description": "Column 'admission_location' from admissions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_12_source_admission_location",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "admission_location"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_discharge_location",
+          "name": "discharge_location",
+          "description": "Column 'discharge_location' from admissions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_12_source_discharge_location",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "discharge_location"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_insurance",
+          "name": "insurance",
+          "description": "Column 'insurance' from admissions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_12_source_insurance",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "insurance"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_language",
+          "name": "language",
+          "description": "Column 'language' from admissions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_12_source_language",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "language"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_marital_status",
+          "name": "marital_status",
+          "description": "Column 'marital_status' from admissions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_12_source_marital_status",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "marital_status"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_race",
+          "name": "race",
+          "description": "Column 'race' from admissions.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_12_source_race",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "race"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_edregtime",
+          "name": "edregtime",
+          "description": "Column 'edregtime' from admissions.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_12_source_edregtime",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "edregtime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_edouttime",
+          "name": "edouttime",
+          "description": "Column 'edouttime' from admissions.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_12_source_edouttime",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "edouttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_12_hospital_expire_flag",
+          "name": "hospital_expire_flag",
+          "description": "Column 'hospital_expire_flag' from admissions.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_12_source_hospital_expire_flag",
+            "fileObject": {
+              "@id": "file_12"
+            },
+            "extract": {
+              "column": "hospital_expire_flag"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_13",
+      "name": "labevents",
+      "description": "Records from labevents.csv.gz (158374764 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_labevent_id",
+          "name": "labevent_id",
+          "description": "Column 'labevent_id' from labevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_13_source_labevent_id",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "labevent_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from labevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_13_source_subject_id",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from labevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_13_source_hadm_id",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_specimen_id",
+          "name": "specimen_id",
+          "description": "Column 'specimen_id' from labevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_13_source_specimen_id",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "specimen_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_itemid",
+          "name": "itemid",
+          "description": "Column 'itemid' from labevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_13_source_itemid",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_order_provider_id",
+          "name": "order_provider_id",
+          "description": "Column 'order_provider_id' from labevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_13_source_order_provider_id",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "order_provider_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_charttime",
+          "name": "charttime",
+          "description": "Column 'charttime' from labevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_13_source_charttime",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "charttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_storetime",
+          "name": "storetime",
+          "description": "Column 'storetime' from labevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_13_source_storetime",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "storetime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_value",
+          "name": "value",
+          "description": "Column 'value' from labevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_13_source_value",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_valuenum",
+          "name": "valuenum",
+          "description": "Column 'valuenum' from labevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_13_source_valuenum",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "valuenum"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_valueuom",
+          "name": "valueuom",
+          "description": "Column 'valueuom' from labevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_13_source_valueuom",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "valueuom"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_ref_range_lower",
+          "name": "ref_range_lower",
+          "description": "Column 'ref_range_lower' from labevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_13_source_ref_range_lower",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "ref_range_lower"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_ref_range_upper",
+          "name": "ref_range_upper",
+          "description": "Column 'ref_range_upper' from labevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_13_source_ref_range_upper",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "ref_range_upper"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_flag",
+          "name": "flag",
+          "description": "Column 'flag' from labevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_13_source_flag",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "flag"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_priority",
+          "name": "priority",
+          "description": "Column 'priority' from labevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_13_source_priority",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "priority"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_13_comments",
+          "name": "comments",
+          "description": "Column 'comments' from labevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_13_source_comments",
+            "fileObject": {
+              "@id": "file_13"
+            },
+            "extract": {
+              "column": "comments"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_14",
+      "name": "pharmacy",
+      "description": "Records from pharmacy.csv.gz (17847567 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from pharmacy.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_14_source_subject_id",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from pharmacy.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_14_source_hadm_id",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_pharmacy_id",
+          "name": "pharmacy_id",
+          "description": "Column 'pharmacy_id' from pharmacy.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_14_source_pharmacy_id",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "pharmacy_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_poe_id",
+          "name": "poe_id",
+          "description": "Column 'poe_id' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_poe_id",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "poe_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_starttime",
+          "name": "starttime",
+          "description": "Column 'starttime' from pharmacy.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_14_source_starttime",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "starttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_stoptime",
+          "name": "stoptime",
+          "description": "Column 'stoptime' from pharmacy.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_14_source_stoptime",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "stoptime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_medication",
+          "name": "medication",
+          "description": "Column 'medication' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_medication",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "medication"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_proc_type",
+          "name": "proc_type",
+          "description": "Column 'proc_type' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_proc_type",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "proc_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_status",
+          "name": "status",
+          "description": "Column 'status' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_status",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "status"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_entertime",
+          "name": "entertime",
+          "description": "Column 'entertime' from pharmacy.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_14_source_entertime",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "entertime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_verifiedtime",
+          "name": "verifiedtime",
+          "description": "Column 'verifiedtime' from pharmacy.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_14_source_verifiedtime",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "verifiedtime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_route",
+          "name": "route",
+          "description": "Column 'route' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_route",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "route"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_frequency",
+          "name": "frequency",
+          "description": "Column 'frequency' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_frequency",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "frequency"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_disp_sched",
+          "name": "disp_sched",
+          "description": "Column 'disp_sched' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_disp_sched",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "disp_sched"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_infusion_type",
+          "name": "infusion_type",
+          "description": "Column 'infusion_type' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_infusion_type",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "infusion_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_sliding_scale",
+          "name": "sliding_scale",
+          "description": "Column 'sliding_scale' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_sliding_scale",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "sliding_scale"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_lockout_interval",
+          "name": "lockout_interval",
+          "description": "Column 'lockout_interval' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_lockout_interval",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "lockout_interval"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_basal_rate",
+          "name": "basal_rate",
+          "description": "Column 'basal_rate' from pharmacy.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_14_source_basal_rate",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "basal_rate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_one_hr_max",
+          "name": "one_hr_max",
+          "description": "Column 'one_hr_max' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_one_hr_max",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "one_hr_max"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_doses_per_24_hrs",
+          "name": "doses_per_24_hrs",
+          "description": "Column 'doses_per_24_hrs' from pharmacy.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_14_source_doses_per_24_hrs",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "doses_per_24_hrs"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_duration",
+          "name": "duration",
+          "description": "Column 'duration' from pharmacy.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_14_source_duration",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "duration"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_duration_interval",
+          "name": "duration_interval",
+          "description": "Column 'duration_interval' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_duration_interval",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "duration_interval"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_expiration_value",
+          "name": "expiration_value",
+          "description": "Column 'expiration_value' from pharmacy.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_14_source_expiration_value",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "expiration_value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_expiration_unit",
+          "name": "expiration_unit",
+          "description": "Column 'expiration_unit' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_expiration_unit",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "expiration_unit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_expirationdate",
+          "name": "expirationdate",
+          "description": "Column 'expirationdate' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_expirationdate",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "expirationdate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_dispensation",
+          "name": "dispensation",
+          "description": "Column 'dispensation' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_dispensation",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "dispensation"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_14_fill_quantity",
+          "name": "fill_quantity",
+          "description": "Column 'fill_quantity' from pharmacy.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_14_source_fill_quantity",
+            "fileObject": {
+              "@id": "file_14"
+            },
+            "extract": {
+              "column": "fill_quantity"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_15",
+      "name": "procedures_icd",
+      "description": "Records from procedures_icd.csv.gz (859655 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_15_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from procedures_icd.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_15_source_subject_id",
+            "fileObject": {
+              "@id": "file_15"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_15_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from procedures_icd.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_15_source_hadm_id",
+            "fileObject": {
+              "@id": "file_15"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_15_seq_num",
+          "name": "seq_num",
+          "description": "Column 'seq_num' from procedures_icd.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_15_source_seq_num",
+            "fileObject": {
+              "@id": "file_15"
+            },
+            "extract": {
+              "column": "seq_num"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_15_chartdate",
+          "name": "chartdate",
+          "description": "Column 'chartdate' from procedures_icd.csv.gz",
+          "dataType": "sc:Date",
+          "source": {
+            "@id": "file_15_source_chartdate",
+            "fileObject": {
+              "@id": "file_15"
+            },
+            "extract": {
+              "column": "chartdate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_15_icd_code",
+          "name": "icd_code",
+          "description": "Column 'icd_code' from procedures_icd.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_15_source_icd_code",
+            "fileObject": {
+              "@id": "file_15"
+            },
+            "extract": {
+              "column": "icd_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_15_icd_version",
+          "name": "icd_version",
+          "description": "Column 'icd_version' from procedures_icd.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_15_source_icd_version",
+            "fileObject": {
+              "@id": "file_15"
+            },
+            "extract": {
+              "column": "icd_version"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_16",
+      "name": "hcpcsevents",
+      "description": "Records from hcpcsevents.csv.gz (186074 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_16_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from hcpcsevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_16_source_subject_id",
+            "fileObject": {
+              "@id": "file_16"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_16_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from hcpcsevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_16_source_hadm_id",
+            "fileObject": {
+              "@id": "file_16"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_16_chartdate",
+          "name": "chartdate",
+          "description": "Column 'chartdate' from hcpcsevents.csv.gz",
+          "dataType": "sc:Date",
+          "source": {
+            "@id": "file_16_source_chartdate",
+            "fileObject": {
+              "@id": "file_16"
+            },
+            "extract": {
+              "column": "chartdate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_16_hcpcs_cd",
+          "name": "hcpcs_cd",
+          "description": "Column 'hcpcs_cd' from hcpcsevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_16_source_hcpcs_cd",
+            "fileObject": {
+              "@id": "file_16"
+            },
+            "extract": {
+              "column": "hcpcs_cd"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_16_seq_num",
+          "name": "seq_num",
+          "description": "Column 'seq_num' from hcpcsevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_16_source_seq_num",
+            "fileObject": {
+              "@id": "file_16"
+            },
+            "extract": {
+              "column": "seq_num"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_16_short_description",
+          "name": "short_description",
+          "description": "Column 'short_description' from hcpcsevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_16_source_short_description",
+            "fileObject": {
+              "@id": "file_16"
+            },
+            "extract": {
+              "column": "short_description"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_17",
+      "name": "services",
+      "description": "Records from services.csv.gz (593071 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_17_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from services.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_17_source_subject_id",
+            "fileObject": {
+              "@id": "file_17"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_17_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from services.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_17_source_hadm_id",
+            "fileObject": {
+              "@id": "file_17"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_17_transfertime",
+          "name": "transfertime",
+          "description": "Column 'transfertime' from services.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_17_source_transfertime",
+            "fileObject": {
+              "@id": "file_17"
+            },
+            "extract": {
+              "column": "transfertime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_17_prev_service",
+          "name": "prev_service",
+          "description": "Column 'prev_service' from services.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_17_source_prev_service",
+            "fileObject": {
+              "@id": "file_17"
+            },
+            "extract": {
+              "column": "prev_service"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_17_curr_service",
+          "name": "curr_service",
+          "description": "Column 'curr_service' from services.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_17_source_curr_service",
+            "fileObject": {
+              "@id": "file_17"
+            },
+            "extract": {
+              "column": "curr_service"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_18",
+      "name": "d_icd_procedures",
+      "description": "Records from d_icd_procedures.csv.gz (86423 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_18_icd_code",
+          "name": "icd_code",
+          "description": "Column 'icd_code' from d_icd_procedures.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_18_source_icd_code",
+            "fileObject": {
+              "@id": "file_18"
+            },
+            "extract": {
+              "column": "icd_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_18_icd_version",
+          "name": "icd_version",
+          "description": "Column 'icd_version' from d_icd_procedures.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_18_source_icd_version",
+            "fileObject": {
+              "@id": "file_18"
+            },
+            "extract": {
+              "column": "icd_version"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_18_long_title",
+          "name": "long_title",
+          "description": "Column 'long_title' from d_icd_procedures.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_18_source_long_title",
+            "fileObject": {
+              "@id": "file_18"
+            },
+            "extract": {
+              "column": "long_title"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_19",
+      "name": "omr",
+      "description": "Records from omr.csv.gz (7753027 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_19_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from omr.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_19_source_subject_id",
+            "fileObject": {
+              "@id": "file_19"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_19_chartdate",
+          "name": "chartdate",
+          "description": "Column 'chartdate' from omr.csv.gz",
+          "dataType": "sc:Date",
+          "source": {
+            "@id": "file_19_source_chartdate",
+            "fileObject": {
+              "@id": "file_19"
+            },
+            "extract": {
+              "column": "chartdate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_19_seq_num",
+          "name": "seq_num",
+          "description": "Column 'seq_num' from omr.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_19_source_seq_num",
+            "fileObject": {
+              "@id": "file_19"
+            },
+            "extract": {
+              "column": "seq_num"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_19_result_name",
+          "name": "result_name",
+          "description": "Column 'result_name' from omr.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_19_source_result_name",
+            "fileObject": {
+              "@id": "file_19"
+            },
+            "extract": {
+              "column": "result_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_19_result_value",
+          "name": "result_value",
+          "description": "Column 'result_value' from omr.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_19_source_result_value",
+            "fileObject": {
+              "@id": "file_19"
+            },
+            "extract": {
+              "column": "result_value"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_20",
+      "name": "emar",
+      "description": "Records from emar.csv.gz (42808593 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from emar.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_20_source_subject_id",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from emar.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_20_source_hadm_id",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_emar_id",
+          "name": "emar_id",
+          "description": "Column 'emar_id' from emar.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_20_source_emar_id",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "emar_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_emar_seq",
+          "name": "emar_seq",
+          "description": "Column 'emar_seq' from emar.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_20_source_emar_seq",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "emar_seq"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_poe_id",
+          "name": "poe_id",
+          "description": "Column 'poe_id' from emar.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_20_source_poe_id",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "poe_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_pharmacy_id",
+          "name": "pharmacy_id",
+          "description": "Column 'pharmacy_id' from emar.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_20_source_pharmacy_id",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "pharmacy_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_enter_provider_id",
+          "name": "enter_provider_id",
+          "description": "Column 'enter_provider_id' from emar.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_20_source_enter_provider_id",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "enter_provider_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_charttime",
+          "name": "charttime",
+          "description": "Column 'charttime' from emar.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_20_source_charttime",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "charttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_medication",
+          "name": "medication",
+          "description": "Column 'medication' from emar.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_20_source_medication",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "medication"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_event_txt",
+          "name": "event_txt",
+          "description": "Column 'event_txt' from emar.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_20_source_event_txt",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "event_txt"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_scheduletime",
+          "name": "scheduletime",
+          "description": "Column 'scheduletime' from emar.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_20_source_scheduletime",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "scheduletime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_20_storetime",
+          "name": "storetime",
+          "description": "Column 'storetime' from emar.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_20_source_storetime",
+            "fileObject": {
+              "@id": "file_20"
+            },
+            "extract": {
+              "column": "storetime"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_21",
+      "name": "microbiologyevents",
+      "description": "Records from microbiologyevents.csv.gz (3988224 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_microevent_id",
+          "name": "microevent_id",
+          "description": "Column 'microevent_id' from microbiologyevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_21_source_microevent_id",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "microevent_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from microbiologyevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_21_source_subject_id",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from microbiologyevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_21_source_hadm_id",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_micro_specimen_id",
+          "name": "micro_specimen_id",
+          "description": "Column 'micro_specimen_id' from microbiologyevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_21_source_micro_specimen_id",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "micro_specimen_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_order_provider_id",
+          "name": "order_provider_id",
+          "description": "Column 'order_provider_id' from microbiologyevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_21_source_order_provider_id",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "order_provider_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_chartdate",
+          "name": "chartdate",
+          "description": "Column 'chartdate' from microbiologyevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_21_source_chartdate",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "chartdate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_charttime",
+          "name": "charttime",
+          "description": "Column 'charttime' from microbiologyevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_21_source_charttime",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "charttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_spec_itemid",
+          "name": "spec_itemid",
+          "description": "Column 'spec_itemid' from microbiologyevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_21_source_spec_itemid",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "spec_itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_spec_type_desc",
+          "name": "spec_type_desc",
+          "description": "Column 'spec_type_desc' from microbiologyevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_21_source_spec_type_desc",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "spec_type_desc"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_test_seq",
+          "name": "test_seq",
+          "description": "Column 'test_seq' from microbiologyevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_21_source_test_seq",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "test_seq"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_storedate",
+          "name": "storedate",
+          "description": "Column 'storedate' from microbiologyevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_21_source_storedate",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "storedate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_storetime",
+          "name": "storetime",
+          "description": "Column 'storetime' from microbiologyevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_21_source_storetime",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "storetime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_test_itemid",
+          "name": "test_itemid",
+          "description": "Column 'test_itemid' from microbiologyevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_21_source_test_itemid",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "test_itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_test_name",
+          "name": "test_name",
+          "description": "Column 'test_name' from microbiologyevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_21_source_test_name",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "test_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_org_itemid",
+          "name": "org_itemid",
+          "description": "Column 'org_itemid' from microbiologyevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_21_source_org_itemid",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "org_itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_org_name",
+          "name": "org_name",
+          "description": "Column 'org_name' from microbiologyevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_21_source_org_name",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "org_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_isolate_num",
+          "name": "isolate_num",
+          "description": "Column 'isolate_num' from microbiologyevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_21_source_isolate_num",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "isolate_num"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_quantity",
+          "name": "quantity",
+          "description": "Column 'quantity' from microbiologyevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_21_source_quantity",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "quantity"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_ab_itemid",
+          "name": "ab_itemid",
+          "description": "Column 'ab_itemid' from microbiologyevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_21_source_ab_itemid",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "ab_itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_ab_name",
+          "name": "ab_name",
+          "description": "Column 'ab_name' from microbiologyevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_21_source_ab_name",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "ab_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_dilution_text",
+          "name": "dilution_text",
+          "description": "Column 'dilution_text' from microbiologyevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_21_source_dilution_text",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "dilution_text"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_dilution_comparison",
+          "name": "dilution_comparison",
+          "description": "Column 'dilution_comparison' from microbiologyevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_21_source_dilution_comparison",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "dilution_comparison"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_dilution_value",
+          "name": "dilution_value",
+          "description": "Column 'dilution_value' from microbiologyevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_21_source_dilution_value",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "dilution_value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_interpretation",
+          "name": "interpretation",
+          "description": "Column 'interpretation' from microbiologyevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_21_source_interpretation",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "interpretation"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_21_comments",
+          "name": "comments",
+          "description": "Column 'comments' from microbiologyevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_21_source_comments",
+            "fileObject": {
+              "@id": "file_21"
+            },
+            "extract": {
+              "column": "comments"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_22",
+      "name": "datetimeevents",
+      "description": "Records from datetimeevents.csv.gz (9979761 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_22_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from datetimeevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_22_source_subject_id",
+            "fileObject": {
+              "@id": "file_22"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_22_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from datetimeevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_22_source_hadm_id",
+            "fileObject": {
+              "@id": "file_22"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_22_stay_id",
+          "name": "stay_id",
+          "description": "Column 'stay_id' from datetimeevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_22_source_stay_id",
+            "fileObject": {
+              "@id": "file_22"
+            },
+            "extract": {
+              "column": "stay_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_22_caregiver_id",
+          "name": "caregiver_id",
+          "description": "Column 'caregiver_id' from datetimeevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_22_source_caregiver_id",
+            "fileObject": {
+              "@id": "file_22"
+            },
+            "extract": {
+              "column": "caregiver_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_22_charttime",
+          "name": "charttime",
+          "description": "Column 'charttime' from datetimeevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_22_source_charttime",
+            "fileObject": {
+              "@id": "file_22"
+            },
+            "extract": {
+              "column": "charttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_22_storetime",
+          "name": "storetime",
+          "description": "Column 'storetime' from datetimeevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_22_source_storetime",
+            "fileObject": {
+              "@id": "file_22"
+            },
+            "extract": {
+              "column": "storetime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_22_itemid",
+          "name": "itemid",
+          "description": "Column 'itemid' from datetimeevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_22_source_itemid",
+            "fileObject": {
+              "@id": "file_22"
+            },
+            "extract": {
+              "column": "itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_22_value",
+          "name": "value",
+          "description": "Column 'value' from datetimeevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_22_source_value",
+            "fileObject": {
+              "@id": "file_22"
+            },
+            "extract": {
+              "column": "value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_22_valueuom",
+          "name": "valueuom",
+          "description": "Column 'valueuom' from datetimeevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_22_source_valueuom",
+            "fileObject": {
+              "@id": "file_22"
+            },
+            "extract": {
+              "column": "valueuom"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_22_warning",
+          "name": "warning",
+          "description": "Column 'warning' from datetimeevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_22_source_warning",
+            "fileObject": {
+              "@id": "file_22"
+            },
+            "extract": {
+              "column": "warning"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_23",
+      "name": "caregiver",
+      "description": "Records from caregiver.csv.gz (17984 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_23_caregiver_id",
+          "name": "caregiver_id",
+          "description": "Column 'caregiver_id' from caregiver.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_23_source_caregiver_id",
+            "fileObject": {
+              "@id": "file_23"
+            },
+            "extract": {
+              "column": "caregiver_id"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_24",
+      "name": "ingredientevents",
+      "description": "Records from ingredientevents.csv.gz (14253480 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from ingredientevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_24_source_subject_id",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from ingredientevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_24_source_hadm_id",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_stay_id",
+          "name": "stay_id",
+          "description": "Column 'stay_id' from ingredientevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_24_source_stay_id",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "stay_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_caregiver_id",
+          "name": "caregiver_id",
+          "description": "Column 'caregiver_id' from ingredientevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_24_source_caregiver_id",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "caregiver_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_starttime",
+          "name": "starttime",
+          "description": "Column 'starttime' from ingredientevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_24_source_starttime",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "starttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_endtime",
+          "name": "endtime",
+          "description": "Column 'endtime' from ingredientevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_24_source_endtime",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "endtime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_storetime",
+          "name": "storetime",
+          "description": "Column 'storetime' from ingredientevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_24_source_storetime",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "storetime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_itemid",
+          "name": "itemid",
+          "description": "Column 'itemid' from ingredientevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_24_source_itemid",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_amount",
+          "name": "amount",
+          "description": "Column 'amount' from ingredientevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_24_source_amount",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "amount"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_amountuom",
+          "name": "amountuom",
+          "description": "Column 'amountuom' from ingredientevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_24_source_amountuom",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "amountuom"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_rate",
+          "name": "rate",
+          "description": "Column 'rate' from ingredientevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_24_source_rate",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "rate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_rateuom",
+          "name": "rateuom",
+          "description": "Column 'rateuom' from ingredientevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_24_source_rateuom",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "rateuom"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_orderid",
+          "name": "orderid",
+          "description": "Column 'orderid' from ingredientevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_24_source_orderid",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "orderid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_linkorderid",
+          "name": "linkorderid",
+          "description": "Column 'linkorderid' from ingredientevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_24_source_linkorderid",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "linkorderid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_statusdescription",
+          "name": "statusdescription",
+          "description": "Column 'statusdescription' from ingredientevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_24_source_statusdescription",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "statusdescription"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_originalamount",
+          "name": "originalamount",
+          "description": "Column 'originalamount' from ingredientevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_24_source_originalamount",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "originalamount"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_24_originalrate",
+          "name": "originalrate",
+          "description": "Column 'originalrate' from ingredientevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_24_source_originalrate",
+            "fileObject": {
+              "@id": "file_24"
+            },
+            "extract": {
+              "column": "originalrate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_25",
+      "name": "inputevents",
+      "description": "Records from inputevents.csv.gz (10953713 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from inputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_25_source_subject_id",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from inputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_25_source_hadm_id",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_stay_id",
+          "name": "stay_id",
+          "description": "Column 'stay_id' from inputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_25_source_stay_id",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "stay_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_caregiver_id",
+          "name": "caregiver_id",
+          "description": "Column 'caregiver_id' from inputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_25_source_caregiver_id",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "caregiver_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_starttime",
+          "name": "starttime",
+          "description": "Column 'starttime' from inputevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_25_source_starttime",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "starttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_endtime",
+          "name": "endtime",
+          "description": "Column 'endtime' from inputevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_25_source_endtime",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "endtime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_storetime",
+          "name": "storetime",
+          "description": "Column 'storetime' from inputevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_25_source_storetime",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "storetime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_itemid",
+          "name": "itemid",
+          "description": "Column 'itemid' from inputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_25_source_itemid",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_amount",
+          "name": "amount",
+          "description": "Column 'amount' from inputevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_25_source_amount",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "amount"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_amountuom",
+          "name": "amountuom",
+          "description": "Column 'amountuom' from inputevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_25_source_amountuom",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "amountuom"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_rate",
+          "name": "rate",
+          "description": "Column 'rate' from inputevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_25_source_rate",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "rate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_rateuom",
+          "name": "rateuom",
+          "description": "Column 'rateuom' from inputevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_25_source_rateuom",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "rateuom"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_orderid",
+          "name": "orderid",
+          "description": "Column 'orderid' from inputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_25_source_orderid",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "orderid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_linkorderid",
+          "name": "linkorderid",
+          "description": "Column 'linkorderid' from inputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_25_source_linkorderid",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "linkorderid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_ordercategoryname",
+          "name": "ordercategoryname",
+          "description": "Column 'ordercategoryname' from inputevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_25_source_ordercategoryname",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "ordercategoryname"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_secondaryordercategoryname",
+          "name": "secondaryordercategoryname",
+          "description": "Column 'secondaryordercategoryname' from inputevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_25_source_secondaryordercategoryname",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "secondaryordercategoryname"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_ordercomponenttypedescription",
+          "name": "ordercomponenttypedescription",
+          "description": "Column 'ordercomponenttypedescription' from inputevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_25_source_ordercomponenttypedescription",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "ordercomponenttypedescription"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_ordercategorydescription",
+          "name": "ordercategorydescription",
+          "description": "Column 'ordercategorydescription' from inputevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_25_source_ordercategorydescription",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "ordercategorydescription"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_patientweight",
+          "name": "patientweight",
+          "description": "Column 'patientweight' from inputevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_25_source_patientweight",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "patientweight"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_totalamount",
+          "name": "totalamount",
+          "description": "Column 'totalamount' from inputevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_25_source_totalamount",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "totalamount"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_totalamountuom",
+          "name": "totalamountuom",
+          "description": "Column 'totalamountuom' from inputevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_25_source_totalamountuom",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "totalamountuom"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_isopenbag",
+          "name": "isopenbag",
+          "description": "Column 'isopenbag' from inputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_25_source_isopenbag",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "isopenbag"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_continueinnextdept",
+          "name": "continueinnextdept",
+          "description": "Column 'continueinnextdept' from inputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_25_source_continueinnextdept",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "continueinnextdept"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_statusdescription",
+          "name": "statusdescription",
+          "description": "Column 'statusdescription' from inputevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_25_source_statusdescription",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "statusdescription"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_originalamount",
+          "name": "originalamount",
+          "description": "Column 'originalamount' from inputevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_25_source_originalamount",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "originalamount"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_25_originalrate",
+          "name": "originalrate",
+          "description": "Column 'originalrate' from inputevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_25_source_originalrate",
+            "fileObject": {
+              "@id": "file_25"
+            },
+            "extract": {
+              "column": "originalrate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_26",
+      "name": "procedureevents",
+      "description": "Records from procedureevents.csv.gz (808706 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from procedureevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_26_source_subject_id",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from procedureevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_26_source_hadm_id",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_stay_id",
+          "name": "stay_id",
+          "description": "Column 'stay_id' from procedureevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_26_source_stay_id",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "stay_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_caregiver_id",
+          "name": "caregiver_id",
+          "description": "Column 'caregiver_id' from procedureevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_26_source_caregiver_id",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "caregiver_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_starttime",
+          "name": "starttime",
+          "description": "Column 'starttime' from procedureevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_26_source_starttime",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "starttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_endtime",
+          "name": "endtime",
+          "description": "Column 'endtime' from procedureevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_26_source_endtime",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "endtime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_storetime",
+          "name": "storetime",
+          "description": "Column 'storetime' from procedureevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_26_source_storetime",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "storetime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_itemid",
+          "name": "itemid",
+          "description": "Column 'itemid' from procedureevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_26_source_itemid",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_value",
+          "name": "value",
+          "description": "Column 'value' from procedureevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_26_source_value",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_valueuom",
+          "name": "valueuom",
+          "description": "Column 'valueuom' from procedureevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_26_source_valueuom",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "valueuom"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_location",
+          "name": "location",
+          "description": "Column 'location' from procedureevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_26_source_location",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "location"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_locationcategory",
+          "name": "locationcategory",
+          "description": "Column 'locationcategory' from procedureevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_26_source_locationcategory",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "locationcategory"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_orderid",
+          "name": "orderid",
+          "description": "Column 'orderid' from procedureevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_26_source_orderid",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "orderid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_linkorderid",
+          "name": "linkorderid",
+          "description": "Column 'linkorderid' from procedureevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_26_source_linkorderid",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "linkorderid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_ordercategoryname",
+          "name": "ordercategoryname",
+          "description": "Column 'ordercategoryname' from procedureevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_26_source_ordercategoryname",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "ordercategoryname"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_ordercategorydescription",
+          "name": "ordercategorydescription",
+          "description": "Column 'ordercategorydescription' from procedureevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_26_source_ordercategorydescription",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "ordercategorydescription"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_patientweight",
+          "name": "patientweight",
+          "description": "Column 'patientweight' from procedureevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_26_source_patientweight",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "patientweight"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_isopenbag",
+          "name": "isopenbag",
+          "description": "Column 'isopenbag' from procedureevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_26_source_isopenbag",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "isopenbag"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_continueinnextdept",
+          "name": "continueinnextdept",
+          "description": "Column 'continueinnextdept' from procedureevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_26_source_continueinnextdept",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "continueinnextdept"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_statusdescription",
+          "name": "statusdescription",
+          "description": "Column 'statusdescription' from procedureevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_26_source_statusdescription",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "statusdescription"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_originalamount",
+          "name": "originalamount",
+          "description": "Column 'originalamount' from procedureevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_26_source_originalamount",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "originalamount"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_26_originalrate",
+          "name": "originalrate",
+          "description": "Column 'originalrate' from procedureevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_26_source_originalrate",
+            "fileObject": {
+              "@id": "file_26"
+            },
+            "extract": {
+              "column": "originalrate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_27",
+      "name": "d_items",
+      "description": "Records from d_items.csv.gz (4095 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_27_itemid",
+          "name": "itemid",
+          "description": "Column 'itemid' from d_items.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_27_source_itemid",
+            "fileObject": {
+              "@id": "file_27"
+            },
+            "extract": {
+              "column": "itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_27_label",
+          "name": "label",
+          "description": "Column 'label' from d_items.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_27_source_label",
+            "fileObject": {
+              "@id": "file_27"
+            },
+            "extract": {
+              "column": "label"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_27_abbreviation",
+          "name": "abbreviation",
+          "description": "Column 'abbreviation' from d_items.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_27_source_abbreviation",
+            "fileObject": {
+              "@id": "file_27"
+            },
+            "extract": {
+              "column": "abbreviation"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_27_linksto",
+          "name": "linksto",
+          "description": "Column 'linksto' from d_items.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_27_source_linksto",
+            "fileObject": {
+              "@id": "file_27"
+            },
+            "extract": {
+              "column": "linksto"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_27_category",
+          "name": "category",
+          "description": "Column 'category' from d_items.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_27_source_category",
+            "fileObject": {
+              "@id": "file_27"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_27_unitname",
+          "name": "unitname",
+          "description": "Column 'unitname' from d_items.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_27_source_unitname",
+            "fileObject": {
+              "@id": "file_27"
+            },
+            "extract": {
+              "column": "unitname"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_27_param_type",
+          "name": "param_type",
+          "description": "Column 'param_type' from d_items.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_27_source_param_type",
+            "fileObject": {
+              "@id": "file_27"
+            },
+            "extract": {
+              "column": "param_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_27_lownormalvalue",
+          "name": "lownormalvalue",
+          "description": "Column 'lownormalvalue' from d_items.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_27_source_lownormalvalue",
+            "fileObject": {
+              "@id": "file_27"
+            },
+            "extract": {
+              "column": "lownormalvalue"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_27_highnormalvalue",
+          "name": "highnormalvalue",
+          "description": "Column 'highnormalvalue' from d_items.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_27_source_highnormalvalue",
+            "fileObject": {
+              "@id": "file_27"
+            },
+            "extract": {
+              "column": "highnormalvalue"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_28",
+      "name": "chartevents",
+      "description": "Records from chartevents.csv.gz (432997491 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_28_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from chartevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_28_source_subject_id",
+            "fileObject": {
+              "@id": "file_28"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_28_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from chartevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_28_source_hadm_id",
+            "fileObject": {
+              "@id": "file_28"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_28_stay_id",
+          "name": "stay_id",
+          "description": "Column 'stay_id' from chartevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_28_source_stay_id",
+            "fileObject": {
+              "@id": "file_28"
+            },
+            "extract": {
+              "column": "stay_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_28_caregiver_id",
+          "name": "caregiver_id",
+          "description": "Column 'caregiver_id' from chartevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_28_source_caregiver_id",
+            "fileObject": {
+              "@id": "file_28"
+            },
+            "extract": {
+              "column": "caregiver_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_28_charttime",
+          "name": "charttime",
+          "description": "Column 'charttime' from chartevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_28_source_charttime",
+            "fileObject": {
+              "@id": "file_28"
+            },
+            "extract": {
+              "column": "charttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_28_storetime",
+          "name": "storetime",
+          "description": "Column 'storetime' from chartevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_28_source_storetime",
+            "fileObject": {
+              "@id": "file_28"
+            },
+            "extract": {
+              "column": "storetime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_28_itemid",
+          "name": "itemid",
+          "description": "Column 'itemid' from chartevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_28_source_itemid",
+            "fileObject": {
+              "@id": "file_28"
+            },
+            "extract": {
+              "column": "itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_28_value",
+          "name": "value",
+          "description": "Column 'value' from chartevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_28_source_value",
+            "fileObject": {
+              "@id": "file_28"
+            },
+            "extract": {
+              "column": "value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_28_valuenum",
+          "name": "valuenum",
+          "description": "Column 'valuenum' from chartevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_28_source_valuenum",
+            "fileObject": {
+              "@id": "file_28"
+            },
+            "extract": {
+              "column": "valuenum"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_28_valueuom",
+          "name": "valueuom",
+          "description": "Column 'valueuom' from chartevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_28_source_valueuom",
+            "fileObject": {
+              "@id": "file_28"
+            },
+            "extract": {
+              "column": "valueuom"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_28_warning",
+          "name": "warning",
+          "description": "Column 'warning' from chartevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_28_source_warning",
+            "fileObject": {
+              "@id": "file_28"
+            },
+            "extract": {
+              "column": "warning"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_29",
+      "name": "icustays",
+      "description": "Records from icustays.csv.gz (94458 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_29_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from icustays.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_29_source_subject_id",
+            "fileObject": {
+              "@id": "file_29"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_29_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from icustays.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_29_source_hadm_id",
+            "fileObject": {
+              "@id": "file_29"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_29_stay_id",
+          "name": "stay_id",
+          "description": "Column 'stay_id' from icustays.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_29_source_stay_id",
+            "fileObject": {
+              "@id": "file_29"
+            },
+            "extract": {
+              "column": "stay_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_29_first_careunit",
+          "name": "first_careunit",
+          "description": "Column 'first_careunit' from icustays.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_29_source_first_careunit",
+            "fileObject": {
+              "@id": "file_29"
+            },
+            "extract": {
+              "column": "first_careunit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_29_last_careunit",
+          "name": "last_careunit",
+          "description": "Column 'last_careunit' from icustays.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_29_source_last_careunit",
+            "fileObject": {
+              "@id": "file_29"
+            },
+            "extract": {
+              "column": "last_careunit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_29_intime",
+          "name": "intime",
+          "description": "Column 'intime' from icustays.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_29_source_intime",
+            "fileObject": {
+              "@id": "file_29"
+            },
+            "extract": {
+              "column": "intime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_29_outtime",
+          "name": "outtime",
+          "description": "Column 'outtime' from icustays.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_29_source_outtime",
+            "fileObject": {
+              "@id": "file_29"
+            },
+            "extract": {
+              "column": "outtime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_29_los",
+          "name": "los",
+          "description": "Column 'los' from icustays.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_29_source_los",
+            "fileObject": {
+              "@id": "file_29"
+            },
+            "extract": {
+              "column": "los"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_30",
+      "name": "outputevents",
+      "description": "Records from outputevents.csv.gz (5359395 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_30_subject_id",
+          "name": "subject_id",
+          "description": "Column 'subject_id' from outputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_30_source_subject_id",
+            "fileObject": {
+              "@id": "file_30"
+            },
+            "extract": {
+              "column": "subject_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_30_hadm_id",
+          "name": "hadm_id",
+          "description": "Column 'hadm_id' from outputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_30_source_hadm_id",
+            "fileObject": {
+              "@id": "file_30"
+            },
+            "extract": {
+              "column": "hadm_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_30_stay_id",
+          "name": "stay_id",
+          "description": "Column 'stay_id' from outputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_30_source_stay_id",
+            "fileObject": {
+              "@id": "file_30"
+            },
+            "extract": {
+              "column": "stay_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_30_caregiver_id",
+          "name": "caregiver_id",
+          "description": "Column 'caregiver_id' from outputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_30_source_caregiver_id",
+            "fileObject": {
+              "@id": "file_30"
+            },
+            "extract": {
+              "column": "caregiver_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_30_charttime",
+          "name": "charttime",
+          "description": "Column 'charttime' from outputevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_30_source_charttime",
+            "fileObject": {
+              "@id": "file_30"
+            },
+            "extract": {
+              "column": "charttime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_30_storetime",
+          "name": "storetime",
+          "description": "Column 'storetime' from outputevents.csv.gz",
+          "dataType": "sc:DateTime",
+          "source": {
+            "@id": "file_30_source_storetime",
+            "fileObject": {
+              "@id": "file_30"
+            },
+            "extract": {
+              "column": "storetime"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_30_itemid",
+          "name": "itemid",
+          "description": "Column 'itemid' from outputevents.csv.gz",
+          "dataType": "cr:Int64",
+          "source": {
+            "@id": "file_30_source_itemid",
+            "fileObject": {
+              "@id": "file_30"
+            },
+            "extract": {
+              "column": "itemid"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_30_value",
+          "name": "value",
+          "description": "Column 'value' from outputevents.csv.gz",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "file_30_source_value",
+            "fileObject": {
+              "@id": "file_30"
+            },
+            "extract": {
+              "column": "value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_30_valueuom",
+          "name": "valueuom",
+          "description": "Column 'valueuom' from outputevents.csv.gz",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_30_source_valueuom",
+            "fileObject": {
+              "@id": "file_30"
+            },
+            "extract": {
+              "column": "valueuom"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

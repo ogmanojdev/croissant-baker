@@ -1,5 +1,7 @@
 """CSV file handler for tabular data processing."""
 
+import logging
+import re
 from pathlib import Path
 
 import pyarrow as pa
@@ -10,6 +12,16 @@ from croissant_maker.handlers.utils import (
     compute_file_hash,
     infer_column_types_from_arrow_schema,
 )
+
+logger = logging.getLogger(__name__)
+
+# Pattern for extracting the column index and inferred type from ArrowInvalid.
+# PyArrow does not expose this via API; format may change in future versions.
+_ARROW_COL_RE = re.compile(r"In CSV column #(\d+): CSV conversion error to (\w+)")
+
+# Max promotions before falling back to all-string types. One retry per conflicting
+# column; beyond this we read everything as strings to bound I/O.
+_MAX_TYPE_CONFLICT_RETRIES = 50
 
 
 class CSVHandler(FileTypeHandler):
@@ -24,10 +36,19 @@ class CSVHandler(FileTypeHandler):
     - Automatic column type detection using PyArrow
     - SHA256 hash computation for file integrity
 
-    Uses PyArrow's CSV reader which:
+    Uses PyArrow's streaming CSV reader (open_csv) which:
     - Auto-detects compressed formats from filename extension
     - Infers precise types (timestamp[s], date32, int64, float64, etc.)
-    - Reads multi-threaded by default for performance
+    - Streams data for constant memory usage regardless of file size
+
+    Type inference works in two stages:
+    1. PyArrow infers column types from the first block of data.
+    2. If a later block contains values incompatible with the inferred type
+       (e.g. a float in an integer column), the affected column is promoted
+       to a wider type and the file is re-read. Integer columns are first
+       widened to float64; any remaining conflicts fall back to string.
+       Only the conflicting column is overridden -- all others keep their
+       inferred types.
     """
 
     # Common timestamp formats for medical/clinical data beyond ISO-8601.
@@ -41,6 +62,110 @@ class CSVHandler(FileTypeHandler):
         "%m/%d/%Y %H:%M:%S",
         "%Y-%m-%dT%H:%M:%S",
     ]
+
+    # ------------------------------------------------------------------
+    # Streaming with per-column type promotion
+    # ------------------------------------------------------------------
+
+    def _stream_csv(self, file_path: Path):
+        """Return (column_types, columns, num_rows) by streaming the CSV."""
+        overrides = {}
+        col_names = None
+
+        for _ in range(_MAX_TYPE_CONFLICT_RETRIES):
+            opts = pa_csv.ConvertOptions(
+                timestamp_parsers=self._TIMESTAMP_PARSERS,
+                column_types=overrides or None,
+            )
+            try:
+                result = self._read_streaming(file_path, opts)
+                if overrides:
+                    logger.info(
+                        "%s: promoted %d column(s) due to type conflicts",
+                        file_path.name,
+                        len(overrides),
+                    )
+                return result
+            except pa.lib.ArrowInvalid as exc:
+                idx, inferred = self._parse_conflict(str(exc))
+                if idx is None:
+                    break
+
+                if col_names is None:
+                    col_names = self._header(file_path)
+                if idx >= len(col_names):
+                    break
+
+                name = col_names[idx]
+                # int/uint → float64 preserves numeric; other types → string
+                if inferred.startswith(("int", "uint")) and name not in overrides:
+                    overrides[name] = pa.float64()
+                else:
+                    overrides[name] = pa.string()
+
+                logger.debug(
+                    "%s: promoted column '%s' to %s",
+                    file_path.name,
+                    name,
+                    overrides[name],
+                )
+                continue
+
+        # Last resort: read everything as strings.
+        if col_names is None:
+            col_names = self._header(file_path)
+        if len(overrides) >= _MAX_TYPE_CONFLICT_RETRIES:
+            logger.warning(
+                "%s: hit type conflict limit (%d), falling back to all-string types",
+                file_path.name,
+                _MAX_TYPE_CONFLICT_RETRIES,
+            )
+        else:
+            logger.warning(
+                "%s: falling back to all-string types (could not parse type conflict)",
+                file_path.name,
+            )
+        opts = pa_csv.ConvertOptions(
+            column_types={n: pa.string() for n in col_names},
+        )
+        return self._read_streaming(file_path, opts)
+
+    @staticmethod
+    def _read_streaming(file_path: Path, convert_options):
+        """Open a streaming CSV reader, extract schema, and count rows."""
+        try:
+            reader = pa_csv.open_csv(
+                str(file_path),
+                convert_options=convert_options,
+            )
+        except UnicodeDecodeError as exc:
+            raise ValueError(f"Encoding error in {file_path}: {exc}")
+
+        schema = reader.schema
+        column_types = infer_column_types_from_arrow_schema(schema)
+        columns = schema.names
+
+        num_rows = 0
+        for batch in reader:
+            num_rows += batch.num_rows
+
+        return column_types, columns, num_rows
+
+    @staticmethod
+    def _parse_conflict(msg):
+        m = _ARROW_COL_RE.search(msg)
+        return (int(m.group(1)), m.group(2)) if m else (None, None)
+
+    @staticmethod
+    def _header(file_path: Path):
+        reader = pa_csv.open_csv(str(file_path))
+        names = reader.schema.names
+        del reader
+        return names
+
+    # ------------------------------------------------------------------
+    # FileTypeHandler interface
+    # ------------------------------------------------------------------
 
     def can_handle(self, file_path: Path) -> bool:
         """
@@ -83,22 +208,10 @@ class CSVHandler(FileTypeHandler):
         if not file_path.exists():
             raise FileNotFoundError(f"CSV file not found: {file_path}")
 
-        # Parse CSV — only this call needs error translation
-        try:
-            convert_options = pa_csv.ConvertOptions(
-                timestamp_parsers=self._TIMESTAMP_PARSERS,
-            )
-            table = pa_csv.read_csv(str(file_path), convert_options=convert_options)
-        except pa.lib.ArrowInvalid as e:
-            raise ValueError(f"Failed to parse CSV file {file_path}: {e}")
-        except UnicodeDecodeError as e:
-            raise ValueError(f"Encoding error in CSV file {file_path}: {e}")
+        column_types, columns, num_rows = self._stream_csv(file_path)
 
-        if table.num_rows == 0:
+        if num_rows == 0:
             raise ValueError(f"CSV file is empty: {file_path}")
-
-        # Infer types from the Arrow schema (shared with Parquet handler)
-        column_types = infer_column_types_from_arrow_schema(table.schema)
 
         # Extract file properties
         file_size = file_path.stat().st_size
@@ -122,7 +235,7 @@ class CSVHandler(FileTypeHandler):
             "sha256": sha256_hash,
             "encoding_format": encoding_format,
             "column_types": column_types,
-            "num_rows": table.num_rows,
-            "num_columns": table.num_columns,
-            "columns": table.column_names,
+            "num_rows": num_rows,
+            "num_columns": len(columns),
+            "columns": columns,
         }

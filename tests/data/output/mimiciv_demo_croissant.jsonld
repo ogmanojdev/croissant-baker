@@ -1319,7 +1319,7 @@
           "@id": "file_6_infusion_rate_adjustment_amount",
           "name": "infusion_rate_adjustment_amount",
           "description": "Column 'infusion_rate_adjustment_amount' from emar_detail.csv.gz",
-          "dataType": "cr:Int64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_6_source_infusion_rate_adjustment_amount",
             "fileObject": {
@@ -3055,7 +3055,7 @@
           "@id": "file_15_one_hr_max",
           "name": "one_hr_max",
           "description": "Column 'one_hr_max' from pharmacy.csv.gz",
-          "dataType": "cr:Float64",
+          "dataType": "sc:Text",
           "source": {
             "@id": "file_15_source_one_hr_max",
             "fileObject": {
