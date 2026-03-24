@@ -97,7 +97,7 @@
     {
       "@type": "cr:RecordSet",
       "@id": "recordset_0",
-      "name": "0",
+      "name": "held_out",
       "description": "Records from 0.parquet (42554 rows)",
       "field": [
         {
@@ -505,7 +505,7 @@
     {
       "@type": "cr:RecordSet",
       "@id": "recordset_1",
-      "name": "0",
+      "name": "train",
       "description": "Records from 0.parquet (803992 rows)",
       "field": [
         {
@@ -913,7 +913,7 @@
     {
       "@type": "cr:RecordSet",
       "@id": "recordset_2",
-      "name": "0",
+      "name": "tuning",
       "description": "Records from 0.parquet (69620 rows)",
       "field": [
         {

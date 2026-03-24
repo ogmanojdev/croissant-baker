@@ -2,6 +2,7 @@
 
 import json
 import tempfile
+from collections import defaultdict
 from pathlib import Path
 from datetime import datetime
 from typing import Optional, List, Dict
@@ -229,6 +230,23 @@ class MetadataGenerator:
         image_file_ids = []
         image_metas = []
 
+        # Pre-group parquet files by parent directory to detect partitioned tables.
+        # A directory with >=2 .parquet files is treated as one logical table:
+        # one FileSet + one RecordSet (schema from first partition). Individual
+        # FileObjects are still emitted for each partition to preserve checksums.
+        # Root-level parquet files (parent == ".") are never grouped.
+        _parquet_by_dir: dict[str, list] = defaultdict(list)
+        for _fm in file_metadata:
+            if _fm.get("encoding_format") == "application/x-parquet":
+                _parent = str(Path(_fm["relative_path"]).parent)
+                if _parent != ".":
+                    _parquet_by_dir[_parent].append(_fm)
+        _partitioned_dirs: set[str] = {
+            d for d, metas in _parquet_by_dir.items() if len(metas) >= 2
+        }
+        # Accumulates (file_id, file_meta) per partitioned directory during the loop.
+        _parquet_groups: dict[str, list] = defaultdict(list)
+
         for file_meta in file_metadata:
             file_id = f"file_{file_counter}"
             file_counter += 1
@@ -270,39 +288,59 @@ class MetadataGenerator:
 
             # --- RecordSet creation per file type ---
 
-            # Tabular data (CSV, Parquet): one RecordSet per file with column fields
+            # Tabular data (CSV, Parquet): one RecordSet per file with column fields.
+            # Partitioned parquet tables (>=2 files in the same directory) are deferred:
+            # their FileObjects are still created above, but RecordSet emission is
+            # handled after the loop via FileSets (one per directory).
             #
             # TODO: Add support for more advanced Croissant features.
             # - references: Detect and add `references` for foreign key relationships
             #   (e.g., subject_id, hadm_id). This is high-impact.
             # - enumerations: For categorical columns, generate sc:Enumeration RecordSets.
             if "column_types" in file_meta:
-                fields = []
-                for col_name, col_type in file_meta["column_types"].items():
-                    safe_name = sanitize_id(col_name)
-                    field = mlc.Field(
-                        id=f"{file_id}_{safe_name}",
-                        name=col_name,
-                        description=f"Column '{col_name}' from {file_meta['file_name']}",
-                        data_types=[col_type],
-                        source=mlc.Source(
-                            id=f"{file_id}_source_{safe_name}",
-                            file_object=file_id,
-                            extract=mlc.Extract(column=col_name),
-                        ),
-                    )
-                    fields.append(field)
-
-                num_rows = file_meta.get("num_rows")
-                row_desc = f" ({num_rows} rows)" if num_rows is not None else ""
-                record_set = mlc.RecordSet(
-                    id=f"recordset_{recordset_counter}",
-                    name=get_clean_record_name(file_meta["file_name"]),
-                    description=f"Records from {file_meta['file_name']}{row_desc}",
-                    fields=fields,
+                _rel_dir = str(Path(file_meta["relative_path"]).parent)
+                _is_partitioned = (
+                    file_meta.get("encoding_format") == "application/x-parquet"
+                    and _rel_dir in _partitioned_dirs
                 )
-                record_sets.append(record_set)
-                recordset_counter += 1
+                if _is_partitioned:
+                    _parquet_groups[_rel_dir].append((file_id, file_meta))
+                else:
+                    fields = []
+                    for col_name, col_type in file_meta["column_types"].items():
+                        safe_name = sanitize_id(col_name)
+                        field = mlc.Field(
+                            id=f"{file_id}_{safe_name}",
+                            name=col_name,
+                            description=f"Column '{col_name}' from {file_meta['file_name']}",
+                            data_types=[col_type],
+                            source=mlc.Source(
+                                id=f"{file_id}_source_{safe_name}",
+                                file_object=file_id,
+                                extract=mlc.Extract(column=col_name),
+                            ),
+                        )
+                        fields.append(field)
+
+                    num_rows = file_meta.get("num_rows")
+                    row_desc = f" ({num_rows} rows)" if num_rows is not None else ""
+                    # For parquet files in a subdirectory, prefer the directory name
+                    # over the partition file name (e.g. "drug_molecule" over "part-00000").
+                    if (
+                        file_meta.get("encoding_format") == "application/x-parquet"
+                        and _rel_dir != "."
+                    ):
+                        rs_name = Path(_rel_dir).name
+                    else:
+                        rs_name = get_clean_record_name(file_meta["file_name"])
+                    record_set = mlc.RecordSet(
+                        id=f"recordset_{recordset_counter}",
+                        name=rs_name,
+                        description=f"Records from {file_meta['file_name']}{row_desc}",
+                        fields=fields,
+                    )
+                    record_sets.append(record_set)
+                    recordset_counter += 1
 
             # Signal data (e.g., WFDB physiological waveforms)
             elif "signal_types" in file_meta:
@@ -408,6 +446,55 @@ class MetadataGenerator:
                 fields=image_fields,
             )
             record_sets.append(image_record_set)
+            recordset_counter += 1
+
+        # Emit one FileSet + one RecordSet per partitioned parquet directory.
+        # Schema is taken from the first partition; all partitions must share the
+        # same schema (standard for Spark/OT-style partitioned datasets).
+        # Individual FileObjects (with checksums) were already appended in the loop.
+        for dir_path, id_meta_pairs in _parquet_groups.items():
+            _, first_meta = id_meta_pairs[0]
+            table_name = Path(dir_path).name
+            dir_id = sanitize_id(dir_path)
+            fileset_id = f"{dir_id}-fileset"
+
+            file_objects.append(
+                mlc.FileSet(
+                    id=fileset_id,
+                    name=f"{table_name} partition files",
+                    description=f"{len(id_meta_pairs)} Parquet partition files for table '{table_name}'",
+                    encoding_formats=["application/x-parquet"],
+                    includes=[f"{dir_path}/*.parquet"],
+                )
+            )
+
+            fields = []
+            for col_name, col_type in first_meta["column_types"].items():
+                safe_name = sanitize_id(col_name)
+                field_id = f"{dir_id}/{safe_name}"
+                fields.append(
+                    mlc.Field(
+                        id=field_id,
+                        name=col_name,
+                        description=f"Column '{col_name}' from table '{table_name}'",
+                        data_types=[col_type],
+                        source=mlc.Source(
+                            id=f"{field_id}/source",
+                            file_set=fileset_id,
+                            extract=mlc.Extract(column=col_name),
+                        ),
+                    )
+                )
+
+            num_rows = sum(m.get("num_rows", 0) for _, m in id_meta_pairs)
+            record_sets.append(
+                mlc.RecordSet(
+                    id=f"recordset_{recordset_counter}",
+                    name=table_name,
+                    description=f"Partitioned table '{table_name}' ({len(id_meta_pairs)} Parquet files, {num_rows} total rows)",
+                    fields=fields,
+                )
+            )
             recordset_counter += 1
 
         metadata.distribution = file_objects

@@ -1,0 +1,474 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "Open Targets Platform (toy)",
+  "description": "Synthetic subset of Open Targets Platform data for testing partitioned Parquet support",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "citeAs": "Dataset Creator. (2026). Open Targets Platform (toy) Dataset. Generated with automated type inference.",
+  "creator": {
+    "@type": "sc:Person",
+    "name": "Open Targets",
+    "email": "data@opentargets.org",
+    "url": "https://www.opentargets.org"
+  },
+  "datePublished": "2025-03-01T00:00:00",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "url": "https://platform.opentargets.org",
+  "version": "25.03",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_0",
+      "name": "part-00000.parquet",
+      "contentSize": "1336",
+      "contentUrl": "targets/part-00000.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "479f51386b8561aa66b282023f012413c497eef809a2b8d0d72d1f6af6fb35ff"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_1",
+      "name": "part-00001.parquet",
+      "contentSize": "1340",
+      "contentUrl": "targets/part-00001.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "6815c545575449d5a06653a0c8cdb3cd69bfa71b4089212ef31e5e540462f67f"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_2",
+      "name": "part-00000.parquet",
+      "contentSize": "1754",
+      "contentUrl": "association_by_datatype_direct/part-00000.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "d22ec081c4a45addd57398ba5e79d2370e19d8892d71b7af389d4ea4129cf097"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_3",
+      "name": "part-00001.parquet",
+      "contentSize": "1758",
+      "contentUrl": "association_by_datatype_direct/part-00001.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "7c4bd73af4d4bc599062790ea6aaff62b1f1ded21c885a62064fcab759ee1d33"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_4",
+      "name": "part-00000.parquet",
+      "contentSize": "1228",
+      "contentUrl": "diseases/part-00000.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "ca01d80de8f10ecf1a15c79ecc55e8c814fe326355181f239437641de3bcf095"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_5",
+      "name": "part-00001.parquet",
+      "contentSize": "1228",
+      "contentUrl": "diseases/part-00001.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "49fb56fdcdc5feed027ac7bbf7c362c25f440e686c2876ae2556723b24a8d03c"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "file_6",
+      "name": "part-00000.parquet",
+      "contentSize": "1588",
+      "contentUrl": "drug_molecule/part-00000.parquet",
+      "encodingFormat": "application/x-parquet",
+      "sha256": "57152f67233267521c04c7f21551300299ebc34f4992f58c5e4415cdc49410dc"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "targets-fileset",
+      "name": "targets partition files",
+      "description": "2 Parquet partition files for table 'targets'",
+      "encodingFormat": "application/x-parquet",
+      "includes": "targets/*.parquet"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "association_by_datatype_direct-fileset",
+      "name": "association_by_datatype_direct partition files",
+      "description": "2 Parquet partition files for table 'association_by_datatype_direct'",
+      "encodingFormat": "application/x-parquet",
+      "includes": "association_by_datatype_direct/*.parquet"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "diseases-fileset",
+      "name": "diseases partition files",
+      "description": "2 Parquet partition files for table 'diseases'",
+      "encodingFormat": "application/x-parquet",
+      "includes": "diseases/*.parquet"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_0",
+      "name": "drug_molecule",
+      "description": "Records from part-00000.parquet (5 rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "file_6_id",
+          "name": "id",
+          "description": "Column 'id' from part-00000.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_6_source_id",
+            "fileObject": {
+              "@id": "file_6"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_6_name",
+          "name": "name",
+          "description": "Column 'name' from part-00000.parquet",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "file_6_source_name",
+            "fileObject": {
+              "@id": "file_6"
+            },
+            "extract": {
+              "column": "name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_6_maxClinicalTrialPhase",
+          "name": "maxClinicalTrialPhase",
+          "description": "Column 'maxClinicalTrialPhase' from part-00000.parquet",
+          "dataType": "cr:Float32",
+          "source": {
+            "@id": "file_6_source_maxClinicalTrialPhase",
+            "fileObject": {
+              "@id": "file_6"
+            },
+            "extract": {
+              "column": "maxClinicalTrialPhase"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_6_yearOfFirstApproval",
+          "name": "yearOfFirstApproval",
+          "description": "Column 'yearOfFirstApproval' from part-00000.parquet",
+          "dataType": "cr:Int16",
+          "source": {
+            "@id": "file_6_source_yearOfFirstApproval",
+            "fileObject": {
+              "@id": "file_6"
+            },
+            "extract": {
+              "column": "yearOfFirstApproval"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "file_6_hasBeenWithdrawn",
+          "name": "hasBeenWithdrawn",
+          "description": "Column 'hasBeenWithdrawn' from part-00000.parquet",
+          "dataType": "sc:Boolean",
+          "source": {
+            "@id": "file_6_source_hasBeenWithdrawn",
+            "fileObject": {
+              "@id": "file_6"
+            },
+            "extract": {
+              "column": "hasBeenWithdrawn"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_1",
+      "name": "targets",
+      "description": "Partitioned table 'targets' (2 Parquet files, 10 total rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "targets/id",
+          "name": "id",
+          "description": "Column 'id' from table 'targets'",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "targets/id/source",
+            "fileSet": {
+              "@id": "targets-fileset"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "targets/approvedSymbol",
+          "name": "approvedSymbol",
+          "description": "Column 'approvedSymbol' from table 'targets'",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "targets/approvedSymbol/source",
+            "fileSet": {
+              "@id": "targets-fileset"
+            },
+            "extract": {
+              "column": "approvedSymbol"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "targets/tractabilityScore",
+          "name": "tractabilityScore",
+          "description": "Column 'tractabilityScore' from table 'targets'",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "targets/tractabilityScore/source",
+            "fileSet": {
+              "@id": "targets-fileset"
+            },
+            "extract": {
+              "column": "tractabilityScore"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "targets/isDriver",
+          "name": "isDriver",
+          "description": "Column 'isDriver' from table 'targets'",
+          "dataType": "sc:Boolean",
+          "source": {
+            "@id": "targets/isDriver/source",
+            "fileSet": {
+              "@id": "targets-fileset"
+            },
+            "extract": {
+              "column": "isDriver"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_2",
+      "name": "association_by_datatype_direct",
+      "description": "Partitioned table 'association_by_datatype_direct' (2 Parquet files, 10 total rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "association_by_datatype_direct/targetId",
+          "name": "targetId",
+          "description": "Column 'targetId' from table 'association_by_datatype_direct'",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "association_by_datatype_direct/targetId/source",
+            "fileSet": {
+              "@id": "association_by_datatype_direct-fileset"
+            },
+            "extract": {
+              "column": "targetId"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "association_by_datatype_direct/diseaseId",
+          "name": "diseaseId",
+          "description": "Column 'diseaseId' from table 'association_by_datatype_direct'",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "association_by_datatype_direct/diseaseId/source",
+            "fileSet": {
+              "@id": "association_by_datatype_direct-fileset"
+            },
+            "extract": {
+              "column": "diseaseId"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "association_by_datatype_direct/datatypeId",
+          "name": "datatypeId",
+          "description": "Column 'datatypeId' from table 'association_by_datatype_direct'",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "association_by_datatype_direct/datatypeId/source",
+            "fileSet": {
+              "@id": "association_by_datatype_direct-fileset"
+            },
+            "extract": {
+              "column": "datatypeId"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "association_by_datatype_direct/score",
+          "name": "score",
+          "description": "Column 'score' from table 'association_by_datatype_direct'",
+          "dataType": "cr:Float64",
+          "source": {
+            "@id": "association_by_datatype_direct/score/source",
+            "fileSet": {
+              "@id": "association_by_datatype_direct-fileset"
+            },
+            "extract": {
+              "column": "score"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "association_by_datatype_direct/evidenceCount",
+          "name": "evidenceCount",
+          "description": "Column 'evidenceCount' from table 'association_by_datatype_direct'",
+          "dataType": "cr:Int32",
+          "source": {
+            "@id": "association_by_datatype_direct/evidenceCount/source",
+            "fileSet": {
+              "@id": "association_by_datatype_direct-fileset"
+            },
+            "extract": {
+              "column": "evidenceCount"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "recordset_3",
+      "name": "diseases",
+      "description": "Partitioned table 'diseases' (2 Parquet files, 10 total rows)",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "diseases/id",
+          "name": "id",
+          "description": "Column 'id' from table 'diseases'",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "diseases/id/source",
+            "fileSet": {
+              "@id": "diseases-fileset"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "diseases/name",
+          "name": "name",
+          "description": "Column 'name' from table 'diseases'",
+          "dataType": "sc:Text",
+          "source": {
+            "@id": "diseases/name/source",
+            "fileSet": {
+              "@id": "diseases-fileset"
+            },
+            "extract": {
+              "column": "name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "diseases/numChildren",
+          "name": "numChildren",
+          "description": "Column 'numChildren' from table 'diseases'",
+          "dataType": "cr:Int32",
+          "source": {
+            "@id": "diseases/numChildren/source",
+            "fileSet": {
+              "@id": "diseases-fileset"
+            },
+            "extract": {
+              "column": "numChildren"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "diseases/isTherapeuticArea",
+          "name": "isTherapeuticArea",
+          "description": "Column 'isTherapeuticArea' from table 'diseases'",
+          "dataType": "sc:Boolean",
+          "source": {
+            "@id": "diseases/isTherapeuticArea/source",
+            "fileSet": {
+              "@id": "diseases-fileset"
+            },
+            "extract": {
+              "column": "isTherapeuticArea"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
