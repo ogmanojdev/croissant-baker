@@ -76,7 +76,7 @@ src/croissant_maker/
     ├── image_handler.py   # Image format (JPG, PNG, TIFF) extraction
     ├── parquet_handler.py # Parquet metadata extraction
     ├── wfdb_handler.py    # Physiological signal (WFDB) extraction
-    └── utils.py           # Shared utilities (SHA256, IDs, caching)
+    └── utils.py           # Shared utilities (SHA256 hashing, type mapping, ID sanitization)
 ```
 
 ---
@@ -97,8 +97,8 @@ To add support for a new file format (e.g., JSON, Excel):
 
 ### Testing Strategy
 The project uses `pytest` for testing, covering multiple levels:
--   **Unit Tests**: Located in `tests/test_handler_name.py`, focusing on individual handlers.
--   **End-to-End Tests**: `tests/test_end_to_end.py` runs the full `MetadataGenerator` on various test datasets and validates the output JSON-LD against the `mlcroissant` spec.
+-   **Unit Tests**: Files like `tests/test_<handler>.py` (e.g., `tests/test_csv_handler.py`), focusing on individual handlers.
+-   **End-to-End Tests**: `tests/test_end_to_end.py` runs the full `MetadataGenerator` on various test datasets and asserts on the structure and key top-level fields of the generated JSON-LD output.
 -   **CLI Tests**: `tests/test_cli.py` ensures the command-line interface handles arguments correctly.
 
 ### Code Quality
