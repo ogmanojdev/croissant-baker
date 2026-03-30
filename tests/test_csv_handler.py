@@ -2,7 +2,7 @@
 
 from pathlib import Path
 import pytest
-from croissant_maker.handlers.csv_handler import CSVHandler
+from croissant_baker.handlers.csv_handler import CSVHandler
 
 
 def test_csv_handler_can_handle() -> None:

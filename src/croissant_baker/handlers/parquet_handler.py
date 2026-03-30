@@ -4,8 +4,8 @@ from pathlib import Path
 
 from pyarrow.parquet import ParquetFile
 
-from croissant_maker.handlers.base_handler import FileTypeHandler
-from croissant_maker.handlers.utils import (
+from croissant_baker.handlers.base_handler import FileTypeHandler
+from croissant_baker.handlers.utils import (
     compute_file_hash,
     infer_column_types_from_arrow_schema,
 )

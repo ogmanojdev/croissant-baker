@@ -1,10 +1,10 @@
-# Contributing to Croissant Maker
+# Contributing to Croissant Baker
 
-Thank you for your interest in contributing to Croissant Maker! This guide will help you get started.
+Thank you for your interest in contributing to Croissant Baker! This guide will help you get started.
 
 ## Ways to contribute
 
-- **Report bugs** by opening a [GitHub issue](https://github.com/MIT-LCP/croissant-maker/issues).
+- **Report bugs** by opening a [GitHub issue](https://github.com/MIT-LCP/croissant-baker/issues).
 - **Suggest features** or improvements via issues or discussions.
 - **Submit pull requests** for bug fixes, new features, documentation, or new file handlers.
 - **Improve documentation** in `docs/` or the README.

@@ -3,7 +3,7 @@
 from pathlib import Path
 import pytest
 
-from croissant_maker.handlers.wfdb_handler import WFDBHandler
+from croissant_baker.handlers.wfdb_handler import WFDBHandler
 
 
 @pytest.fixture

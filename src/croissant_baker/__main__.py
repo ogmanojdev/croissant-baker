@@ -1,4 +1,4 @@
-"""Command-line interface for Croissant Maker."""
+"""Command-line interface for Croissant Baker."""
 
 import typer
 from pathlib import Path
@@ -6,12 +6,12 @@ import importlib.metadata
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from typing import Optional, List
 
-from croissant_maker.metadata_generator import MetadataGenerator
-from croissant_maker.files import discover_files
+from croissant_baker.metadata_generator import MetadataGenerator
+from croissant_baker.files import discover_files
 
 # Create the Typer application instance
 app = typer.Typer(
-    name="croissant-maker",
+    name="croissant-baker",
     help="🥐 Generate Croissant metadata for datasets with automatic type inference",
     add_completion=False,
     rich_markup_mode="markdown",
@@ -21,7 +21,7 @@ app = typer.Typer(
 def _get_version() -> str:
     """Get version from package metadata."""
     try:
-        return importlib.metadata.version("croissant-maker")
+        return importlib.metadata.version("croissant-baker")
     except importlib.metadata.PackageNotFoundError:
         return "unknown (not installed as package)"
 
@@ -108,22 +108,22 @@ def main(
         help="Count exact row numbers for CSV files (slow for large datasets)",
     ),
 ) -> None:
-    """🥐 **Croissant Maker** - Generate rich metadata for your datasets"""
+    """🥐 **Croissant Baker** - Generate rich metadata for your datasets"""
 
     if version:
-        typer.echo(f"🥐 croissant-maker {_get_version()}")
+        typer.echo(f"🥐 croissant-baker {_get_version()}")
         return
 
     if ctx.invoked_subcommand is not None:
         return
 
     if not input:
-        typer.echo("croissant-maker: try 'croissant-maker --help' for more information")
+        typer.echo("croissant-baker: try 'croissant-baker --help' for more information")
         typer.echo("")
-        typer.echo("Usage: croissant-maker --input <dataset-path> [--output <file>]")
-        typer.echo("       croissant-maker validate <file>")
-        typer.echo("       croissant-maker --version")
-        typer.echo("       croissant-maker --help")
+        typer.echo("Usage: croissant-baker --input <dataset-path> [--output <file>]")
+        typer.echo("       croissant-baker validate <file>")
+        typer.echo("       croissant-baker --version")
+        typer.echo("       croissant-baker --help")
         return
 
     if not output:
@@ -240,7 +240,7 @@ def main(
 
         if not validate:
             typer.echo(
-                f"Tip: Run `croissant-maker validate {output}` to validate later"
+                f"Tip: Run `croissant-baker validate {output}` to validate later"
             )
 
         _warn_missing_spec_fields(

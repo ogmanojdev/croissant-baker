@@ -1,4 +1,4 @@
-"""Tests for Croissant Maker CLI."""
+"""Tests for Croissant Baker CLI."""
 
 import json
 from pathlib import Path
@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 from typer.testing import CliRunner
 
-from croissant_maker.__main__ import app
+from croissant_baker.__main__ import app
 
 runner = CliRunner()
 
@@ -223,7 +223,7 @@ def test_help_and_version() -> None:
     # Version
     result = runner.invoke(app, ["--version"])
     assert result.exit_code == 0
-    assert "croissant-maker" in result.stdout
+    assert "croissant-baker" in result.stdout
 
     # Usage when no args
     result = runner.invoke(app, [])

@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from croissant_maker.handlers.image_handler import (
+from croissant_baker.handlers.image_handler import (
     ImageHandler,
     collect_image_summary,
 )
@@ -189,7 +189,7 @@ def test_collect_image_summary() -> None:
 
 def test_image_handler_registered() -> None:
     """ImageHandler should be discoverable via the global registry."""
-    from croissant_maker.handlers.registry import find_handler, register_all_handlers
+    from croissant_baker.handlers.registry import find_handler, register_all_handlers
 
     register_all_handlers()
     assert find_handler(Path("photo.jpg")) is not None

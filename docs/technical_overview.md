@@ -1,10 +1,10 @@
-# 🥐 Croissant Maker Technical Overview
+# 🥐 Croissant Baker Technical Overview
 
-This document provides a high-level technical overview of the `croissant-maker` codebase to facilitate onboarding for developers and contributors.
+This document provides a high-level technical overview of the `croissant-baker` codebase to facilitate onboarding for developers and contributors.
 
 ## Project Goal
 
-`croissant-maker` is a Python tool designed to automate the generation of [Croissant](https://mlcommons.org/en/news/croissant-format-for-ml-datasets/) metadata for datasets. It achieves this by:
+`croissant-baker` is a Python tool designed to automate the generation of [Croissant](https://mlcommons.org/en/news/croissant-format-for-ml-datasets/) metadata for datasets. It achieves this by:
 1.  Discovering files in a dataset directory.
 2.  Inspecting the content of these files using specialized handlers.
 3.  Inferring schema and structural metadata (e.g., column types for tabular data, signal properties for physiological data).
@@ -17,20 +17,20 @@ This document provides a high-level technical overview of the `croissant-maker` 
 The architecture is built on a "plug-and-play" model where different file formats are supported through modular **handlers**.
 
 ### 1. The Orchestration Layer: `MetadataGenerator`
-Located in `src/croissant_maker/metadata_generator.py`.
+Located in `src/croissant_baker/metadata_generator.py`.
 -   This is the entry point for metadata generation.
 -   It iterates through discovered files and delegates metadata extraction to the appropriate handler.
 -   It uses the `mlcroissant` library to build the final Croissant metadata objects (`Metadata`, `FileObject`, `RecordSet`, `Field`, etc.) and serializes them to JSON-LD.
 
 ### 2. The Abstraction: `FileTypeHandler`
-Located in `src/croissant_maker/handlers/base_handler.py`.
+Located in `src/croissant_baker/handlers/base_handler.py`.
 -   An abstract base class (ABC) that every file handler must implement.
 -   Interfaces:
     -   `can_handle(file_path: Path) -> bool`: Determines if the handler can process a given file (e.g., by extension or magic number).
     -   `extract_metadata(file_path: Path, **kwargs) -> dict`: Extracts format-specific metadata.
 
 ### 3. The Registry Mechanism
-Located in `src/croissant_maker/handlers/registry.py`.
+Located in `src/croissant_baker/handlers/registry.py`.
 -   Manages a global registry of available handlers.
 -   `find_handler()` searches the registry for the first handler that can process a given file.
 -   `register_all_handlers()` is called during initialization to load all standard handlers.
@@ -65,7 +65,7 @@ Processes image datasets, supporting standard formats (JPEG, PNG, etc.) and scie
 ## 🛠️ Key Components & Directory Structure
 
 ```text
-src/croissant_maker/
+src/croissant_baker/
 ├── __main__.py             # CLI entry point (Typer-based)
 ├── metadata_generator.py   # Core orchestration logic
 ├── files.py               # File discovery utilities
@@ -85,10 +85,10 @@ src/croissant_maker/
 
 To add support for a new file format (e.g., JSON, Excel):
 
-1.  **Create a new handler class**: In `src/croissant_maker/handlers/`, create `your_format_handler.py`.
+1.  **Create a new handler class**: In `src/croissant_baker/handlers/`, create `your_format_handler.py`.
 2.  **Inherit from `FileTypeHandler`**: Implement `can_handle` and `extract_metadata`.
 3.  **Return standard metadata**: Ensure `extract_metadata` returns a dictionary including `encoding_format`, and for structures, a `column_types` (or equivalent) mapping to Croissant types (e.g., `sc:Number`, `sc:Text`).
-4.  **Register the handler**: Import and add your handler to `register_all_handlers()` in `src/croissant_maker/handlers/registry.py`.
+4.  **Register the handler**: Import and add your handler to `register_all_handlers()` in `src/croissant_baker/handlers/registry.py`.
 5.  **Add tests**: Create a corresponding test file in `tests/` and add sample data to `tests/data/`.
 
 ---

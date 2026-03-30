@@ -4,8 +4,8 @@ import logging
 from pathlib import Path
 from typing import Dict, List
 
-from croissant_maker.handlers.base_handler import FileTypeHandler
-from croissant_maker.handlers.utils import compute_file_hash
+from croissant_baker.handlers.base_handler import FileTypeHandler
+from croissant_baker.handlers.utils import compute_file_hash
 
 logger = logging.getLogger(__name__)
 

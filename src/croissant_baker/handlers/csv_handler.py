@@ -7,8 +7,8 @@ from pathlib import Path
 import pyarrow as pa
 import pyarrow.csv as pa_csv
 
-from croissant_maker.handlers.base_handler import FileTypeHandler
-from croissant_maker.handlers.utils import (
+from croissant_baker.handlers.base_handler import FileTypeHandler
+from croissant_baker.handlers.utils import (
     compute_file_hash,
     infer_column_types_from_arrow_schema,
 )

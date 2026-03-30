@@ -1,4 +1,4 @@
-# 🥐 Croissant Maker
+# 🥐 Croissant Baker
 
 A tool to automatically generate [Croissant](https://mlcommons.org/en/news/croissant-format-for-ml-datasets/) metadata for datasets, starting with those hosted on [PhysioNet](https://physionet.org/).
 
@@ -10,8 +10,8 @@ This project uses [uv](https://docs.astral.sh/uv/) for environment and dependenc
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/MIT-LCP/croissant-maker.git
-    cd croissant-maker
+    git clone https://github.com/MIT-LCP/croissant-baker.git
+    cd croissant-baker
     ```
 
 2.  **Install dependencies:**
@@ -30,9 +30,9 @@ This project uses [uv](https://docs.astral.sh/uv/) for environment and dependenc
 After `uv sync`, run the CLI directly by activating the venv first, or prefix with `uv run`:
 
 ```bash
-source .venv/bin/activate   # once per terminal session — then just use `croissant-maker` directly
+source .venv/bin/activate   # once per terminal session — then just use `croissant-baker` directly
 # or without activating:
-uv run croissant-maker --help
+uv run croissant-baker --help
 ```
 
 ### Quick start
@@ -40,13 +40,13 @@ uv run croissant-maker --help
 Try it out on one of the bundled test datasets:
 
 ```bash
-croissant-maker --input tests/data/input/mimiciv_demo_meds --creator "Jane Doe" --output example-metadata.jsonld
+croissant-baker --input tests/data/input/mimiciv_demo_meds --creator "Jane Doe" --output example-metadata.jsonld
 ```
 
 This scans the dataset, extracts metadata from the Parquet files it finds, and writes a Croissant JSON-LD file to `example-metadata.jsonld`. You can inspect the result or validate it:
 
 ```bash
-croissant-maker validate example-metadata.jsonld
+croissant-baker validate example-metadata.jsonld
 ```
 
 ### Generate Croissant Metadata
@@ -54,7 +54,7 @@ croissant-maker validate example-metadata.jsonld
 Point the tool at your own dataset directory:
 
 ```bash
-croissant-maker --input /path/to/dataset --creator "Your Name" --output my-metadata.jsonld
+croissant-baker --input /path/to/dataset --creator "Your Name" --output my-metadata.jsonld
 ```
 
 ### Metadata Override Options
@@ -62,7 +62,7 @@ croissant-maker --input /path/to/dataset --creator "Your Name" --output my-metad
 You can override default metadata fields:
 
 ```bash
-croissant-maker --input /path/to/dataset \
+croissant-baker --input /path/to/dataset \
   --name "My Dataset" \
   --description "A machine learning dataset" \
   --creator "John Doe,john@example.com,https://john.com" \
@@ -91,7 +91,7 @@ croissant-maker --input /path/to/dataset \
 Validation checks that the file can be loaded by `mlcroissant` and conforms to the basic structure of the specification.
 
 ```bash
-croissant-maker validate my-metadata.jsonld
+croissant-baker validate my-metadata.jsonld
 ```
 
 ## Testing

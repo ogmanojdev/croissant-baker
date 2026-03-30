@@ -1,4 +1,4 @@
-"""End-to-end tests for Croissant Maker using real datasets."""
+"""End-to-end tests for Croissant Baker using real datasets."""
 
 import json
 from pathlib import Path
@@ -6,7 +6,7 @@ from pathlib import Path
 import pytest
 from typer.testing import CliRunner
 
-from croissant_maker.__main__ import app
+from croissant_baker.__main__ import app
 
 runner = CliRunner()
 

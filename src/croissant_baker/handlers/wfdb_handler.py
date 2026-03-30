@@ -3,8 +3,8 @@
 from pathlib import Path
 import wfdb
 
-from croissant_maker.handlers.base_handler import FileTypeHandler
-from croissant_maker.handlers.utils import compute_file_hash
+from croissant_baker.handlers.base_handler import FileTypeHandler
+from croissant_baker.handlers.utils import compute_file_hash
 
 
 class WFDBHandler(FileTypeHandler):

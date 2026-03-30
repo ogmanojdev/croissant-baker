@@ -1,8 +1,8 @@
 """Tests for file handler framework."""
 
 from pathlib import Path
-from croissant_maker.handlers.registry import find_handler, register_all_handlers
-from croissant_maker.handlers.csv_handler import CSVHandler
+from croissant_baker.handlers.registry import find_handler, register_all_handlers
+from croissant_baker.handlers.csv_handler import CSVHandler
 
 
 def test_find_handler_with_real_handlers() -> None:
@@ -22,7 +22,7 @@ def test_find_handler_with_real_handlers() -> None:
 
 def test_handler_registry_isolation() -> None:
     """Test that handler registration doesn't leak between tests."""
-    from croissant_maker.handlers.registry import _registry
+    from croissant_baker.handlers.registry import _registry
 
     initial_count = len(_registry)
 

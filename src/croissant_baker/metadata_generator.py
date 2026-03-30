@@ -8,9 +8,9 @@ from datetime import datetime
 from typing import Optional, List, Dict
 import mlcroissant as mlc
 
-from croissant_maker.files import discover_files
-from croissant_maker.handlers.registry import find_handler, register_all_handlers
-from croissant_maker.handlers.utils import (
+from croissant_baker.files import discover_files
+from croissant_baker.handlers.registry import find_handler, register_all_handlers
+from croissant_baker.handlers.utils import (
     get_clean_record_name,
     is_arrow_list,
     map_arrow_type,
@@ -450,7 +450,7 @@ class MetadataGenerator:
         # The FileSet groups them by glob pattern so the RecordSet source can
         # reference all images at once, following the Croissant spec PASS example.
         if image_file_ids:
-            from croissant_maker.handlers.image_handler import collect_image_summary
+            from croissant_baker.handlers.image_handler import collect_image_summary
 
             summary = collect_image_summary(image_metas)
             w_lo, w_hi = summary["width_range"]

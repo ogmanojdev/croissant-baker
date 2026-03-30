@@ -2,7 +2,7 @@
 
 from pathlib import Path
 from typing import Optional, List
-from croissant_maker.handlers.base_handler import FileTypeHandler
+from croissant_baker.handlers.base_handler import FileTypeHandler
 
 
 # Global registry for file handlers
@@ -57,10 +57,10 @@ def register_all_handlers() -> None:
     Call this once to set up all handlers.
     """
     # Import and register all handlers here
-    from croissant_maker.handlers.csv_handler import CSVHandler
-    from croissant_maker.handlers.wfdb_handler import WFDBHandler
-    from croissant_maker.handlers.parquet_handler import ParquetHandler
-    from croissant_maker.handlers.image_handler import ImageHandler
+    from croissant_baker.handlers.csv_handler import CSVHandler
+    from croissant_baker.handlers.wfdb_handler import WFDBHandler
+    from croissant_baker.handlers.parquet_handler import ParquetHandler
+    from croissant_baker.handlers.image_handler import ImageHandler
 
     register_handler(CSVHandler())
     register_handler(WFDBHandler())

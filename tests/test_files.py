@@ -2,7 +2,7 @@
 
 from pathlib import Path
 import pytest
-from croissant_maker.files import discover_files
+from croissant_baker.files import discover_files
 
 
 def test_discover_files(tmp_path: Path) -> None:

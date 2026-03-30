@@ -2,7 +2,7 @@
   "packages": {
     ".": {
       "release-type": "python",
-      "package-name": "croissant-maker",
+      "package-name": "croissant-baker",
       "version-file": "pyproject.toml",
       "changelog-sections": [
         {"type": "feat",  "section": "Features"},
