@@ -35,7 +35,23 @@ source .venv/bin/activate   # once per terminal session — then just use `crois
 uv run croissant-maker --help
 ```
 
+### Quick start
+
+Try it out on one of the bundled test datasets:
+
+```bash
+croissant-maker --input tests/data/input/mimiciv_demo_meds --creator "Jane Doe" --output example-metadata.jsonld
+```
+
+This scans the dataset, extracts metadata from the Parquet files it finds, and writes a Croissant JSON-LD file to `example-metadata.jsonld`. You can inspect the result or validate it:
+
+```bash
+croissant-maker validate example-metadata.jsonld
+```
+
 ### Generate Croissant Metadata
+
+Point the tool at your own dataset directory:
 
 ```bash
 croissant-maker --input /path/to/dataset --creator "Your Name" --output my-metadata.jsonld
