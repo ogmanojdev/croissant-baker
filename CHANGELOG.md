@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0](https://github.com/MIT-LCP/croissant-maker/compare/croissant-maker-v0.1.0...croissant-maker-v0.2.0) (2026-03-30)
+
+
+### Features
+
+* warn on missing Croissant spec-required fields and clarify dev … ([6b1e940](https://github.com/MIT-LCP/croissant-maker/commit/6b1e940bb01e75ecbf9e4e6459fb884a612be645))
+* warn on missing Croissant spec-required fields and clarify dev workflow in README ([d65bc56](https://github.com/MIT-LCP/croissant-maker/commit/d65bc56b9df068bc82b82fd650d7d1c65d9c6e22))
+
 ## [0.1.0](https://github.com/MIT-LCP/croissant-maker/compare/croissant-maker-v0.0.1...croissant-maker-v0.1.0) (2026-03-27)
 
 
