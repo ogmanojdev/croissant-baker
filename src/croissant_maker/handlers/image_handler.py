@@ -163,18 +163,34 @@ def collect_image_summary(image_metadata_list: List[Dict]) -> Dict:
     bands = []
     formats: Dict[str, int] = {}
 
-    for meta in image_metadata_list:
-        props = meta["image_properties"]
-        widths.append(props["width"])
-        heights.append(props["height"])
-        bands.append(props["num_bands"])
-        fmt = props["image_format"]
-        formats[fmt] = formats.get(fmt, 0) + 1
+    processed_count = 0
+    for i, meta in enumerate(image_metadata_list):
+        props = meta.get("image_properties")
+        if not props:
+            logger.warning(
+                "Skipping image entry %d: missing or incomplete image_properties", i
+            )
+            continue
+
+        processed_count += 1
+        width = props.get("width")
+        height = props.get("height")
+        num_bands = props.get("num_bands")
+        fmt = props.get("image_format")
+
+        if width is not None:
+            widths.append(width)
+        if height is not None:
+            heights.append(height)
+        if num_bands is not None:
+            bands.append(num_bands)
+        if fmt is not None:
+            formats[fmt] = formats.get(fmt, 0) + 1
 
     return {
-        "num_images": len(image_metadata_list),
-        "width_range": (min(widths), max(widths)),
-        "height_range": (min(heights), max(heights)),
-        "num_bands_range": (min(bands), max(bands)),
+        "num_images": processed_count,
+        "width_range": (min(widths), max(widths)) if widths else (0, 0),
+        "height_range": (min(heights), max(heights)) if heights else (0, 0),
+        "num_bands_range": (min(bands), max(bands)) if bands else (0, 0),
         "format_counts": formats,
     }

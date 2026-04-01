@@ -182,6 +182,33 @@ def test_collect_image_summary() -> None:
     assert summary["format_counts"] == {"JPEG": 2, "TIFF": 1}
 
 
+def test_collect_image_summary_missing_properties() -> None:
+    metas = [
+        {
+            "image_properties": {
+                "width": 100,
+                "height": 200,
+                "num_bands": 3,
+                "image_format": "JPEG",
+            }
+        },
+        {},  # Missing entirely
+        {
+            "image_properties": {
+                "width": 640,  # Missing some keys
+                "image_format": "JPEG",
+            }
+        },
+    ]
+    summary = collect_image_summary(metas)
+
+    assert summary["num_images"] == 2
+    assert summary["width_range"] == (100, 640)
+    assert summary["height_range"] == (200, 200)
+    assert summary["num_bands_range"] == (3, 3)
+    assert summary["format_counts"] == {"JPEG": 2}
+
+
 # ---------------------------------------------------------------------------
 # Handler registration
 # ---------------------------------------------------------------------------
