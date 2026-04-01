@@ -163,11 +163,13 @@ def collect_image_summary(image_metadata_list: List[Dict]) -> Dict:
     bands = []
     formats: Dict[str, int] = {}
 
+    processed_count = 0
     for meta in image_metadata_list:
         props = meta.get("image_properties")
         if not props:
             continue
 
+        processed_count += 1
         width = props.get("width")
         height = props.get("height")
         num_bands = props.get("num_bands")
@@ -183,7 +185,7 @@ def collect_image_summary(image_metadata_list: List[Dict]) -> Dict:
             formats[fmt] = formats.get(fmt, 0) + 1
 
     return {
-        "num_images": len(image_metadata_list),
+        "num_images": processed_count,
         "width_range": (min(widths), max(widths)) if widths else (0, 0),
         "height_range": (min(heights), max(heights)) if heights else (0, 0),
         "num_bands_range": (min(bands), max(bands)) if bands else (0, 0),

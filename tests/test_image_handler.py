@@ -202,7 +202,7 @@ def test_collect_image_summary_missing_properties() -> None:
     ]
     summary = collect_image_summary(metas)
 
-    assert summary["num_images"] == 3
+    assert summary["num_images"] == 2
     assert summary["width_range"] == (100, 640)
     assert summary["height_range"] == (200, 200)
     assert summary["num_bands_range"] == (3, 3)
