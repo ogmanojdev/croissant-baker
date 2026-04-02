@@ -1,5 +1,6 @@
 """Command-line interface for Croissant Baker."""
 
+import csv
 import typer
 from pathlib import Path
 import importlib.metadata
@@ -163,21 +164,27 @@ def main(
             parsed_creators = []
             if creator:
                 for creator_info in creator:
-                    # Parse format: "Name[,Email[,URL]]"
-                    parts = [part.strip() for part in creator_info.rsplit(",", maxsplit=2)]
+                    creator_info = creator_info.strip()
 
-                    if not parts[0]:  # Empty name
+                    # Preferred: semicolon
+                    if ";" in creator_info:
+                        creator_parts = [p.strip() for p in creator_info.split(";")]
+
+                    else:
+                        # Use CSV parsing for comma cases (handles quotes properly)
+                        creator_parts = next(csv.reader([creator_info]))
+                        creator_parts = [p.strip() for p in creator_parts]
+
+                    if not creator_parts or not creator_parts[0]:
                         continue
 
-                    creator_obj = {"name": parts[0]}  # Name is required
+                    creator_obj = {"name": creator_parts[0]}
 
-                    # Add optional email if provided and not empty
-                    if len(parts) > 1 and parts[1]:
-                        creator_obj["email"] = parts[1]
+                    if len(creator_parts) > 1 and creator_parts[1]:
+                        creator_obj["email"] = creator_parts[1]
 
-                    # Add optional URL if provided and not empty
-                    if len(parts) > 2 and parts[2]:
-                        creator_obj["url"] = parts[2]
+                    if len(creator_parts) > 2 and creator_parts[2]:
+                        creator_obj["url"] = creator_parts[2]
 
                     parsed_creators.append(creator_obj)
 

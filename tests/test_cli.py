@@ -135,6 +135,60 @@ def test_missing_creator_required(csv_dataset: Path, tmp_path: Path) -> None:
     assert "Example:" in result.stderr
 
 
+def test_creator_parsing_variants(csv_dataset: Path, tmp_path: Path) -> None:
+    """Test creator parsing for comma, quoted, and semicolon formats."""
+
+    test_cases = [
+        # (input, expected_strings)
+        ('"Google, LLC"', ["Google, LLC"]),
+        ('"Google, LLC",info@google.com', ["Google, LLC", "info@google.com"]),
+        (
+            '"Google, LLC",info@google.com,https://google.com',
+            ["Google, LLC", "info@google.com", "https://google.com"],
+        ),
+        (
+            '"Doe, Jr., John",john@example.com',
+            ["Doe, Jr., John", "john@example.com"],
+        ),
+        # Backward compatibility
+        ("Alice Smith", ["Alice Smith"]),
+        ("Alice Smith,alice@example.com", ["Alice Smith", "alice@example.com"]),
+        (
+            "Alice Smith,alice@example.com,https://example.com",
+            ["Alice Smith", "alice@example.com", "https://example.com"],
+        ),
+        # Semicolon format
+        (
+            "Google, LLC;info@google.com;https://google.com",
+            ["Google, LLC", "info@google.com", "https://google.com"],
+        ),
+    ]
+
+    for creator_input, expected_values in test_cases:
+        output = tmp_path / f"output_{hash(creator_input)}.jsonld"
+
+        result = runner.invoke(
+            app,
+            [
+                "--input",
+                str(csv_dataset),
+                "--output",
+                str(output),
+                "--creator",
+                creator_input,
+            ],
+        )
+
+        assert result.exit_code == 0, f"Failed for input: {creator_input}"
+
+        content = output.read_text()
+
+        for expected in expected_values:
+            assert expected in content, (
+                f"Missing '{expected}' for input: {creator_input}"
+            )
+
+
 def test_invalid_date_format(csv_dataset: Path, tmp_path: Path) -> None:
     """Test that invalid date format gives clear error message."""
     output = tmp_path / "output.jsonld"
